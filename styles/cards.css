@@ -1,0 +1,112 @@
+body{
+    background-color: whitesmoke;
+}
+/*Card bienvenida*/
+.mensajeBienvenida{
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.card-bienvenida{
+    width: 50vw !important;
+    height: 50vh !important;
+    text-align: center;
+    -webkit-animation-name: aparecer;
+    animation-name: aparecer;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.card-bienvenida .card-body{
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/*Card bienvenida*/
+
+
+.card{
+    transition: .3s ease-in-out;
+    transform: translateY(0px);
+    width: 300px;
+    height: 300px;
+}
+.card:hover{
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: .3s ease-in-out;
+    transform: translateY(-10px);
+}
+
+
+.opcionesTitle{
+    transition: .5s ease-in-out;
+    transform: translateY(100px);
+}
+.card:hover .opcionesTitle{
+    transition: .5s ease-in-out;
+    transform: translateY(0px);
+}
+
+
+.opcionesTxt{
+    opacity: 0;
+}
+.card:hover .opcionesTxt{
+    -webkit-animation-name: subirTxt;
+    animation-name: subirTxt;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+
+@-webkit-keyframes subirTxt {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+    }
+}
+
+@keyframes subirTxt {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+    }
+}
+
+@-webkit-keyframes aparecer {
+    0% {
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes subiaparecerrTxt {
+    0% {
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

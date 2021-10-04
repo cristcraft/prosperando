@@ -1,0 +1,15 @@
+[
+    {
+        "ubicacion": 1,
+        "sucursal": "001 Administracion",
+        "area": "Talento humano",
+        "funcionarioResponsable": "Camilo Andres Perez"
+    },
+    {
+        "ubicacion": 2,
+        "sucursal": "001 Administracion",
+        "area": "Talento humano",
+        "funcionarioResponsable": "sandra"
+    }
+]
+
