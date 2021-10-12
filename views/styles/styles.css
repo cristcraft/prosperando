@@ -1,0 +1,24 @@
+body{
+    min-height: 100vh;
+}
+.tabla{
+    height: 80vh;
+    width: 95vw;
+    overflow: scroll;
+}
+
+#form-content{
+    min-height: 90vh;
+}
+
+form{
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #212529;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.form-oscuro{
+    border: 1px solid white;
+    box-shadow: 2px 2px 2px 2px rgba(255, 255, 255, 0.5);
+}
