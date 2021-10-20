@@ -232,9 +232,9 @@
                 <input type="text" name="mac" id="mac" placeholder="mac" class="form-control">
             </div>
 
-            <div class="mb-3">
-                <button class="btn btn-primary text-white" type="submit">Guardar</button>
-                <a href="/" class="btn btn-secondary">Cancelar</a>
+            <div class="mb-3 d-flex justify-content-around align-items-center">
+                <button class="btn btn-primary text-white" type="submit" onclick="change()">Guardar</button>
+                <a href="../pages/equipos.php" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>
@@ -244,6 +244,7 @@
         crossorigin="anonymous"></script>
     
     <script src="../scripts/modoOscuro.js"></script>
+    <script src="../scripts//popOvers.js"></script>
 
 </body>
 

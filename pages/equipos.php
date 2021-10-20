@@ -105,12 +105,7 @@
                     ?>
                     <tr>
                         <td>
-                            <script>
-                                function guardarID(id){
-                                    localStorage.setItem('id', id )
-                                }
-                            </script>
-                            <a href="../pages/edid.php/?id=<?php echo $row['id']?>" onclick="guardarID(<?php echo $row['id']?>)" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                            <a href="../pages/edid.php/?id=<?php echo $row['id']?>" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
                             <a  onclick="confirmar('<?php echo $row['id']?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
@@ -149,8 +144,7 @@
         </div>
         
     </div>
-
-
+    
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
@@ -162,34 +156,13 @@
                 lengthMenu:[[5,10,20,-1],[5,10,20,'Todos']]
             });
         } );
-
-        //confirma la eliminacion
-        function confirmar(id){
-            Swal.fire({
-                title: '¿Quiueres eliminar esta persona con el id: ' + id + '?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'confirmar',
-                }).then((result) => {
-                /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
-                    Swal.fire('Eliminado Exitosamente!', '', 'success')
-                    setTimeout(() => {
-                        window.location = '/delete/' + id
-                    }, 3000);
-                } else if (result.isDenied) {
-                    Swal.fire('No se elimino', '', 'info')
-                }
-            })
-        }
     </script>
-
-    <script src="../scripts/modoOscuro.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
         crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="../scripts/modoOscuro.js"></script>
+    <script src="../scripts/popOvers.js"></script>
 </body>
 
 </html>

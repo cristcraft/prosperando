@@ -7,9 +7,7 @@
     $id = $_GET['id'];
     $sql = "SELECT * FROM equipos WHERE id='$id'";
     $result = $connection->query($sql);
-    while ($row = $result->fetch_assoc()) {
-        echo $row['sucursal'];
-    }
+    
 ?>
 
 <!doctype html>
@@ -21,9 +19,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Crear</title>
+    <title>Editar</title>
 </head>
 
 <body id="body">
@@ -66,185 +64,268 @@
     </nav>
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
-        <form action="../components/saveForm.php" method="POST" id="form" class="text-white">
-            <?php while($row = $equiposResult -> fetch_assoc()){ ?>
-                <input id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
+        <form action="../../components/edidForm.php" method="POST" id="form" class="text-white">
+            <?php while($row = $result -> fetch_assoc()){ ?>
+                <input id="id" name="id" value="<?php echo $row['id'] ?>" hidden >
+
+                <div class="mb-3">
+                    <label for="sucursal" class="form-label">Sucursal</label>
+                    <select name="sucursal" id="sucursal" class="form-select">
+                            <?php
+                                while($row2 =$sucursalesResult -> fetch_assoc()){
+                                    if($row['sucursal'] === $row2['nombre']){
+                                        $select = 'selected';
+                                    }else{
+                                        $select = '';
+                                    }
+                            ?>
+                                <option value="<?php echo $row2['nombre'] ?>" <?php echo $select ?>><?php echo $row2['nombre'] ?></option>
+                            <?php
+                                }
+                            ?>
+                            
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="area" class="form-label">Area</label>
+                    <select name="area" id="area" class="form-select">
+                    <?php
+                        while($row2 =$areasResult -> fetch_assoc()){
+                            if($row['area'] === $row2['nombre']){
+                                $select = 'selected';
+                            }else{
+                                $select = '';
+                            }
+                    ?>
+                        <option value="<?php echo $row2['nombre'] ?>" <?php echo $select ?>><?php echo $row2['nombre'] ?></option>
+                    <?php
+                        }
+                    ?>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="lugar_trabajo" class="form-label">Lugar de trabajo</label>
+                    <select name="lugar_trabajo" id="lugar_trabajo" class="form-control">
+                    <?php
+                        while($row2 =$lugarTrabajoResult -> fetch_assoc()){
+                            if($row['lugar_de_trabajo'] === $row2['lugar_de_trabajo']){
+                                $select = 'selected';
+                            }else{
+                                $select = '';
+                            }
+                    ?>
+                        <option value="<?php echo $row2['lugar_de_trabajo'] ?>" <?php echo $select ?>><?php echo $row2['lugar_de_trabajo'] ?></option>
+                    <?php
+                        }
+                    ?>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="tipo_equipo" class="form-label">Tipo de equipo</label>
+                    <select name="tipo_equipo" id="tipo_equipo" class="form-control">
+                        <?php
+                            while($row2 =$tipoEquipoResult -> fetch_assoc()){
+                                if($row['tipo_equipo'] === $row2['tipo']){
+                                    $select = 'selected';
+                                }else{
+                                    $select = '';
+                                }
+                        ?>
+                            <option value="<?php echo $row2['tipo'] ?>" <?php echo $select ?>><?php echo $row2['tipo'] ?></option>
+                        <?php
+                            }
+                        ?>
+                        </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                    <select name="marca" id="marca" class="form-control">
+                        <?php
+                            while($row2 =$marcasResult -> fetch_assoc()){
+                                if($row['marca'] === $row2['marca']){
+                                    $select = 'selected';
+                                }else{
+                                    $select = '';
+                                }
+                        ?>
+                            <option value="<?php echo $row2['marca'] ?>" <?php echo $select ?>><?php echo $row2['marca'] ?></option>
+                        <?php
+                            }
+                        ?>
+                        </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="procesador" class="form-label">Procesador</label>
+                    <select name="procesador" id="procesador" class="form-control">
+                        <?php
+                            while($row2 =$procesadoresResult -> fetch_assoc()){
+                                if($row['procesador'] === $row2['procesador']){
+                                    $select = 'selected';
+                                }else{
+                                    $select = '';
+                                }
+                        ?>
+                            <option value="<?php echo $row2['procesador'] ?>" <?php echo $select ?>><?php echo $row2['procesador'] ?></option>
+                        <?php
+                            }
+                        ?>
+                        </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="tipo_memoria" class="form-label">Tipo de RAM</label>
+                    <select name="tipo_memoria" id="tipo_memoria" class="form-control">
+                        <?php
+                            while($row2 =$tipoMemoriasResult -> fetch_assoc()){
+                                if($row['tipo_memoria'] === $row2['tipo_memoria']){
+                                    $select = 'selected';
+                                }else{
+                                    $select = '';
+                                }
+                        ?>
+                            <option value="<?php echo $row2['tipo_memoria'] ?>" <?php echo $select ?>><?php echo $row2['tipo_memoria'] ?></option>
+                        <?php
+                            }
+                        ?>
+                        </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="marca_disco_duro" class="form-label">Marca del disco duro</label>
+                    <select name="marca_disco_duro" id="marca_disco_duro" class="form-control">
+                        <?php
+                            while($row2 =$marcasDiscoResult -> fetch_assoc()){
+                                if($row['marca_disco_duro'] === $row2['marca_disco_duro']){
+                                    $select = 'selected';
+                                }else{
+                                    $select = '';
+                                }
+                        ?>
+                            <option value="<?php echo $row2['marca_disco_duro'] ?>" <?php echo $select ?>><?php echo $row2['marca_disco_duro'] ?></option>
+                        <?php
+                            }
+                        ?>
+                        </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="tipo_disco" class="form-label">Marca del disco duro</label>
+                    <select name="tipo_disco" id="tipo_disco" class="form-control">
+                        <?php
+                            while($row2 =$tiposDiscoResult -> fetch_assoc()){
+                                if($row['tipo_disco'] === $row2['tipo_disco']){
+                                    $select = 'selected';
+                                }else{
+                                    $select = '';
+                                }
+                        ?>
+                            <option value="<?php echo $row2['tipo_disco'] ?>" <?php echo $select ?>><?php echo $row2['tipo_disco'] ?></option>
+                        <?php
+                            }
+                        ?>
+                        </select>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="funcionario_responsable" class="form-label">funcionario Responsable</label>
+                    <input type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control" value="<?php echo $row['funcionario_responsable'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
+                    <input type="text" name="nombre_equipo" id="nombre_equipo" placeholder="nombre del quipo" class="form-control" value="<?php echo $row['nombre_equipo'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="novedades" class="form-label">Novedades</label>
+                    <input type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control" value="<?php echo $row['novedades'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control" value="<?php echo $row['modelo'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="serial" class="form-label">Serial</label>
+                    <input type="text" name="serial" id="serial" placeholder="Serial" class="form-control" value="<?php echo $row['serial'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="fecha_fabricacion" class="form-label">Serial</label>
+                    <input type="date" name="fecha_fabricacion" id="fecha_fabricacion" placeholder="fecha_fabricacion" class="form-control" value="<?php echo $row['fecha_fabricacion'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="generacion_procesador" class="form-label">Generacion del procesador</label>
+                    <input type="text" name="generacion_procesador" id="generacion_procesador" placeholder="generacion del procesador" class="form-control" value="<?php echo $row['generacion_procesador'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="nucleos" class="form-label">nucleos</label>
+                    <input type="number" name="nucleos" id="nucleos" placeholder="nucleos" class="form-control" value="<?php echo $row['nucleos'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="velocidad_mz" class="form-label">velocidad en mz</label>
+                    <input type="number" name="velocidad_mz" id="velocidad_mz" placeholder="velocidad en mz" class="form-control" value="<?php echo $row['velocidad_mz'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="ram_gb" class="form-label">RAM en GB</label>
+                    <input type="number" name="ram_gb" id="ram_gb" placeholder="ram en gb" class="form-control" value="<?php echo $row['ram_gb'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="adaptador_multimedia" class="form-label">Adaptador multimedia</label>
+                    <input type="text" name="adaptador_multimedia" id="adaptador_multimedia" placeholder="adaptador multimedia" class="form-control" value="<?php echo $row['adaptador_multimedia'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="adaptador_video" class="form-label">Adaptador video</label>
+                    <input type="text" name="adaptador_video" id="adaptador_video" placeholder="adaptador video" class="form-control" value="<?php echo $row['adaptador_video'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="capacidad_disco" class="form-label">Capacidad del disco</label>
+                    <input type="text" name="capacidad_disco" id="capacidad_disco" placeholder="capacidad del disco" class="form-control" value="<?php echo $row['capacidad_disco'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="red_ethernet" class="form-label">Red ethernet</label>
+                    <input type="text" name="red_ethernet" id="red_ethernet" placeholder="red ethernet" class="form-control" value="<?php echo $row['red_ethernet'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="ip" class="form-label">IP</label>
+                    <input type="text" name="ip" id="ip" placeholder="ip" class="form-control" value="<?php echo $row['ip'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="mac_ethernet" class="form-label">MAC ethernet</label>
+                    <input type="text" name="mac_ethernet" id="mac_ethernet" placeholder="mac_ethernet" class="form-control" value="<?php echo $row['mac_ethernet'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="red_wifi" class="form-label">Red wifi</label>
+                    <input type="text" name="red_wifi" id="red_wifi" placeholder="red wifi" class="form-control" value="<?php echo $row['red_wifi'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="mac" class="form-label">MAC</label>
+                    <input type="text" name="mac" id="mac" placeholder="mac" class="form-control" value="<?php echo $row['mac'] ?>">
+                </div>
+
             <?php } ?>
 
-            <div class="mb-3">
-                <label for="sucursal" class="form-label">Sucursal</label>
-                <select name="sucursal" id="sucursal" class="form-select">
-                    <?php while($row = $sucursalesResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="area" class="form-label">Area</label>
-                <select name="area" id="area" class="form-select">
-                    <?php while($row = $areasResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="lugar_trabajo" class="form-label">Lugar de trabajo</label>
-                <select name="lugar_trabajo" id="lugar_trabajo" class="form-control">
-                    <?php while($row = $lugarTrabajoResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['lugar_de_trabajo'] ?>"><?php echo $row['lugar_de_trabajo'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="tipo_equipo" class="form-label">Tipo de equipo</label>
-                <select name="tipo_equipo" id="tipo_equipo" class="form-control">
-                    <?php while($row = $tipoEquipoResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['tipo'] ?>"><?php echo $row['tipo'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="marca" class="form-label">Marca</label>
-                <select name="marca" id="marca" class="form-control">
-                    <?php while($row = $marcasResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['marca'] ?>"><?php echo $row['marca'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="procesador" class="form-label">Procesador</label>
-                <select name="procesador" id="procesador" class="form-control">
-                    <?php while($row = $procesadoresResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['procesador'] ?>"><?php echo $row['procesador'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="tipo_memoria" class="form-label">Tipo de RAM</label>
-                <select name="tipo_memoria" id="tipo_memoria" class="form-control">
-                    <?php while($row = $tipoMemoriasResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['tipo_memoria'] ?>"><?php echo $row['tipo_memoria'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="marca_disco_duro" class="form-label">Marca del disco duro</label>
-                <select name="marca_disco_duro" id="marca_disco_duro" class="form-control">
-                    <?php while($row = $marcasDiscoResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['marca_disco_duro'] ?>"><?php echo $row['marca_disco_duro'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-            
-            <div class="mb-3">
-                <label for="tipo_disco" class="form-label">Marca del disco duro</label>
-                <select name="tipo_disco" id="tipo_disco" class="form-control">
-                    <?php while($row = $tiposDiscoResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['tipo_disco'] ?>"><?php echo $row['tipo_disco'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="funcionario_responsable" class="form-label">funcionario Responsable</label>
-                <input type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
-                <input type="text" name="nombre_equipo" id="nombre_equipo" placeholder="nombre del quipo" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="novedades" class="form-label">Novedades</label>
-                <input type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="modelo" class="form-label">Modelo</label>
-                <input type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="serial" class="form-label">Serial</label>
-                <input type="text" name="serial" id="serial" placeholder="Serial" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="fecha_fabricacion" class="form-label">Serial</label>
-                <input type="date" name="fecha_fabricacion" id="fecha_fabricacion" placeholder="fecha_fabricacion" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="generacion_procesador" class="form-label">Generacion del procesador</label>
-                <input type="text" name="generacion_procesador" id="generacion_procesador" placeholder="generacion del procesador" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="nucleos" class="form-label">nucleos</label>
-                <input type="number" name="nucleos" id="nucleos" placeholder="nucleos" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="velocidad_mz" class="form-label">velocidad en mz</label>
-                <input type="number" name="velocidad_mz" id="velocidad_mz" placeholder="velocidad en mz" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="ram_gb" class="form-label">RAM en GB</label>
-                <input type="number" name="ram_gb" id="ram_gb" placeholder="ram en gb" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="adaptador_multimedia" class="form-label">Adaptador multimedia</label>
-                <input type="text" name="adaptador_multimedia" id="adaptador_multimedia" placeholder="adaptador multimedia" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="adaptador_video" class="form-label">Adaptador video</label>
-                <input type="text" name="adaptador_video" id="adaptador_video" placeholder="adaptador video" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="capacidad_disco" class="form-label">Capacidad del disco</label>
-                <input type="text" name="capacidad_disco" id="capacidad_disco" placeholder="capacidad del disco" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="red_ethernet" class="form-label">Red ethernet</label>
-                <input type="text" name="red_ethernet" id="red_ethernet" placeholder="red ethernet" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="ip" class="form-label">IP</label>
-                <input type="text" name="ip" id="ip" placeholder="ip" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="mac_ethernet" class="form-label">MAC ethernet</label>
-                <input type="text" name="mac_ethernet" id="mac_ethernet" placeholder="mac_ethernet" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="red_wifi" class="form-label">Red wifi</label>
-                <input type="text" name="red_wifi" id="red_wifi" placeholder="red wifi" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="mac" class="form-label">MAC</label>
-                <input type="text" name="mac" id="mac" placeholder="mac" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <button class="btn btn-primary text-white" type="submit">Guardar</button>
-                <a href="/" class="btn btn-secondary">Cancelar</a>
+            <div class="mb-3 d-flex justify-content-around align-items-center">
+                <button class="btn btn-primary text-white" type="submit" onclick="change()">Guardar</button>
+                <a href="../../pages/equipos.php" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>
@@ -253,8 +334,8 @@
         integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
         crossorigin="anonymous"></script>
     
-    <script src="../scripts/modoOscuro.js"></script>
+    <script src="../../scripts/modoOscuro.js"></script>
+    <script src="../../scripts/popOvers.js"></script>
 
 </body>
-
 </html>
