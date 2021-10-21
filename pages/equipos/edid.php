@@ -1,8 +1,8 @@
 <?php 
-    require_once("../connection/connection.php");
+    require_once("../../connection/connection.php");
 
     //importa la conexion con todas las subtablas
-    require_once("../tables/tables.php");
+    require_once("../../tables/tables.php");
 
     $id = $_GET['id'];
     $sql = "SELECT * FROM equipos WHERE id='$id'";
@@ -19,7 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../../styles/styles.css">
+    <link rel="stylesheet" href="../../../styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Editar</title>
 </head>
@@ -64,7 +64,7 @@
     </nav>
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
-        <form action="../../components/edidForm.php" method="POST" id="form" >
+        <form action="../../../components/equipos/edidForm.php" method="POST" id="form" >
             <?php while($row = $result -> fetch_assoc()){ ?>
                 <input id="id" name="id" value="<?php echo $row['id'] ?>" hidden >
 
@@ -401,7 +401,7 @@
 
             <div class="mb-3 d-flex justify-content-around align-items-center">
                 <button class="btn btn-primary text-white" type="submit" onclick="change()">Guardar</button>
-                <a href="../../pages/equipos.php" class="btn btn-secondary">Cancelar</a>
+                <a href="../../../pages/equipos.php" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>
@@ -410,8 +410,8 @@
         integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
         crossorigin="anonymous"></script>
     
-    <script src="../../scripts/modoOscuro.js"></script>
-    <script src="../../scripts/popOvers.js"></script>
+    <script src="../../../scripts/modoOscuro.js"></script>
+    <script src="../../../scripts/popOvers.js"></script>
 
 </body>
 </html>

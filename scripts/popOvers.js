@@ -34,7 +34,7 @@ function confirmar(id) {
         if (result.isConfirmed) {
             Swal.fire('Eliminado Exitosamente!', '', 'success')
             setTimeout(() => {
-                window.location = '../components/delete.php/?id=' + id
+                window.location.href = "../../components/equipos/delete.php/?id=" + id
             }, 2000);
         } else if (result.isDenied) {
             Swal.fire('No se elimino', '', 'info')

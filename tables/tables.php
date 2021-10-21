@@ -1,5 +1,5 @@
 <?php 
-    require_once("../connection/connection.php");
+    require_once("../../connection/connection.php");
 
     $equipos = "SELECT * FROM equipos";
     $equiposResult = $connection->query($equipos);

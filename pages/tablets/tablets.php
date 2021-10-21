@@ -1,10 +1,6 @@
 <?php 
-    require_once("../connection/connection.php");
-
-    $sql = "SELECT * FROM equipos";
-    $result = $connection->query($sql);
-
-
+    require_once('../connection/connection.php');
+    require_once('../tables/tables.php');
 ?>
 <!doctype html>
 <html lang="es">
@@ -18,7 +14,7 @@
     
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../styles/styles.css">
-    <title>Equipos</title>
+    <title>Tablets</title>
 </head>
 
 <body id="body">

@@ -1,8 +1,8 @@
 <?php 
-require_once("../connection/connection.php");
+require_once("../../connection/connection.php");
 
 //importa la conexion con todas las subtablas
-require_once("../tables/tables.php");
+require_once("../../tables/tables.php");
 
     $editFormAction = $_SERVER['PHP_SELF'];
     
@@ -141,6 +141,6 @@ require_once("../tables/tables.php");
             )";
         mysqli_query($connection,$insertsql);
 
-        echo '<script>window.location.href = "../pages/equipos.php"</script>';
+        echo '<script>window.location.href = "../../pages/equipos/equipos.php"</script>';
         
 ?>
