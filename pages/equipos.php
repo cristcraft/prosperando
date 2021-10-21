@@ -18,7 +18,7 @@
     
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../styles/styles.css">
-    <title>Hello, world!</title>
+    <title>Equipos</title>
 </head>
 
 <body id="body">
@@ -96,6 +96,21 @@
                         <th scope="col">MAC ethernet</th>
                         <th scope="col">Red wifi</th>
                         <th scope="col">MAC</th>
+                        <th scope="col">Marca del monitor</th>
+                        <th scope="col">Tipo monitor</th>
+                        <th scope="col">Serial monitor</th>
+                        <th scope="col">Modelo monitor</th>
+                        <th scope="col">Pulgadas monitor</th>
+                        <th scope="col">Cables de poder</th>
+                        <th scope="col">vga</th>
+                        <th scope="col">Pass core</th>
+                        <th scope="col">Bateria</th>
+                        <th scope="col">Carga electrica</th>
+                        <th scope="col">Voltaje</th>
+                        <th scope="col">Salida plug</th>
+                        <th scope="col">Sistema operativo</th>
+                        <th scope="col">Bits</th>
+                        <th scope="col">Licencia</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -136,6 +151,21 @@
                         <td><?php echo $row['mac_ethernet']?></td>
                         <td><?php echo $row['red_wifi']?></td>
                         <td><?php echo $row['mac']?></td>
+                        <td><?php echo $row['marca_monitor']?></td>
+                        <td><?php echo $row['tipo_monitor']?></td>
+                        <td><?php echo $row['serial_monitor']?></td>
+                        <td><?php echo $row['modelo_monitor']?></td>
+                        <td><?php echo $row['pulgadas']?></td>
+                        <td><?php echo $row['cables_poder']?></td>
+                        <td><?php echo $row['vga']?></td>
+                        <td><?php echo $row['pass_core']?></td>
+                        <td><?php echo $row['bateria']?></td>
+                        <td><?php echo $row['carga_electrica']?> mAh</td>
+                        <td><?php echo $row['voltaje']?></td>
+                        <td><?php echo $row['salida_plug']?></td>
+                        <td><?php echo $row['os']?></td>
+                        <td><?php echo $row['bit']?>bits</td>
+                        <td><?php echo $row['licencia']?></td>
                         
                     </tr>
                     <?php }} ?>

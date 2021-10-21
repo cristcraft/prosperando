@@ -59,7 +59,7 @@
     </nav>
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
-        <form action="../components/saveForm.php" method="POST" id="form" class="text-white">
+        <form action="../components/saveForm.php" method="POST" id="form" >
 
             <div class="mb-3">
                 <label for="sucursal" class="form-label">Sucursal</label>
@@ -230,6 +230,81 @@
             <div class="mb-3">
                 <label for="mac" class="form-label">MAC</label>
                 <input type="text" name="mac" id="mac" placeholder="mac" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="marca_monitor" class="form-label">Marca del monitor</label>
+                <input type="text" name="marca_monitor" id="marca_monitor" placeholder="Marca del monitor" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="tipo_monitor" class="form-label">Tipo monitor</label>
+                <input type="text" name="tipo_monitor" id="tipo_monitor" placeholder="Tipo monitor" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="serial_monitor" class="form-label">Serial monitor</label>
+                <input type="text" name="serial_monitor" id="serial_monitor" placeholder="Serial monitor" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="modelo_monitor" class="form-label">Modelo monitor</label>
+                <input type="text" name="modelo_monitor" id="modelo_monitor" placeholder="Modelo monitor" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="pulgadas" class="form-label">Pulgadas monitor</label>
+                <input type="text" name="pulgadas" id="pulgadas" placeholder="Pulgadas monitor" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="cables_poder" class="form-label">Cables de poder</label>
+                <input type="number" name="cables_poder" id="cables_poder" placeholder="Cables de poder" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="vga" class="form-label">vga</label>
+                <input type="number" name="vga" id="vga" placeholder="vga" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="pass_core" class="form-label">Pass core</label>
+                <input type="number" name="pass_core" id="pass_core" placeholder="Pass core" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="bateria" class="form-label">Bateria</label>
+                <input type="text" name="bateria" id="bateria" placeholder="Bateria" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="carga_electrica" class="form-label">Carga electrica</label>
+                <input type="text" name="carga_electrica" id="carga_electrica" placeholder="Carga electrica" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="voltaje" class="form-label">Voltaje</label>
+                <input type="text" name="voltaje" id="voltaje" placeholder="Voltaje" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="salida_plug" class="form-label">Salida plug</label>
+                <input type="text" name="salida_plug" id="salida_plug" placeholder="Salida plug" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="os" class="form-label">Sistema operativo</label>
+                <input type="text" name="os" id="os" placeholder="Sistema operativo" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="bit" class="form-label">Bit</label>
+                <input type="text" name="bit" id="bit" placeholder="Bit" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="licencia" class="form-label">Licencia</label>
+                <input type="text" name="licencia" id="licencia" placeholder="Licencia" class="form-control">
             </div>
 
             <div class="mb-3 d-flex justify-content-around align-items-center">

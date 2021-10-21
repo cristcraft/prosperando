@@ -34,8 +34,21 @@
         $mac_ethernet = $_POST['mac_ethernet'];
         $red_wifi = $_POST['red_wifi'];
         $mac = $_POST['mac'];
-
-
+        $marca_monitor = $_POST['marca_monitor'];
+        $tipo_monitor = $_POST['tipo_monitor'];
+        $serial_monitor = $_POST['serial_monitor'];
+        $modelo_monitor = $_POST['modelo_monitor'];
+        $pulgadas = $_POST['pulgadas'];
+        $cables_poder = $_POST['cables_poder'];
+        $vga = $_POST['vga'];
+        $pass_core = $_POST['pass_core'];
+        $bateria = $_POST['bateria'];
+        $carga_electrica = $_POST['carga_electrica'];
+        $voltaje = $_POST['voltaje'];$_POST['salida_plug'];
+        $salida_plug =$_POST['salida_plug'];
+        $os = $_POST['os'];
+        $bit = $_POST['bit'];
+        $licencia = $_POST['licencia'];
 
         $updateSql="UPDATE equipos SET
             sucursal = '$sucursal',
@@ -64,7 +77,22 @@
             ip = '$ip',
             mac_ethernet = '$mac_ethernet',
             red_wifi = '$red_wifi',
-            mac = '$mac'
+            mac = '$mac',
+            marca_monitor = '$marca_monitor',
+            tipo_monitor = '$tipo_monitor',
+            serial_monitor = '$serial_monitor',
+            modelo_monitor = '$modelo_monitor',
+            pulgadas = '$pulgadas',
+            cables_poder = '$cables_poder',
+            vga = '$vga',
+            pass_core = '$pass_core',
+            bateria = '$bateria',
+            carga_electrica = '$carga_electrica',
+            voltaje = '$voltaje',
+            salida_plug = '$salida_plug',
+            os = '$os',
+            bit = '$bit',
+            licencia = '$licencia'
 
             WHERE id = '$id'";
         mysqli_query($connection,$updateSql);

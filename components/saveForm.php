@@ -33,7 +33,21 @@ require_once("../tables/tables.php");
         $mac_ethernet = $_POST['mac_ethernet'];
         $red_wifi = $_POST['red_wifi'];
         $mac = $_POST['mac'];
-
+        $marca_monitor = $_POST['marca_monitor'];
+        $tipo_monitor =$_POST['tipo_monitor'];
+        $serial_monitor = $_POST['serial_monitor'];
+        $modelo_monitor = $_POST['modelo_monitor'];
+        $pulgadas = $_POST['pulgadas'];
+        $cables_poder = $_POST['cables_poder'];
+        $vga = $_POST['vga'];
+        $pass_core = $_POST['pass_core'];
+        $bateria = $_POST['bateria'];
+        $carga_electrica = $_POST['carga_electrica'];
+        $voltaje = $_POST['voltaje'];
+        $salida_plug =$_POST['salida_plug'];
+        $os = $_POST['os'];
+        $bit = $_POST['bit'];
+        $licencia = $_POST['licencia'];
 
 
         $insertsql="INSERT INTO 
@@ -64,7 +78,22 @@ require_once("../tables/tables.php");
             ip,
             mac_ethernet,
             red_wifi,
-            mac
+            mac,
+            marca_monitor,
+            tipo_monitor,
+            serial_monitor,
+            modelo_monitor,
+            pulgadas,
+            cables_poder,
+            vga,
+            pass_core,
+            bateria,
+            carga_electrica,
+            voltaje,
+            salida_plug,
+            os,
+            bit,
+            licencia
             ) 
         VALUES( 
             '$sucursal',
@@ -93,7 +122,22 @@ require_once("../tables/tables.php");
             '$ip',
             '$mac_ethernet',
             '$red_wifi',
-            '$mac'
+            '$mac',
+            '$marca_monitor',
+            '$tipo_monitor',
+            '$serial_monitor',
+            '$modelo_monitor',
+            '$pulgadas',
+            '$cables_poder',
+            '$vga',
+            '$pass_core',
+            '$bateria',
+            '$carga_electrica',
+            '$voltaje',
+            '$salida_plug',
+            '$os',
+            '$bit',
+            '$licencia'
             )";
         mysqli_query($connection,$insertsql);
 

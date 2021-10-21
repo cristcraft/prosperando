@@ -16,20 +16,93 @@ td{
 }
 
 form{
+    max-height: 90vh;
+    overflow-X: hidden;
+    justify-content: center;
     width: 100vw;
     display: flex;
     flex-wrap: wrap ;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 5px;
     border: 1px solid #212529;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .mb-3{
     width: 200px;
-    margin: 3px;
+    margin: 5px;
 }
 .form-oscuro{
     border: 1px solid white;
     box-shadow: 2px 2px 2px 2px rgba(255, 255, 255, 0.5);
+}
+
+/*Scroll bar form*/
+form::-webkit-scrollbar {
+    width: 10px;     /* Tamaño del scroll en vertical */
+    height: 10px;    /* Tamaño del scroll en horizontal */
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+form::-webkit-scrollbar-thumb {
+    background: #8f8f8f;
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+form::-webkit-scrollbar-thumb:hover {
+    background: #8f8f8f;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+form::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+form::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+form::-webkit-scrollbar-track:hover,
+form::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
+}
+
+/*==================Scroll tabla ==============*/
+.tabla::-webkit-scrollbar {
+    width: 10px;     /* Tamaño del scroll en vertical */
+    height: 10px;    /* Tamaño del scroll en horizontal */
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+.tabla::-webkit-scrollbar-thumb {
+    background: #8f8f8f;
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+.tabla::-webkit-scrollbar-thumb:hover {
+    background: #8f8f8f;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+.tabla::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+.tabla::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+.tabla::-webkit-scrollbar-track:hover,
+.tabla::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
 }
