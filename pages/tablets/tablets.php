@@ -1,6 +1,6 @@
 <?php 
-    require_once('../connection/connection.php');
-    require_once('../tables/tables.php');
+    require_once('../../connection/connection.php');
+    require_once('../../tables/tables.php');
 ?>
 <!doctype html>
 <html lang="es">
@@ -13,7 +13,7 @@
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/styles.css">
     <title>Tablets</title>
 </head>
 
@@ -68,51 +68,26 @@
                         <th scope="col">Sucursal</th>
                         <th scope="col">Area</th>
                         <th scope="col">Funcionario Responsable</th>
-                        <th scope="col">Nombre Equipo</th>
-                        <th scope="col">Lugar de trabajo</th>
                         <th scope="col">Novedades</th>
-                        <th scope="col">Tipo de equipo</th>
                         <th scope="col">Marca</th>
                         <th scope="col">Modelo</th>
-                        <th scope="col">Serial</th>
-                        <th scope="col">Fecha de fabricacion</th>
                         <th scope="col">Procesador</th>
-                        <th scope="col">Generacion procesador</th>
                         <th scope="col">Nucleos</th>
-                        <th scope="col">Velocidad en mz</th>
                         <th scope="col">RAM en GB</th>
-                        <th scope="col">Tipo de RAM</th>
-                        <th scope="col">Adaptador multimedia</th>
-                        <th scope="col">Adaptador video</th>
-                        <th scope="col">Marca del disco duro</th>
-                        <th scope="col">Capacidad del disco</th>
-                        <th scope="col">Tipo de disco</th>
-                        <th scope="col">Red ethernet</th>
-                        <th scope="col">IP</th>
-                        <th scope="col">MAC ethernet</th>
-                        <th scope="col">Red wifi</th>
-                        <th scope="col">MAC</th>
-                        <th scope="col">Marca del monitor</th>
-                        <th scope="col">Tipo monitor</th>
-                        <th scope="col">Serial monitor</th>
-                        <th scope="col">Modelo monitor</th>
-                        <th scope="col">Pulgadas monitor</th>
-                        <th scope="col">Cables de poder</th>
-                        <th scope="col">vga</th>
-                        <th scope="col">Pass core</th>
+                        <th scope="col">Resolucion</th>
+                        <th scope="col">Serial</th>
+                        <th scope="col">Imei</th>
                         <th scope="col">Bateria</th>
-                        <th scope="col">Carga electrica</th>
-                        <th scope="col">Voltaje</th>
-                        <th scope="col">Salida plug</th>
-                        <th scope="col">Sistema operativo</th>
-                        <th scope="col">Bits</th>
-                        <th scope="col">Licencia</th>
+                        <th scope="col">Rom</th>
+                        <th scope="col">Camara frontal</th>
+                        <th scope="col">Camara trasera</th>
+                        <th scope="col">OS</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
-                        if($result ->num_rows>0){
-                            while($row = $result ->fetch_assoc()){ 
+                        if($tabletssResult ->num_rows>0){
+                            while($row = $tabletssResult ->fetch_assoc()){ 
                     ?>
                     <tr>
                         <td>
@@ -123,45 +98,20 @@
                         <td><?php echo $row['sucursal'] ?></td>
                         <td><?php echo $row['area'] ?></td>
                         <td><?php echo $row['funcionario_responsable']?></td>
-                        <td><?php echo $row['nombre_equipo']?></td>
-                        <td><?php echo $row['lugar_de_trabajo']?></td>
                         <td><?php echo $row['novedades']?></td>
-                        <td><?php echo $row['tipo_equipo']?></td>
                         <td><?php echo $row['marca'];  ?></td>
                         <td><?php echo $row["modelo"]  ?></td>
-                        <td><?php echo $row['serial']?></td>
-                        <td><?php echo $row['fecha_fabricacion']?></td>
                         <td><?php echo $row['procesador']?></td>
-                        <td><?php echo $row['generacion_procesador']?></td>
                         <td><?php echo $row['nucleos']?></td>
-                        <td><?php echo $row['velocidad_mz']?></td>
-                        <td><?php echo $row['ram_gb']?></td>
-                        <td><?php echo $row['tipo_memoria']?></td>
-                        <td><?php echo $row['adaptador_multimedia']?></td>
-                        <td><?php echo $row['adaptador_video']?></td>
-                        <td><?php echo $row['marca_disco_duro']?></td>
-                        <td><?php echo $row['capacidad_disco']?></td>
-                        <td><?php echo $row['tipo_disco']?></td>
-                        <td><?php echo $row['red_ethernet']?></td>
-                        <td><?php echo $row['ip']?></td>
-                        <td><?php echo $row['mac_ethernet']?></td>
-                        <td><?php echo $row['red_wifi']?></td>
-                        <td><?php echo $row['mac']?></td>
-                        <td><?php echo $row['marca_monitor']?></td>
-                        <td><?php echo $row['tipo_monitor']?></td>
-                        <td><?php echo $row['serial_monitor']?></td>
-                        <td><?php echo $row['modelo_monitor']?></td>
-                        <td><?php echo $row['pulgadas']?></td>
-                        <td><?php echo $row['cables_poder']?></td>
-                        <td><?php echo $row['vga']?></td>
-                        <td><?php echo $row['pass_core']?></td>
+                        <td><?php echo $row['ram']?></td>
+                        <td><?php echo $row['resolucion']?></td>
+                        <td><?php echo $row['serial']?></td>
+                        <td><?php echo $row['imei']?></td>
                         <td><?php echo $row['bateria']?></td>
-                        <td><?php echo $row['carga_electrica']?> mAh</td>
-                        <td><?php echo $row['voltaje']?></td>
-                        <td><?php echo $row['salida_plug']?></td>
+                        <td><?php echo $row['rom']?></td>
+                        <td><?php echo $row['camara_frontal']?></td>
+                        <td><?php echo $row['camara_trasera']?></td>
                         <td><?php echo $row['os']?></td>
-                        <td><?php echo $row['bit']?>bits</td>
-                        <td><?php echo $row['licencia']?></td>
                         
                     </tr>
                     <?php }} ?>
@@ -187,8 +137,8 @@
         integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
         crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../scripts/modoOscuro.js"></script>
-    <script src="../scripts/popOvers.js"></script>
+    <script src="../../scripts/modoOscuro.js"></script>
+    <script src="../../scripts/popOvers.js"></script>
 </body>
 
 </html>

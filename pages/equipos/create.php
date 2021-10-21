@@ -309,7 +309,7 @@
 
             <div class="mb-3 d-flex justify-content-around align-items-center">
                 <button class="btn btn-primary text-white" type="submit" onclick="change()">Guardar</button>
-                <a href="../../pages/equipos.php" class="btn btn-secondary">Cancelar</a>
+                <a href="../../pages/equipos/equipos.php" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>

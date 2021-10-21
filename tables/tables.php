@@ -1,8 +1,15 @@
 <?php 
     require_once("../../connection/connection.php");
 
+    //=========tabla principal de equipos =================
     $equipos = "SELECT * FROM equipos";
     $equiposResult = $connection->query($equipos);
+     //====================================================
+
+     //=========tabla principal de tablets =================
+    $tablets = "SELECT * FROM tablets";
+    $tabletssResult = $connection->query($tablets);
+     //====================================================
 
     $sucursales = "SELECT * FROM sucursales";
     $sucursalesResult = $connection->query($sucursales);
@@ -30,4 +37,30 @@
 
     $tiposDisco = "SELECT * FROM tipos_disco";
     $tiposDiscoResult = $connection->query($tiposDisco);
+
+    //========== Area Tablets =======================
+    $areas_tablets = "SELECT * FROM areas_tablets";
+    $areas_tabletsResult = $connection->query($areas_tablets);
+    //===============================================
+
+    //========== Marcas Tablets =======================
+    $marcas_tablets = "SELECT * FROM marcas_tablets";
+    $marcas_tabletsResult = $connection->query($marcas_tablets);
+    //===============================================
+
+    //========== Procesadores Tablets =======================
+    $procesadores_tablets = "SELECT * FROM procesadores_tablets";
+    $procesadores_tabletsResult = $connection->query($procesadores_tablets);
+    //===============================================
+
+    //========== Procesadores Tablets =======================
+    $resolucion_tablets = "SELECT * FROM resolucion_tablets";
+    $resolucion_tabletsResult = $connection->query($resolucion_tablets);
+    //===============================================
+
+    //========== Version OS Tablets =======================
+    $os_version = "SELECT * FROM os_tablets";
+    $os_versionResult = $connection->query($os_version);
+    //===============================================
 ?>
+
