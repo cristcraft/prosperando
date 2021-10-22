@@ -53,7 +53,7 @@
     $procesadores_tabletsResult = $connection->query($procesadores_tablets);
     //===============================================
 
-    //========== Procesadores Tablets =======================
+    //========== Resolucion Tablets =======================
     $resolucion_tablets = "SELECT * FROM resolucion_tablets";
     $resolucion_tabletsResult = $connection->query($resolucion_tablets);
     //===============================================

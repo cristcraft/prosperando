@@ -3,11 +3,11 @@
     $id = $_GET['id'];
     echo $id;
 
-    $deleteSql = "DELETE FROM equipos WHERE id = '$id'";
+    $deleteSql = "DELETE FROM tablets WHERE id = '$id'";
     mysqli_query($connection,$deleteSql);
 
     if ($connection->query($deleteSql) === TRUE) {
-        echo '<script>window.location.href = "../../../pages/equipos/equipos.php"</script>';
+        echo '<script>window.location.href = "../../../pages/tablets/tablets.php"</script>';
     }else {
         echo "ERROR";
     }

@@ -91,8 +91,8 @@
                     ?>
                     <tr>
                         <td>
-                            <a href="../pages/edid.php/?id=<?php echo $row['id']?>" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                            <a  onclick="confirmar('<?php echo $row['id']?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            <a href="../tablets/edid.php/?id=<?php echo $row['id']?>" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                            <a  onclick="confirmar('<?php echo $row['id']?>', 'tablets')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
                         <td><?php echo $row['sucursal'] ?></td>

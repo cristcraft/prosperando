@@ -80,8 +80,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="lugar_trabajo" class="form-label">Marca</label>
-                <select name="lugar_trabajo" id="lugar_trabajo" class="form-control">
+                <label for="marcas" class="form-label">Marca</label>
+                <select name="marcas" id="marcas" class="form-control">
                     <?php while($row = $marcas_tabletsResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['marcas'] ?>"><?php echo $row['marcas'] ?></option>
                     <?php } ?>

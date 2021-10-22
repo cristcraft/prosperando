@@ -257,7 +257,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="fecha_fabricacion" class="form-label">Serial</label>
+                    <label for="fecha_fabricacion" class="form-label">Fecha fabricacion</label>
                     <input type="date" name="fecha_fabricacion" id="fecha_fabricacion" placeholder="fecha_fabricacion" class="form-control" value="<?php echo $row['fecha_fabricacion'] ?>">
                 </div>
 

@@ -23,7 +23,7 @@ function sync() {
 }
 
 //confirma la eliminacion
-function confirmar(id) {
+function confirmar(id, page) {
     Swal.fire({
         title: '¿Quiueres eliminar esta persona con el id: ' + id + '?',
         icon: 'warning',
@@ -34,7 +34,13 @@ function confirmar(id) {
         if (result.isConfirmed) {
             Swal.fire('Eliminado Exitosamente!', '', 'success')
             setTimeout(() => {
-                window.location.href = "../../components/equipos/delete.php/?id=" + id
+                if(page === 'equipos'){
+                    window.location.href = "../../components/equipos/delete.php/?id=" + id
+                }else if(page === 'tablets'){
+                    window.location.href = "../../components/tablets/delete.php/?id=" + id
+                }else{
+                    alert('<-- Error -->')
+                }
             }, 2000);
         } else if (result.isDenied) {
             Swal.fire('No se elimino', '', 'info')
