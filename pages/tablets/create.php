@@ -71,7 +71,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="area" class="form-label">Area</label>
+                <label for="area" class="form-label">Area<a   ><i class="fas fa-plus-circle"></i></a></label>
                 <select name="area" id="area" class="form-select">
                     <?php while($row = $areas_tabletsResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['area'] ?>"><?php echo $row['area'] ?></option>
@@ -80,7 +80,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="marcas" class="form-label">Marca</label>
+                <label for="marcas" class="form-label">Marca <a href="../../components/addElements/addElements.php/?table=marcas&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
                 <select name="marcas" id="marcas" class="form-control">
                     <?php while($row = $marcas_tabletsResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['marcas'] ?>"><?php echo $row['marcas'] ?></option>
