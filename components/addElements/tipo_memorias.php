@@ -58,7 +58,7 @@
 
     <div class="container-fluid d-flex flex-column align-items-center mt-3">
 
-        <a onclick="addSucursal()" class="btn btn-outline-primary p-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
+        <a onclick="addTipo_memorias()" class="btn btn-outline-primary p-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
     
         <div class="tabla">
             <table id="equipos" class="table table-bordered table-striped text-center mt-4">
@@ -66,21 +66,21 @@
                     <tr class="bg-primary text-white">
                         <th>Acciones</th>
                         <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
+                        <th scope="col">Tipo memoria</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
-                        if($sucursalesResult ->num_rows>0){
-                            while($row = $sucursalesResult ->fetch_assoc()){ 
+                        if($tipoMemoriasResult ->num_rows>0){
+                            while($row = $tipoMemoriasResult ->fetch_assoc()){ 
                     ?>
                     <tr>
                         <td>
-                            <a onclick="editSucursal(<?php echo $row['id']  ?>)"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                            <a  onclick="deleteSucursal('<?php echo $row['id']?>', '<?php echo $row['nombre'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            <a onclick="editTipo_memorias(<?php echo $row['id']  ?>)"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                            <a  onclick="deleteTipo_memorias('<?php echo $row['id']?>', '<?php echo $row['tipo_memoria'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
-                        <td><?php echo $row['nombre'] ?></td>
+                        <td><?php echo $row['tipo_memoria'] ?></td>
                     </tr>
                     <?php }} ?>
                 </tbody>

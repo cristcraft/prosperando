@@ -58,7 +58,7 @@
 
     <div class="container-fluid d-flex flex-column align-items-center mt-3">
 
-        <a onclick="addSucursal()" class="btn btn-outline-primary p-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
+        <a onclick="addArea()" class="btn btn-outline-primary p-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
     
         <div class="tabla">
             <table id="equipos" class="table table-bordered table-striped text-center mt-4">
@@ -71,13 +71,13 @@
                 </thead>
                 <tbody>
                     <?php 
-                        if($sucursalesResult ->num_rows>0){
-                            while($row = $sucursalesResult ->fetch_assoc()){ 
+                        if($areasResult ->num_rows>0){
+                            while($row = $areasResult ->fetch_assoc()){ 
                     ?>
                     <tr>
                         <td>
-                            <a onclick="editSucursal(<?php echo $row['id']  ?>)"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                            <a  onclick="deleteSucursal('<?php echo $row['id']?>', '<?php echo $row['nombre'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            <a onclick="editAreas(<?php echo $row['id']  ?>)"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                            <a  onclick="deleteAreas('<?php echo $row['id']?>', '<?php echo $row['nombre'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
                         <td><?php echo $row['nombre'] ?></td>

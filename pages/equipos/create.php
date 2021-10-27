@@ -62,7 +62,7 @@
         <form action="../../components/equipos/saveForm.php" method="POST" id="form" >
 
             <div class="mb-3">
-                <label for="sucursal" class="form-label">Sucursal</label>
+                <label for="sucursal" class="form-label">Sucursal  <a href="../../components/addElements/addElements.php/?table=sucursales&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
                 <select name="sucursal" id="sucursal" class="form-select">
                     <?php while($row = $sucursalesResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
@@ -71,7 +71,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="area" class="form-label">Area</label>
+                <label for="area" class="form-label">Area <a href="../../components/addElements/addElements.php/?table=areas&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
                 <select name="area" id="area" class="form-select">
                     <?php while($row = $areasResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
@@ -98,7 +98,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="marca" class="form-label">Marca</label>
+                <label for="marca" class="form-label">Marca <a href="../../components/addElements/addElements.php/?table=marcas&accion=0"><i class="fas fa-plus-circle"></i></a></label>
                 <select name="marca" id="marca" class="form-control">
                     <?php while($row = $marcasResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['marca'] ?>"><?php echo $row['marca'] ?></option>
@@ -107,7 +107,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="procesador" class="form-label">Procesador</label>
+                <label for="procesador" class="form-label">Procesador  <a href="../../components/addElements/addElements.php/?table=procesadores&accion=0"><i class="fas fa-plus-circle"></i></a></label>
                 <select name="procesador" id="procesador" class="form-control">
                     <?php while($row = $procesadoresResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['procesador'] ?>"><?php echo $row['procesador'] ?></option>
@@ -116,7 +116,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="tipo_memoria" class="form-label">Tipo de RAM</label>
+                <label for="tipo_memoria" class="form-label">Tipo de RAM <a href="../../components/addElements/addElements.php/?table=tipo_memorias&accion=0"><i class="fas fa-plus-circle"></i></a></label>
                 <select name="tipo_memoria" id="tipo_memoria" class="form-control">
                     <?php while($row = $tipoMemoriasResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['tipo_memoria'] ?>"><?php echo $row['tipo_memoria'] ?></option>
@@ -134,7 +134,7 @@
             </div>
             
             <div class="mb-3">
-                <label for="tipo_disco" class="form-label">Marca del disco duro</label>
+                <label for="tipo_disco" class="form-label">Tipo de disco duro</label>
                 <select name="tipo_disco" id="tipo_disco" class="form-control">
                     <?php while($row = $tiposDiscoResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['tipo_disco'] ?>"><?php echo $row['tipo_disco'] ?></option>

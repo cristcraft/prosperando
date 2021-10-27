@@ -62,7 +62,7 @@
         <form action="../../components/tablets/saveForm.php" method="POST" id="form" >
 
             <div class="mb-3">
-                <label for="sucursal" class="form-label">Sucursal</label>
+                <label for="sucursal" class="form-label">Sucursal </label> <a href="../../components/addElements/addElements.php/?table=sucursales&accion=0"><i class="fas fa-plus-circle"></i></a>
                 <select name="sucursal" id="sucursal" class="form-select">
                     <?php while($row = $sucursalesResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
@@ -71,7 +71,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="area" class="form-label">Area<a   ><i class="fas fa-plus-circle"></i></a></label>
+                <label for="area" class="form-label">Area <a href="../../components/addElements/addElements.php/?table=areas_tablets&accion=0"><i class="fas fa-plus-circle"></i></a></label>
                 <select name="area" id="area" class="form-select">
                     <?php while($row = $areas_tabletsResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['area'] ?>"><?php echo $row['area'] ?></option>
@@ -80,7 +80,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="marcas" class="form-label">Marca <a href="../../components/addElements/addElements.php/?table=marcas&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
+                <label for="marcas" class="form-label">Marca <a href="../../components/addElements/addElements.php/?table=marcas_tablets&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
                 <select name="marcas" id="marcas" class="form-control">
                     <?php while($row = $marcas_tabletsResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['marcas'] ?>"><?php echo $row['marcas'] ?></option>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="procesadores_tablets" class="form-label">Procesador</label>
+                <label for="procesadores_tablets" class="form-label">Procesador <a href="../../components/addElements/addElements.php/?table=procesadores_tablets&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
                 <select name="procesadores_tablets" id="procesadores_tablets" class="form-control">
                     <?php while($row = $procesadores_tabletsResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['procesador'] ?>"><?php echo $row['procesador'] ?></option>
@@ -98,7 +98,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="resolucion_tablets" class="form-label">Resolucion</label>
+                <label for="resolucion_tablets" class="form-label">Resolucion <a href="../../components/addElements/addElements.php/?table=resolucion_tablets&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
                 <select name="resolucion_tablets" id="resolucion_tablets" class="form-control">
                     <?php while($row = $resolucion_tabletsResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['resolucion'] ?>"><?php echo $row['resolucion'] ?></option>
@@ -107,7 +107,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="os_version" class="form-label">Version de android</label>
+                <label for="os_version" class="form-label">Version de android <a href="../../components/addElements/addElements.php/?table=os_tablets&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
                 <select name="os_version" id="os_version" class="form-control">
                     <?php while($row = $os_versionResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['os'] ?>"><?php echo $row['os'] ?></option>
