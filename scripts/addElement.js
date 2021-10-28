@@ -6,10 +6,10 @@ function addSucursal(){
     }
 }
 
-function editSucursal(id){
+function editSucursal(id, old){
     let sucursal = prompt('Escribe el nombre de la sucursal que deseas editar: ')
     if(sucursal !== null){
-        window.location.href = `../addElements/addElements.php/?table=sucursales&accion=edit&sucursal=${sucursal}&id=${id}`
+        window.location.href = `../addElements/addElements.php/?table=sucursales&accion=edit&sucursal=${sucursal}&id=${id}&old=${old}`
     }
 }
 
@@ -29,10 +29,10 @@ function addArea(){
     }
 }
 
-function editAreas(id){
+function editAreas(id,old){
     let area = prompt('Escribe el nombre de la area que deseas editar: ')
     if(area !== null){
-        window.location.href = `../addElements/addElements.php/?table=areas&accion=edit&area=${area}&id=${id}`
+        window.location.href = `../addElements/addElements.php/?table=areas&accion=edit&area=${area}&id=${id}&old=${old}`
     }
 }
 
@@ -53,10 +53,10 @@ function addMarcas(){
     }
 }
 
-function editMarcas(id){
+function editMarcas(id, old){
     let marca = prompt('Escribe el nombre de la marca que deseas editar: ')
     if(marca !== null){
-        window.location.href = `../addElements/addElements.php/?table=marcas&accion=edit&marca=${marca}&id=${id}`
+        window.location.href = `../addElements/addElements.php/?table=marcas&accion=edit&marca=${marca}&id=${id}&old=${old}`
     }
 }
 
@@ -77,10 +77,10 @@ function addProcesadores(){
     }
 }
 
-function editProcesadores(id){
+function editProcesadores(id,old){
     let procesador = prompt('Escribe el nombre del a procesador que deseas editar: ')
     if(procesador !== null){
-        window.location.href = `../addElements/addElements.php/?table=procesadores&accion=edit&procesador=${procesador}&id=${id}`
+        window.location.href = `../addElements/addElements.php/?table=procesadores&accion=edit&procesador=${procesador}&id=${id}&old=${old}`
     }
 }
 
@@ -101,10 +101,10 @@ function addTipo_memorias(){
     }
 }
 
-function editTipo_memorias(id){
+function editTipo_memorias(id,old){
     let tipo_memoria = prompt('Escribe el tipo de memoria que deseas editar: ')
     if(tipo_memoria !== null){
-        window.location.href = `../addElements/addElements.php/?table=tipo_memorias&accion=edit&tipo_memoria=${tipo_memoria}&id=${id}`
+        window.location.href = `../addElements/addElements.php/?table=tipo_memorias&accion=edit&tipo_memoria=${tipo_memoria}&id=${id}&old=${old}`
     }
 }
 
@@ -117,6 +117,52 @@ function deleteTipo_memorias(id, name){
 
 //===============================================================================
 
+//=====================MARCAS DISCO DURO ========================================
+function addMarca_disco_duro(){
+    let marca_disco_duro = prompt('Escribe la marca del disco duro que deseas agregar: ')
+    if(marca_disco_duro){
+        window.location.href = `../addElements/addElements.php/?table=marcas_disco_duro&accion=add&marca_disco_duro=${marca_disco_duro}`
+    }
+}
+
+function editMarca_disco_duro(id,old){
+    let marca_disco_duro = prompt('Escribe la marca del disco duro que deseas editar: ')
+    if(marca_disco_duro !== null){
+        window.location.href = `../addElements/addElements.php/?table=marcas_disco_duro&accion=edit&marca_disco_duro=${marca_disco_duro}&id=${id}&old=${old}`
+    }
+}
+
+function deleteMarca_disco_duro(id, name){
+    let confirm1 = confirm(`¿Seguro quieres eliminar la marca ${name}?`)
+    if(confirm1){
+        window.location.href = `../addElements/addElements.php/?table=marcas_disco_duro&accion=delete&id=${id}`
+    }
+}
+//===============================================================================
+
+//=====================TIPO DISCO DURO ========================================
+function addTipos_disco(){
+    let tipos_disco = prompt('Escribe la marca del disco duro que deseas agregar: ')
+    if(tipos_disco){
+        window.location.href = `../addElements/addElements.php/?table=tipos_disco&accion=add&tipo_disco=${tipos_disco}`
+    }
+}
+
+function editTipos_disco(id,old){
+    let tipos_disco = prompt('Escribe la marca del disco duro que deseas editar: ')
+    if(tipos_disco !== null){
+        window.location.href = `../addElements/addElements.php/?table=tipos_disco&accion=edit&tipo_disco=${tipos_disco}&id=${id}&old=${old}`
+    }
+}
+
+function deleteTipos_disco(id, name){
+    let confirm1 = confirm(`¿Seguro quieres eliminar la marca ${name}?`)
+    if(confirm1){
+        window.location.href = `../addElements/addElements.php/?table=tipos_disco&accion=delete&id=${id}`
+    }
+}
+//===============================================================================
+
 //===================== AREAS TABLETS ===========================================
 function addArea_tablet(){
     let area = prompt('Escribe el nombre de la area que deseas agregar: ')
@@ -125,10 +171,10 @@ function addArea_tablet(){
     }
 }
 
-function editAreas_tablets(id){
+function editAreas_tablets(id, old){
     let area = prompt('Escribe el nombre de la area que deseas editar: ')
     if(area !== null){
-        window.location.href = `../addElements/addElements.php/?table=areas_tablets&accion=edit&area=${area}&id=${id}`
+        window.location.href = `../addElements/addElements.php/?table=areas_tablets&accion=edit&area=${area}&id=${id}&old=${old}`
     }
 }
 
@@ -149,10 +195,10 @@ function addMarcas_tablet(){
     }
 }
 
-function editMarcas_tablets(id){
+function editMarcas_tablets(id, old){
     let marca = prompt('Escribe el nombre de la marca que deseas editar: ')
     if(marca !== null){
-        window.location.href = `../addElements/addElements.php/?table=marcas_tablets&accion=edit&marca=${marca}&id=${id}`
+        window.location.href = `../addElements/addElements.php/?table=marcas_tablets&accion=edit&marca=${marca}&id=${id}&old=${old}`
     }
 }
 
@@ -173,10 +219,10 @@ function addProcesadores_tablet(){
     }
 }
 
-function editProcesadores_tablets(id){
+function editProcesadores_tablets(id,old){
     let procesador = prompt('Escribe el nombre del a procesador que deseas editar: ')
     if(procesador !== null){
-        window.location.href = `../addElements/addElements.php/?table=procesadores_tablets&accion=edit&procesador=${procesador}&id=${id}`
+        window.location.href = `../addElements/addElements.php/?table=procesadores_tablets&accion=edit&procesador=${procesador}&id=${id}&old=${old}`
     }
 }
 
@@ -197,10 +243,10 @@ function addResolucion_tablets(){
     }
 }
 
-function editResolucion_tablets(id){
+function editResolucion_tablets(id,old){
     let resolucion = prompt('Escribe la resolucion que deseas editar: ')
     if(resolucion !== null){
-        window.location.href = `../addElements/addElements.php/?table=resolucion_tablets&accion=edit&resolucion=${resolucion}&id=${id}`
+        window.location.href = `../addElements/addElements.php/?table=resolucion_tablets&accion=edit&resolucion=${resolucion}&id=${id}&old=${old}`
     }
 }
 
@@ -221,10 +267,10 @@ function addOs_tablets(){
     }
 }
 
-function editOs_tablets(id){
+function editOs_tablets(id,old){
     let os = prompt('Escribe la version de android que deseas editar: ')
     if(os !== null){
-        window.location.href = `../addElements/addElements.php/?table=os_tablets&accion=edit&os=${os}&id=${id}`
+        window.location.href = `../addElements/addElements.php/?table=os_tablets&accion=edit&os=${os}&id=${id}&old=${old}`
     }
 }
 

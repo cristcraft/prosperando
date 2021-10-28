@@ -14,13 +14,13 @@
     
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../../styles/styles.css">
-    <title>Areas</title>
+    <title>Marcas Disco Duro</title>
 </head>
 
 <body id="body">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Areas</a>
+            <a class="navbar-brand" href="#">Marcas Disco Duro</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
 
     <div class="container-fluid d-flex flex-column align-items-center mt-3">
 
-        <a onclick="addArea()" class="btn btn-outline-primary p-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
+        <a onclick="addMarca_disco_duro()" class="btn btn-outline-primary p-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
     
         <div class="tabla">
             <table id="equipos" class="table table-bordered table-striped text-center mt-4">
@@ -60,16 +60,16 @@
                 </thead>
                 <tbody>
                     <?php 
-                        if($areasResult ->num_rows>0){
-                            while($row = $areasResult ->fetch_assoc()){ 
+                        if($marcasDiscoResult ->num_rows>0){
+                            while($row = $marcasDiscoResult ->fetch_assoc()){ 
                     ?>
                     <tr>
                         <td>
-                            <a onclick="editAreas(<?php echo $row['id']?>, '<?php echo $row['nombre'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                            <a  onclick="deleteAreas('<?php echo $row['id']?>', '<?php echo $row['nombre'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            <a onclick="editMarca_disco_duro(<?php echo $row['id']?>, '<?php echo $row['marca_disco_duro'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                            <a  onclick="deleteMarca_disco_duro('<?php echo $row['id']?>', '<?php echo $row['marca_disco_duro'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
-                        <td><?php echo $row['nombre'] ?></td>
+                        <td><?php echo $row['marca_disco_duro'] ?></td>
                     </tr>
                     <?php }} ?>
                 </tbody>

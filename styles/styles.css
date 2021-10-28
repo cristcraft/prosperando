@@ -15,6 +15,16 @@ td{
     min-height: 90vh;
 }
 
+#equipos_length select{
+    background-color: #212529;
+    color: white;
+}
+
+#equipos_filter input{
+    background-color: #212529;
+    color: white;
+}
+
 form{
     max-height: 90vh;
     overflow-X: hidden;

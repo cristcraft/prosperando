@@ -4,7 +4,7 @@ let navbar = document.querySelector('#navbar')
 let btnModoOscuro = document.querySelector('#btn-oscuro')
 let tabla = document.querySelector('#equipos')
 //texto longitud tabla
-let txtLength = document.querySelector('#equipos_length')
+let txtLength = document.querySelector('#equipos_length select')
 //texto de la paginacion
 let txtPag = document.querySelector('#equipos_info')
 //buscador
@@ -83,6 +83,7 @@ function pagEquipos(){
         if(modoOscuro){
             //tabla
             tabla.classList.add('table-dark', 'table-striped')
+            console.log(txtLength)
     
             //txt
             addTxtBlanco()

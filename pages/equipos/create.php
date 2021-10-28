@@ -125,7 +125,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="marca_disco_duro" class="form-label">Marca del disco duro</label>
+                <label for="marca_disco_duro" class="form-label">Marca del disco duro <a href="../../components/addElements/addElements.php/?table=marcas_disco_duro&accion=0"><i class="fas fa-plus-circle"></i></a></label>
                 <select name="marca_disco_duro" id="marca_disco_duro" class="form-control">
                     <?php while($row = $marcasDiscoResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['marca_disco_duro'] ?>"><?php echo $row['marca_disco_duro'] ?></option>
@@ -134,7 +134,7 @@
             </div>
             
             <div class="mb-3">
-                <label for="tipo_disco" class="form-label">Tipo de disco duro</label>
+                <label for="tipo_disco" class="form-label">Tipo de disco duro <a href="../../components/addElements/addElements.php/?table=tipos_disco&accion=0"><i class="fas fa-plus-circle"></i></a></label>
                 <select name="tipo_disco" id="tipo_disco" class="form-control">
                     <?php while($row = $tiposDiscoResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['tipo_disco'] ?>"><?php echo $row['tipo_disco'] ?></option>
