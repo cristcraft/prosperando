@@ -2,28 +2,24 @@ body{
     min-height: 100vh;
 }
 .tabla{
-    height: 80vh;
-    width: 100vw;
-    overflow: scroll;
+    height: 85vh;
+    width: 90vw;
+    overflow-x: scroll;
 }
 
 td{
     min-width: 100px !important;
 }
 
+tr{
+    border-bottom: 3px solid black;
+    vertical-align: middle;
+}
+
 #form-content{
     min-height: 90vh;
 }
 
-#equipos_length select{
-    background-color: #212529;
-    color: white;
-}
-
-#equipos_filter input{
-    background-color: #212529;
-    color: white;
-}
 
 form{
     max-height: 90vh;
@@ -53,6 +49,14 @@ form{
     margin-left: 5px;
     padding: 20px;
 }
+
+/*Color de la columna seleccionada*/
+.selected{
+    background-color:#00000099!important;
+    color: white;
+    font-weight: bold;
+}
+
 /*Scroll bar form*/
 form::-webkit-scrollbar {
     width: 10px;     /* Tamaño del scroll en vertical */
@@ -121,4 +125,12 @@ form::-webkit-scrollbar-track:active {
 .tabla::-webkit-scrollbar-track:hover,
 .tabla::-webkit-scrollbar-track:active {
     background: #d4d4d4;
+}
+
+/*Responsive mobile*/
+@media screen and (max-width: 475px){
+    .tabla{
+        width: 80vw;
+        height: 100%;
+    }
 }

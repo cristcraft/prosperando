@@ -13,6 +13,7 @@ let buscador = document.querySelector('#equipos_filter')
 let form = document.querySelector('#form')
 
 
+
 //carga el estado (sea true o false) del modo oscuro al iniciar la pagina
 document.addEventListener('DOMContentLoaded', ()=>{
     modoOscuro = localStorage.getItem('modoOscuro');
@@ -81,16 +82,9 @@ function pagEquipos(){
     esta parte del codigo*/
     if(tabla !== null){
         if(modoOscuro){
-            //tabla
-            tabla.classList.add('table-dark', 'table-striped')
-            console.log(txtLength)
-    
             //txt
             addTxtBlanco()
         }else{
-            //tabla
-            tabla.classList.remove('table-dark', 'table-striped')   
-    
             //txt
             removeTxtBlanco()
         }
@@ -120,9 +114,11 @@ function pagCreate(){
 function addTxtBlanco(){
     /*agrega la clse text-white para que el texto se de color blanco*/
     body.classList.add('text-white')
+    tabla.classList.add('text-white')   
 
 }
 function removeTxtBlanco(){
     /*quita la clse text-white para que el texto se de color blanco*/
     body.classList.remove('text-white')
+    tabla.classList.remove('text-white')
 }

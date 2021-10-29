@@ -20,7 +20,7 @@
 <body id="body">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Equipos</a>
+            <a class="navbar-brand" href="../../components/router.php?page=dashboard">DashBoard</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -29,10 +29,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                        <a class="nav-link" href="../../components/router.php?page=equipos">Equipos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link active" aria-current="page" href="../../components/router.php?page=tablets">Tablets</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -57,10 +57,10 @@
     </nav>
 
     <div class="container-fluid d-flex flex-column align-items-center mt-3">
-        <a href="./create.php" class="btn btn-outline-primary p-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
+        <h1>Tablets</h1>
 
         <div class="tabla">
-            <table id="equipos" class="table table-bordered table-striped text-center mt-4">
+            <table id="equipos" class="table text-center mt-4">
                 <thead>
                     <tr class="bg-primary text-white">
                         <th scope="col">Acciones</th>
@@ -89,10 +89,11 @@
                         if($tabletssResult ->num_rows>0){
                             while($row = $tabletssResult ->fetch_assoc()){ 
                     ?>
-                    <tr>
-                        <td>
-                            <a href="../tablets/edid.php/?id=<?php echo $row['id']?>" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                            <a  onclick="confirmar('<?php echo $row['id']?>', 'tablets')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                    <tr id="tr<?php echo $row['id']?>">
+                    <td class="d-flex flex-column justify-content-around">
+                            <a href="./edid.php/?id=<?php echo $row['id']?>" class="btn btn-info" title="editar"><i class="fas fa-edit"></i></a>
+                            <a  onclick="confirmar('<?php echo $row['id']?>', 'tablets')" class="btn btn-danger" title="eliminar"><i class="fas fa-trash"></i></a>
+                            <a  onclick="select('<?php echo $row['id']?>')" class="btn btn-warning" title="seleccionar"><i class="fas fa-arrow-right"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
                         <td><?php echo $row['sucursal'] ?></td>
@@ -118,6 +119,8 @@
                 </tbody>
             </table>
         </div>
+
+        <a href="./create.php" class="btn btn-outline-primary p-3 m-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
         
     </div>
     

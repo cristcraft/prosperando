@@ -1,4 +1,5 @@
 let changeState;
+let allSelected = []
 //cargar popovers de editar y crear
 document.addEventListener('DOMContentLoaded', sync())
 
@@ -47,3 +48,40 @@ function confirmar(id, page) {
         }
     })
 }
+
+//seleccionar y pintar la columna seleccionada
+document.addEventListener('DOMContentLoaded', ()=>{
+    let selected = JSON.parse(localStorage.getItem('selected'))
+    
+    for (let i = 0; i < selected.length; i++) {
+        if(selected[i].state === 'selected'){
+            select(selected[i].id)
+        }  
+        
+    }  
+})
+function select(id){
+    let column = document.querySelector(`#tr${id}`)
+
+    if(column.classList.contains('selected')){
+        column.classList.remove('selected')
+        localStorage.setItem('selected', '')
+        for (let i = 0; i < allSelected.length; i++) {
+            if(allSelected[i].id === id){
+                allSelected.splice(i, 1)
+            }
+        }
+        save()
+    }else{
+        column.classList.add('selected')
+        allSelected.push({'id': id, 'state': 'selected'})
+        save()
+    }
+    console.log(allSelected)
+}
+
+function save(){
+    localStorage.setItem('selected', JSON.stringify(allSelected))
+}
+
+
