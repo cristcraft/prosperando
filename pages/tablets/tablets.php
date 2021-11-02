@@ -1,4 +1,17 @@
 <?php 
+//Requiere el inicio de sesion
+session_start();
+
+if(!isset($_SESSION['user_logeado'])){
+    echo '
+            <script>
+                alert("No has iniciado sesión")
+                window.location.href = "../../index.php"
+            </script>
+        ';
+        session_destroy();
+        die();
+}
     require_once('../../connection/connection.php');
     require_once('../../tables/tables.php');
 ?>
@@ -50,7 +63,9 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <button class="btn btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"><i class="fas fa-sun"></i></button>
+                    <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"  title="Modo oscuro"><i class="fas fa-sun"></i></button>
+
+                    <a href="../../components/router.php?page=logout" class="btn btn-outline-dark" id="btn-salir" title="Salir"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -131,7 +146,7 @@
     <script>
         $(document).ready(function() {
             $('#equipos').DataTable({
-                pageLength:5,
+                pageLength:10,
                 lengthMenu:[[5,10,20,-1],[5,10,20,'Todos']]
             });
         } );

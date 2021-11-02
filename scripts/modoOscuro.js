@@ -2,6 +2,7 @@ let modoOscuro = false;
 let body = document.querySelector('#body')
 let navbar = document.querySelector('#navbar')
 let btnModoOscuro = document.querySelector('#btn-oscuro')
+let btnSalir = document.querySelector('#btn-salir')
 let tabla = document.querySelector('#equipos')
 //texto longitud tabla
 let txtLength = document.querySelector('#equipos_length select')
@@ -10,7 +11,7 @@ let txtPag = document.querySelector('#equipos_info')
 //buscador
 let buscador = document.querySelector('#equipos_filter')
 //formulario creacion/edicion
-let form = document.querySelector('#form')
+let form = document.querySelector('.form')
 
 
 
@@ -53,6 +54,8 @@ function pagNavBar(){
         navbar.classList.add('navbar-dark', 'bg-dark')
         btnModoOscuro.classList.remove('btn-outline-dark')
         btnModoOscuro.classList.add('btn-outline-light')
+        btnSalir.classList.remove('btn-outline-dark')
+        btnSalir.classList.add('btn-outline-light')
 
         modoOscuro = true
         guardar(modoOscuro)
@@ -69,6 +72,8 @@ function pagNavBar(){
         //boton
         btnModoOscuro.classList.remove('btn-outline-light')
         btnModoOscuro.classList.add('btn-outline-dark')
+        btnSalir.classList.remove('btn-outline-light')
+        btnSalir.classList.add('btn-outline-dark')
 
         
     }
@@ -114,11 +119,20 @@ function pagCreate(){
 function addTxtBlanco(){
     /*agrega la clse text-white para que el texto se de color blanco*/
     body.classList.add('text-white')
-    tabla.classList.add('text-white')   
+    if(tabla){
+        tabla.classList.add('text-white')  
+    }
 
 }
 function removeTxtBlanco(){
     /*quita la clse text-white para que el texto se de color blanco*/
     body.classList.remove('text-white')
-    tabla.classList.remove('text-white')
+    if(tabla){
+        tabla.classList.remove('text-white')
+    }
+}
+
+
+function pickColor(min,max){
+    return Math.round(Math.random() * (max - min) + min)
 }

@@ -1,4 +1,18 @@
-<?php 
+<?php
+//Requiere el inicio de sesion
+    session_start();
+
+    if(!isset($_SESSION['user_logeado'])){
+        echo '
+                <script>
+                    alert("No has iniciado sesión")
+                    window.location.href = "../../index.php"
+                </script>
+            ';
+            session_destroy();
+            die();
+    }
+
     require_once('../../tables/tables.php');
     require_once("../../connection/connection.php");
 

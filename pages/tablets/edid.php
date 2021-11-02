@@ -1,4 +1,17 @@
 <?php 
+//Requiere el inicio de sesion
+session_start();
+
+if(!isset($_SESSION['user_logeado'])){
+    echo '
+            <script>
+                alert("No has iniciado sesión")
+                window.location.href = "../../index.php"
+            </script>
+        ';
+        session_destroy();
+        die();
+}
     require_once("../../connection/connection.php");
 
     //importa la conexion con todas las subtablas
@@ -57,14 +70,16 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <button class="btn btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"><i class="fas fa-sun"></i></button>
+                    <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"  title="Modo oscuro"><i class="fas fa-sun"></i></button>
+
+                    <a href="../../../components/router.php?page=logout" class="btn btn-outline-dark" id="btn-salir" title="Salir"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
     </nav>
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
-        <form action="../../../components/tablets/edidForm.php" method="POST" id="form" >
+        <form action="../../../components/tablets/edidForm.php" method="POST" id="form_edit_tablets" class="form" >
             <?php while($row = $result -> fetch_assoc()){ ?>
                 <input id="id" name="id" value="<?php echo $row['id'] ?>" hidden >
 

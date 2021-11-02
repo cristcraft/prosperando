@@ -1,4 +1,17 @@
 <?php 
+//Requiere el inicio de sesion
+session_start();
+
+if(!isset($_SESSION['user_logeado'])){
+    echo '
+            <script>
+                alert("No has iniciado sesión")
+                window.location.href = "../../index.php"
+            </script>
+        ';
+        session_destroy();
+        die();
+}
     require_once('../../connection/connection.php');
     require_once('../../tables/tables.php');
 ?>
@@ -49,7 +62,7 @@
         <a onclick="addTipo_memorias()" class="btn btn-outline-primary p-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
     
         <div class="tabla">
-            <table id="equipos" class="table table-bordered table-striped text-center mt-4">
+            <table id="equipos" class="table text-center mt-4">
                 <thead>
                     <tr class="bg-primary text-white">
                         <th>Acciones</th>

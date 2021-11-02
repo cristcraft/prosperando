@@ -27,6 +27,10 @@ switch ($page) {
     case 'tablets':
         echo "<script>window.location.href = '../pages/$page/$page.php'</script>";
         break;
+
+    case 'logout':
+        echo "<script>window.location.href = './$page.php'</script>";
+        break;
     
     default:
         # code...
