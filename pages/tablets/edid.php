@@ -40,7 +40,7 @@ if(!isset($_SESSION['user_logeado'])){
 <body id="body">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../../../components/router.php?page=dashboard">DashBoard</a>
+            <a class="navbar-brand" href="../../components/router.php?page=dashboard">DashBoard</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -49,10 +49,10 @@ if(!isset($_SESSION['user_logeado'])){
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                        <a class="nav-link" href="../../components/router.php?page=equipos">Equipos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link active" aria-current="page" href="../../components/router.php?page=tablets">Tablets</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -72,7 +72,7 @@ if(!isset($_SESSION['user_logeado'])){
                 <div class="d-flex">
                     <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"  title="Modo oscuro"><i class="fas fa-sun"></i></button>
 
-                    <a href="../../../components/router.php?page=logout" class="btn btn-outline-dark" id="btn-salir" title="Salir"><i class="fas fa-sign-out-alt"></i></a>
+                    <a href="../../components/router.php?page=logout" class="btn btn-outline-dark" id="btn-salir" title="Salir"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>

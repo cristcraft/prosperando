@@ -64,6 +64,7 @@ function pagNavBar(){
         guardar(modoOscuro)
         //body
         body.classList.remove('bg-dark')
+        
 
         //navbar
         navbar.classList.remove('navbar-dark', 'bg-dark')

@@ -1,6 +1,12 @@
 body{
     min-height: 100vh;
 }
+#navbar{
+    box-shadow: 2px 2px 20px rgb(0 0 0 / 50%);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
 .tabla{
     height: 85vh;
     width: 90vw;

@@ -14,8 +14,8 @@ body{
     user-select: none;
 }
 .card-bienvenida{
-    width: 50vw !important;
-    height: 50vh !important;
+    width: 50vw ;
+    height: 50vh ;
     text-align: center;
     -webkit-animation-name: aparecer;
     animation-name: aparecer;
@@ -70,6 +70,14 @@ body{
     animation-fill-mode: forwards;
 }
 
+@media screen and (max-width:425px){
+    .card-bienvenida{
+        width: 90% ;
+    }
+    .contenedor-cards{
+        justify-content: center !important;
+    }
+}
 
 @-webkit-keyframes subirTxt {
     0% {

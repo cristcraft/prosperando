@@ -17,7 +17,7 @@
 $page = $_GET['page'];
 switch ($page) {
     case 'dashboard':
-        echo "<script>window.location.href = '../index.html'</script>";
+        echo "<script>window.location.href = '../index.php'</script>";
         break;
     
     case 'equipos':
