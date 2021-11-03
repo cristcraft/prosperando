@@ -283,4 +283,29 @@ function deleteOs_tablets(id, name){
 
 //===============================================================================
 
+//===================== AREAS IMPRESORAS ====================================
+function AddAreas_impresoras(){
+    let area = prompt('Escribe el area deseas agregar: ')
+    if(area){
+        window.location.href = `../addElements/addElements.php/?table=areas_impresoras&accion=add&area=${area}`
+    }
+}
+
+function editAreas_impresoras(id,old){
+    let area = prompt('Escribe la version de android que deseas editar: ')
+    if(area !== null){
+        window.location.href = `../addElements/addElements.php/?table=areas_impresoras&accion=edit&area=${area}&id=${id}&old=${old}`
+    }
+}
+
+function deleteAreas_impresoras(id, name){
+    let confirm1 = confirm(`¿Seguro quieres eliminar el area ${name}?`)
+    if(confirm1){
+        window.location.href = `../addElements/addElements.php/?table=areas_impresoras&accion=delete&id=${id}`
+    }
+}
+
+//===============================================================================
+
+
 

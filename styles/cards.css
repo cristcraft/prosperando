@@ -14,7 +14,7 @@ body{
     user-select: none;
 }
 .card-bienvenida{
-    width: 50vw ;
+    width: 50vw !important ;
     height: 50vh ;
     text-align: center;
     -webkit-animation-name: aparecer;
@@ -72,7 +72,7 @@ body{
 
 @media screen and (max-width:425px){
     .card-bienvenida{
-        width: 90% ;
+        width: 90%  !important;
     }
     .contenedor-cards{
         justify-content: center !important;

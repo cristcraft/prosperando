@@ -61,7 +61,6 @@ require_once("../../tables/tables.php");
             '$camara_trasera',
             '$os_version'
                 )";
-        mysqli_query($connection,$insertsql);
 
         if ($connection->query($insertsql) === TRUE) {
             echo '<script>window.location.href = "../../pages/tablets/tablets.php"</script>';

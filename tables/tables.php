@@ -62,5 +62,30 @@
     $os_version = "SELECT * FROM os_tablets";
     $os_versionResult = $connection->query($os_version);
     //===============================================
+
+    //========== IMPRESORAS ==============================
+    $impresoras = "SELECT *FROM impresoras";
+    $impresorasResult = $connection->query($impresoras);
+    //===============================================
+
+    //========== AREAS IMPRESORAS =======================
+    $areas_impresoras = "SELECT *FROM areas_impresoras";
+    $areas_impresorasResult = $connection->query($areas_impresoras);
+    //===============================================
+
+    //========== TIPO IMPRESORAS =======================
+    $tipo_impresoras = "SELECT *FROM tipo_impresoras";
+    $tipo_impresorasResult = $connection->query($tipo_impresoras);
+    //===============================================
+
+    //========== MARCAS IMPRESORAS =======================
+    $marcas_impresoras = "SELECT *FROM marcas_impresoras";
+    $marcas_impresorasResult = $connection->query($marcas_impresoras);
+    //===============================================
+
+    //========== TIPO PAPEL IMPRESORAS =======================
+    $tipo_papel = "SELECT *FROM tipo_papel";
+    $tipo_papelResult = $connection->query($tipo_papel);
+    //===============================================
 ?>
 

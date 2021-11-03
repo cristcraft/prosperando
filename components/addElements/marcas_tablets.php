@@ -50,6 +50,9 @@ if(!isset($_SESSION['user_logeado'])){
                     <li class="nav-item">
                         <a class="nav-link" href="../../pages/tablets/tablets.php">Tablets</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../pages/impresoras/impresoras.php">Impresoras</a>
+                    </li>
                 </ul>
                 <div class="d-flex">
                     <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"  title="Modo oscuro"><i class="fas fa-sun"></i></button>

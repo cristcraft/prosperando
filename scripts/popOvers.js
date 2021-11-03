@@ -26,7 +26,7 @@ function sync() {
 //confirma la eliminacion
 function confirmar(id, page) {
     Swal.fire({
-        title: '¿Quiueres eliminar esta persona con el id: ' + id + '?',
+        title: '¿Quiueres eliminar el id: ' + id + '?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'confirmar',
@@ -39,6 +39,8 @@ function confirmar(id, page) {
                     window.location.href = "../../components/equipos/delete.php/?id=" + id
                 }else if(page === 'tablets'){
                     window.location.href = "../../components/tablets/delete.php/?id=" + id
+                }else if(page === 'impresoras'){
+                    window.location.href = "../../components/impresoras/delete.php/?id=" + id
                 }else{
                     alert('<-- Error -->')
                 }

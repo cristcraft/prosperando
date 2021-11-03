@@ -51,19 +51,8 @@ if(!isset($_SESSION['user_logeado'])){
                     <li class="nav-item">
                     <a class="nav-link" href="../../components/router.php?page=tablets">Tablets</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../components/router.php?page=impresoras">Impresoras</a>
                     </li>
                 </ul>
                 <div class="d-flex">
@@ -134,10 +123,10 @@ if(!isset($_SESSION['user_logeado'])){
                             while($row = $result ->fetch_assoc()){ 
                     ?>
                     <tr id="tr<?php echo $row['id']  ?>">
-                        <td class="d-flex flex-column justify-content-around">
-                            <a href="./edid.php/?id=<?php echo $row['id']?>" class="btn btn-info" title="editar"><i class="fas fa-edit"></i></a>
-                            <a  onclick="confirmar('<?php echo $row['id']?>', 'equipos')" class="btn btn-danger" title="eliminar"><i class="fas fa-trash"></i></a>
-                            <a  onclick="select(<?php echo $row['id'] ?>)" class="btn btn-warning" title="seleccionar"><i class="fas fa-arrow-right"></i></a>
+                        <td class="d-flex flex-column justify-content-beetwen">
+                            <a href="./edid.php/?id=<?php echo $row['id']?>" class="btn btn-info m-2" title="editar"><i class="fas fa-edit"></i></a>
+                            <a  onclick="confirmar('<?php echo $row['id']?>', 'equipos')" class="btn btn-danger m-2" title="eliminar"><i class="fas fa-trash"></i></a>
+                            <a  onclick="select(<?php echo $row['id'] ?>)" class="btn btn-warning m-2" title="seleccionar"><i class="fas fa-arrow-right"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
                         <td><?php echo $row['sucursal'] ?></td>

@@ -494,6 +494,45 @@
                 echo "ERROR";
             }
         }
+    }elseif ($table === 'areas_impresoras') {
+        /* si este en 0 significa que esta vacio y se redireccionara al render de la tabla correspondiente 
+        en donde se efectuara alguna accion del crud y se rellenara el link*/
+        if($accion === '0'){
+            echo '<script> window.location.href = "../areas_impresoras.php"</script>';
+        }else if($accion === 'add'){
+            $addAreas_impresoras = $_GET['area'];
+            $addSql = "INSERT INTO areas_impresoras (area) VALUES ('$addAreas_impresoras')";
+            if ($connection->query($addSql) === TRUE) {
+                echo '<script>window.location.href = "../areas_impresoras.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+
+        }else if($accion === 'edit'){
+            $new = $_GET['area'];
+            $old = $_GET['old'];
+            $id = $_GET['id'];
+            $editSql = "UPDATE areas_impresoras SET area = '$new' WHERE id = '$id'";
+
+            if ($connection->query($editSql) === TRUE) {
+                //actualizar los campos en todas las tablas
+                $updateEquiposSql = "UPDATE impresoras SET area='$new' WHERE area='$old'";
+                mysqli_query($connection,$updateEquiposSql);
+                echo '<script>window.location.href = "../areas_impresoras.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+
+        }else if($accion === 'delete'){
+            $deleteSql = $_GET['id'];
+            $deleteSql = "DELETE FROM areas_impresoras WHERE id = '$deleteSql'";
+
+            if ($connection->query($deleteSql) === TRUE) {
+                echo '<script>window.location.href = "../areas_impresoras.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+        }
     }else{
         echo 'Tabla no encontrada verifique que todo este bien';
     } 	

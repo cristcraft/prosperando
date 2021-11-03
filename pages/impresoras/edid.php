@@ -18,7 +18,7 @@ if(!isset($_SESSION['user_logeado'])){
     require_once("../../tables/tables.php");
 
     $id = $_GET['id'];
-    $sql = "SELECT * FROM tablets WHERE id='$id'";
+    $sql = "SELECT * FROM impresoras WHERE id='$id'";
     $result = $connection->query($sql);
     
 ?>
@@ -52,10 +52,10 @@ if(!isset($_SESSION['user_logeado'])){
                         <a class="nav-link" href="../../components/router.php?page=equipos">Equipos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../../components/router.php?page=tablets">Tablets</a>
+                    <a class="nav-link" href="../../components/router.php?page=tablets">Tablets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../components/router.php?page=impresoras">Impresoras</a>
+                    <a class="nav-link active" aria-current="page" href="../../components/router.php?page=impresoras">Impresoras</a>
                     </li>
                 </ul>
                 <div class="d-flex">
@@ -68,7 +68,7 @@ if(!isset($_SESSION['user_logeado'])){
     </nav>
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
-        <form action="../../../components/tablets/edidForm.php" method="POST" id="form_edit_tablets" class="form" >
+        <form action="../../../components/impresoras/edidForm.php" method="POST" id="form_edit_impresoras" class="form" >
             <?php while($row = $result -> fetch_assoc()){ ?>
                 <input id="id" name="id" value="<?php echo $row['id'] ?>" hidden >
 
@@ -95,7 +95,7 @@ if(!isset($_SESSION['user_logeado'])){
                     <label for="area" class="form-label">Area</label>
                     <select name="area" id="area" class="form-select">
                     <?php
-                        while($row2 = $areas_tabletsResult -> fetch_assoc()){
+                        while($row2 = $areas_impresorasResult -> fetch_assoc()){
                             if($row['area'] === $row2['area']){
                                 $select = 'selected';
                             }else{
@@ -110,17 +110,17 @@ if(!isset($_SESSION['user_logeado'])){
                 </div>
 
                 <div class="mb-3">
-                    <label for="marcas" class="form-label">Marca</label>
-                    <select name="marcas" id="marcas" class="form-control">
+                    <label for="tipo_impresoras" class="form-label">Tipo impresora</label>
+                    <select name="tipo_impresoras" id="tipo_impresoras" class="form-control">
                         <?php
-                            while($row2 =$marcas_tabletsResult -> fetch_assoc()){
-                                if($row['marca'] === $row2['marcas']){
+                            while($row2 =$tipo_impresorasResult -> fetch_assoc()){
+                                if($row['tipo'] === $row2['impresora']){
                                     $select = 'selected';
                                 }else{
                                     $select = '';
                                 }
                         ?>
-                            <option value="<?php echo $row2['marcas'] ?>" <?php echo $select ?>><?php echo $row2['marcas'] ?></option>
+                            <option value="<?php echo $row2['impresora'] ?>" <?php echo $select ?>><?php echo $row2['impresora'] ?></option>
                         <?php
                             }
                         ?>
@@ -128,17 +128,17 @@ if(!isset($_SESSION['user_logeado'])){
                 </div>
 
                 <div class="mb-3">
-                    <label for="procesadores_tablets" class="form-label">Procesador</label>
-                    <select name="procesadores_tablets" id="procesadores_tablets" class="form-control">
+                    <label for="marcas_impresoras" class="form-label">Marca</label>
+                    <select name="marcas_impresoras" id="marcas_impresoras" class="form-control">
                         <?php
-                            while($row2 =$procesadores_tabletsResult -> fetch_assoc()){
-                                if($row['procesador'] === $row2['procesador']){
+                            while($row2 =$marcas_impresorasResult -> fetch_assoc()){
+                                if($row['marca_impresoras'] === $row2['marca_impresoras']){
                                     $select = 'selected';
                                 }else{
                                     $select = '';
                                 }
                         ?>
-                            <option value="<?php echo $row2['procesador'] ?>" <?php echo $select ?>><?php echo $row2['procesador'] ?></option>
+                            <option value="<?php echo $row2['marca'] ?>" <?php echo $select ?>><?php echo $row2['marca'] ?></option>
                         <?php
                             }
                         ?>
@@ -146,64 +146,26 @@ if(!isset($_SESSION['user_logeado'])){
                 </div>
 
                 <div class="mb-3">
-                    <label for="resolucion_tablets" class="form-label">Resolucion</label>
-                    <select name="resolucion_tablets" id="resolucion_tablets" class="form-control">
+                    <label for="tipo_papel" class="form-label">Tipo papel</label>
+                    <select name="tipo_papel" id="tipo_papel" class="form-control">
                         <?php
-                            while($row2 =$resolucion_tabletsResult -> fetch_assoc()){
-                                if($row['resolucion'] === $row2['resolucion']){
+                            while($row2 =$tipo_papelResult -> fetch_assoc()){
+                                if($row['tipo_papel'] === $row2['tipo_papel']){
                                     $select = 'selected';
                                 }else{
                                     $select = '';
                                 }
                         ?>
-                            <option value="<?php echo $row2['resolucion'] ?>" <?php echo $select ?>><?php echo $row2['resolucion'] ?></option>
+                            <option value="<?php echo $row2['tipo_papel'] ?>" <?php echo $select ?>><?php echo $row2['tipo_papel'] ?></option>
                         <?php
                             }
                         ?>
                         </select>
                 </div>
-
-                <div class="mb-3">
-                    <label for="os_version" class="form-label">Version de android</label>
-                    <select name="os_version" id="os_version" class="form-control">
-                        <?php
-                            while($row2 =$os_versionResult -> fetch_assoc()){
-                                if($row['os'] === $row2['os']){
-                                    $select = 'selected';
-                                }else{
-                                    $select = '';
-                                }
-                        ?>
-                            <option value="<?php echo $row2['os'] ?>" <?php echo $select ?>><?php echo $row2['os'] ?></option>
-                        <?php
-                            }
-                        ?>
-                        </select>
-                </div>
-            
-                <div class="mb-3">
-                    <label for="funcionario_responsable" class="form-label">funcionario Responsable</label>
-                    <input type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control" value="<?php echo $row['funcionario_responsable'] ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label for="novedades" class="form-label">Novedades</label>
-                    <input type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control" value="<?php echo $row['novedades'] ?>">
-                </div>
-
+                            
                 <div class="mb-3">
                     <label for="modelo" class="form-label">Modelo</label>
                     <input type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control" value="<?php echo $row['modelo'] ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label for="nucleos" class="form-label">nucleos</label>
-                    <input type="number" name="nucleos" id="nucleos" placeholder="nucleos" class="form-control" value="<?php echo $row['nucleos'] ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label for="ram" class="form-label">Ram</label>
-                    <input type="text" name="ram" id="ram" placeholder="ram" class="form-control" value="<?php echo $row['ram'] ?>">
                 </div>
 
                 <div class="mb-3">
@@ -212,35 +174,30 @@ if(!isset($_SESSION['user_logeado'])){
                 </div>
 
                 <div class="mb-3">
-                    <label for="imei" class="form-label">Imei</label>
-                    <input type="number" name="imei" id="imei" placeholder="Imei" class="form-control" value="<?php echo $row['imei'] ?>">
+                    <label for="ip" class="form-label">Ip</label>
+                    <input type="text" name="ip" id="ip" placeholder="Ip" class="form-control" value="<?php echo $row['ip'] ?>">
                 </div>
 
                 <div class="mb-3">
-                    <label for="bateria" class="form-label">Bateria</label>
-                    <input type="number" name="bateria" id="bateria" placeholder="Bateria" class="form-control" value="<?php echo $row['bateria'] ?>">
+                    <label for="mac" class="form-label">MAC</label>
+                    <input type="text" name="mac" id="mac" placeholder="mac" class="form-control" value="<?php echo $row['mac'] ?>">
                 </div>
 
                 <div class="mb-3">
-                    <label for="rom" class="form-label">Rom</label>
-                    <input type="text" name="rom" id="rom" placeholder="Rom" class="form-control" value="<?php echo $row['rom'] ?>">
+                    <label for="nombre_host" class="form-label">Nombre host</label>
+                    <input type="text" name="nombre_host" id="nombre_host" placeholder="nombre_host" class="form-control" value="<?php echo $row['nombre_host'] ?>">
                 </div>
 
                 <div class="mb-3">
-                    <label for="camara_frontal" class="form-label">Camara frontal</label>
-                    <input type="text" name="camara_frontal" id="camara_frontal" placeholder="Camara frontal" class="form-control" value="<?php echo $row['camara_frontal'] ?>">
-                </div>
-
-                <div class="mb-3">
-                    <label for="camara_trasera" class="form-label">Camara trasera</label>
-                    <input type="text" name="camara_trasera" id="camara_trasera" placeholder="Camara trasera" class="form-control" value="<?php echo $row['camara_trasera'] ?>">
+                    <label for="novedades" class="form-label">Novedades</label>
+                    <input type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control" value="<?php echo $row['novedades'] ?>">
                 </div>
 
             <?php } ?>
 
             <div class="mb-3 d-flex justify-content-around align-items-center">
                 <button class="btn btn-primary text-white" type="submit" onclick="change()">Guardar</button>
-                <a href="../../../pages/tablets/tablets.php" class="btn btn-secondary">Cancelar</a>
+                <a href="../../../pages/impresoras/impresoras.php" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>
