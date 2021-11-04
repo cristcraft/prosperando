@@ -33,6 +33,10 @@ body{
 }
 /*Card bienvenida*/
 
+.contenedor-cards{
+    min-height: 90vh;
+    align-items: center;
+}
 
 .card{
     transition: .3s ease-in-out;

@@ -87,5 +87,6 @@
     $tipo_papel = "SELECT *FROM tipo_papel";
     $tipo_papelResult = $connection->query($tipo_papel);
     //===============================================
+
 ?>
 

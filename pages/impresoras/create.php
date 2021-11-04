@@ -84,7 +84,7 @@ if(!isset($_SESSION['user_logeado'])){
             </div>
 
             <div class="mb-3">
-                <label for="tipo_impresoras" class="form-label">Tipo de impresora <a href="../../components/addElements/addElements.php/?table=procesadores_impresoras&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
+                <label for="tipo_impresoras" class="form-label">Tipo de impresora <a href="../../components/addElements/addElements.php/?table=tipo_impresoras&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
                 <select name="tipo_impresoras" id="tipo_impresoras" class="form-control">
                     <?php while($row = $tipo_impresorasResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['impresora'] ?>"><?php echo $row['impresora'] ?></option>

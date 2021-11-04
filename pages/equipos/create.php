@@ -84,12 +84,28 @@ if(!isset($_SESSION['user_logeado'])){
             </div>
 
             <div class="mb-3">
+                <label for="funcionario_responsable" class="form-label">funcionario Responsable</label>
+                <input type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control">
+            </div>
+
+            
+            <div class="mb-3">
+                <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
+                <input type="text" name="nombre_equipo" id="nombre_equipo" placeholder="nombre del quipo" class="form-control">
+            </div>
+
+            <div class="mb-3">
                 <label for="lugar_trabajo" class="form-label">Lugar de trabajo</label>
                 <select name="lugar_trabajo" id="lugar_trabajo" class="form-select">
                     <?php while($row = $lugarTrabajoResult -> fetch_assoc()){ ?>
                         <option value="<?php echo $row['lugar_de_trabajo'] ?>"><?php echo $row['lugar_de_trabajo'] ?></option>
                     <?php } ?>
                 </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="novedades" class="form-label">Novedades</label>
+                <input type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -111,57 +127,6 @@ if(!isset($_SESSION['user_logeado'])){
             </div>
 
             <div class="mb-3">
-                <label for="procesador" class="form-label">Procesador  <a href="../../components/addElements/addElements.php/?table=procesadores&accion=0"><i class="fas fa-plus-circle"></i></a></label>
-                <select name="procesador" id="procesador" class="form-select">
-                    <?php while($row = $procesadoresResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['procesador'] ?>"><?php echo $row['procesador'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="tipo_memoria" class="form-label">Tipo de RAM <a href="../../components/addElements/addElements.php/?table=tipo_memorias&accion=0"><i class="fas fa-plus-circle"></i></a></label>
-                <select name="tipo_memoria" id="tipo_memoria" class="form-select">
-                    <?php while($row = $tipoMemoriasResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['tipo_memoria'] ?>"><?php echo $row['tipo_memoria'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="marca_disco_duro" class="form-label">Marca del disco duro <a href="../../components/addElements/addElements.php/?table=marcas_disco_duro&accion=0"><i class="fas fa-plus-circle"></i></a></label>
-                <select name="marca_disco_duro" id="marca_disco_duro" class="form-select">
-                    <?php while($row = $marcasDiscoResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['marca_disco_duro'] ?>"><?php echo $row['marca_disco_duro'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-            
-            <div class="mb-3">
-                <label for="tipo_disco" class="form-label">Tipo de disco duro <a href="../../components/addElements/addElements.php/?table=tipos_disco&accion=0"><i class="fas fa-plus-circle"></i></a></label>
-                <select name="tipo_disco" id="tipo_disco" class="form-select">
-                    <?php while($row = $tiposDiscoResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['tipo_disco'] ?>"><?php echo $row['tipo_disco'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="funcionario_responsable" class="form-label">funcionario Responsable</label>
-                <input type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
-                <input type="text" name="nombre_equipo" id="nombre_equipo" placeholder="nombre del quipo" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="novedades" class="form-label">Novedades</label>
-                <input type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control">
-            </div>
-
-            <div class="mb-3">
                 <label for="modelo" class="form-label">Modelo</label>
                 <input type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control">
             </div>
@@ -172,8 +137,17 @@ if(!isset($_SESSION['user_logeado'])){
             </div>
 
             <div class="mb-3">
-                <label for="fecha_fabricacion" class="form-label">Serial</label>
+                <label for="fecha_fabricacion" class="form-label">Fecha</label>
                 <input type="date" name="fecha_fabricacion" id="fecha_fabricacion" placeholder="fecha_fabricacion" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="procesador" class="form-label">Procesador  <a href="../../components/addElements/addElements.php/?table=procesadores&accion=0"><i class="fas fa-plus-circle"></i></a></label>
+                <select name="procesador" id="procesador" class="form-select">
+                    <?php while($row = $procesadoresResult -> fetch_assoc()){ ?>
+                        <option value="<?php echo $row['procesador'] ?>"><?php echo $row['procesador'] ?></option>
+                    <?php } ?>
+                </select>
             </div>
 
             <div class="mb-3">
@@ -197,6 +171,15 @@ if(!isset($_SESSION['user_logeado'])){
             </div>
 
             <div class="mb-3">
+                <label for="tipo_memoria" class="form-label">Tipo de RAM <a href="../../components/addElements/addElements.php/?table=tipo_memorias&accion=0"><i class="fas fa-plus-circle"></i></a></label>
+                <select name="tipo_memoria" id="tipo_memoria" class="form-select">
+                    <?php while($row = $tipoMemoriasResult -> fetch_assoc()){ ?>
+                        <option value="<?php echo $row['tipo_memoria'] ?>"><?php echo $row['tipo_memoria'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+
+            <div class="mb-3">
                 <label for="adaptador_multimedia" class="form-label">Adaptador multimedia</label>
                 <input type="text" name="adaptador_multimedia" id="adaptador_multimedia" placeholder="adaptador multimedia" class="form-control">
             </div>
@@ -207,8 +190,26 @@ if(!isset($_SESSION['user_logeado'])){
             </div>
 
             <div class="mb-3">
+                <label for="marca_disco_duro" class="form-label">Marca del disco duro <a href="../../components/addElements/addElements.php/?table=marcas_disco_duro&accion=0"><i class="fas fa-plus-circle"></i></a></label>
+                <select name="marca_disco_duro" id="marca_disco_duro" class="form-select">
+                    <?php while($row = $marcasDiscoResult -> fetch_assoc()){ ?>
+                        <option value="<?php echo $row['marca_disco_duro'] ?>"><?php echo $row['marca_disco_duro'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+
+            <div class="mb-3">
                 <label for="capacidad_disco" class="form-label">Capacidad del disco</label>
                 <input type="text" name="capacidad_disco" id="capacidad_disco" placeholder="capacidad del disco" class="form-control">
+            </div>
+            
+            <div class="mb-3">
+                <label for="tipo_disco" class="form-label">Tipo de disco duro <a href="../../components/addElements/addElements.php/?table=tipos_disco&accion=0"><i class="fas fa-plus-circle"></i></a></label>
+                <select name="tipo_disco" id="tipo_disco" class="form-select">
+                    <?php while($row = $tiposDiscoResult -> fetch_assoc()){ ?>
+                        <option value="<?php echo $row['tipo_disco'] ?>"><?php echo $row['tipo_disco'] ?></option>
+                    <?php } ?>
+                </select>
             </div>
 
             <div class="mb-3">
@@ -250,7 +251,7 @@ if(!isset($_SESSION['user_logeado'])){
                 <label for="serial_monitor" class="form-label">Serial monitor</label>
                 <input type="text" name="serial_monitor" id="serial_monitor" placeholder="Serial monitor" class="form-control">
             </div>
-
+            
             <div class="mb-3">
                 <label for="modelo_monitor" class="form-label">Modelo monitor</label>
                 <input type="text" name="modelo_monitor" id="modelo_monitor" placeholder="Modelo monitor" class="form-control">
@@ -284,6 +285,11 @@ if(!isset($_SESSION['user_logeado'])){
             <div class="mb-3">
                 <label for="carga_electrica" class="form-label">Carga electrica</label>
                 <input type="text" name="carga_electrica" id="carga_electrica" placeholder="Carga electrica" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="cargador" class="form-label">Cargador</label>
+                <input type="text" name="cargador" id="cargador" placeholder="cargador" class="form-control">
             </div>
 
             <div class="mb-3">

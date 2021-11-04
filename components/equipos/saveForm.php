@@ -43,6 +43,7 @@ require_once("../../tables/tables.php");
         $pass_core = $_POST['pass_core'];
         $bateria = $_POST['bateria'];
         $carga_electrica = $_POST['carga_electrica'];
+        $cargador = $_POST['cargador'];
         $voltaje = $_POST['voltaje'];
         $salida_plug =$_POST['salida_plug'];
         $os = $_POST['os'];
@@ -89,6 +90,7 @@ require_once("../../tables/tables.php");
             pass_core,
             bateria,
             carga_electrica,
+            cargador,
             voltaje,
             salida_plug,
             os,
@@ -133,6 +135,7 @@ require_once("../../tables/tables.php");
             '$pass_core',
             '$bateria',
             '$carga_electrica',
+            '$cargador',
             '$voltaje',
             '$salida_plug',
             '$os',

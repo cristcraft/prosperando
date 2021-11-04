@@ -533,6 +533,123 @@
                 echo "ERROR";
             }
         }
+    }elseif ($table === 'tipo_impresoras') {
+        /* si este en 0 significa que esta vacio y se redireccionara al render de la tabla correspondiente 
+        en donde se efectuara alguna accion del crud y se rellenara el link*/
+        if($accion === '0'){
+            echo '<script> window.location.href = "../tipo_impresoras.php"</script>';
+        }else if($accion === 'add'){
+            $addTipo_impresoras = $_GET['tipo'];
+            $addSql = "INSERT INTO tipo_impresoras (impresora) VALUES ('$addTipo_impresoras')";
+            if ($connection->query($addSql) === TRUE) {
+                echo '<script>window.location.href = "../tipo_impresoras.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+
+        }else if($accion === 'edit'){
+            $new = $_GET['tipo'];
+            $old = $_GET['old'];
+            $id = $_GET['id'];
+            $editSql = "UPDATE tipo_impresoras SET impresora = '$new' WHERE id = '$id'";
+
+            if ($connection->query($editSql) === TRUE) {
+                //actualizar los campos en todas las tablas
+                $updateEquiposSql = "UPDATE impresoras SET tipo='$new' WHERE tipo='$old'";
+                mysqli_query($connection,$updateEquiposSql);
+                echo '<script>window.location.href = "../tipo_impresoras.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+
+        }else if($accion === 'delete'){
+            $deleteSql = $_GET['id'];
+            $deleteSql = "DELETE FROM tipo_impresoras WHERE id = '$deleteSql'";
+
+            if ($connection->query($deleteSql) === TRUE) {
+                echo '<script>window.location.href = "../tipo_impresoras.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+        }
+    }elseif ($table === 'marcas_impresoras') {
+        /* si este en 0 significa que esta vacio y se redireccionara al render de la tabla correspondiente 
+        en donde se efectuara alguna accion del crud y se rellenara el link*/
+        if($accion === '0'){
+            echo '<script> window.location.href = "../marcas_impresoras.php"</script>';
+        }else if($accion === 'add'){
+            $addMarcas_impresoras = $_GET['marca'];
+            $addSql = "INSERT INTO marcas_impresoras (marca) VALUES ('$addMarcas_impresoras')";
+            if ($connection->query($addSql) === TRUE) {
+                echo '<script>window.location.href = "../marcas_impresoras.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+
+        }else if($accion === 'edit'){
+            $new = $_GET['marca'];
+            $old = $_GET['old'];
+            $id = $_GET['id'];
+            $editSql = "UPDATE marcas_impresoras SET marca = '$new' WHERE id = '$id'";
+
+            if ($connection->query($editSql) === TRUE) {
+                //actualizar los campos en todas las tablas
+                $updateEquiposSql = "UPDATE impresoras SET marca='$new' WHERE marca='$old'";
+                mysqli_query($connection,$updateEquiposSql);
+                echo '<script>window.location.href = "../marcas_impresoras.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+
+        }else if($accion === 'delete'){
+            $deleteSql = $_GET['id'];
+            $deleteSql = "DELETE FROM marcas_impresoras WHERE id = '$deleteSql'";
+
+            if ($connection->query($deleteSql) === TRUE) {
+                echo '<script>window.location.href = "../marcas_impresoras.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+        }
+    }elseif ($table === 'tipo_papel') {
+        /* si este en 0 significa que esta vacio y se redireccionara al render de la tabla correspondiente 
+        en donde se efectuara alguna accion del crud y se rellenara el link*/
+        if($accion === '0'){
+            echo '<script> window.location.href = "../tipo_papel.php"</script>';
+        }else if($accion === 'add'){
+            $addTipo_papel = $_GET['tipo_papel'];
+            $addSql = "INSERT INTO tipo_papel (tipo_papel) VALUES ('$addTipo_papel')";
+            if ($connection->query($addSql) === TRUE) {
+                echo '<script>window.location.href = "../tipo_papel.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+
+        }else if($accion === 'edit'){
+            $new = $_GET['tipo_papel'];
+            $old = $_GET['old'];
+            $id = $_GET['id'];
+            $editSql = "UPDATE tipo_papel SET tipo_papel = '$new' WHERE id = '$id'";
+
+            if ($connection->query($editSql) === TRUE) {
+                //actualizar los campos en todas las tablas
+                $updateEquiposSql = "UPDATE impresoras SET tipo_papel='$new' WHERE tipo_papel='$old'";
+                mysqli_query($connection,$updateEquiposSql);
+                echo '<script>window.location.href = "../tipo_papel.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+
+        }else if($accion === 'delete'){
+            $deleteSql = $_GET['id'];
+            $deleteSql = "DELETE FROM tipo_papel WHERE id = '$deleteSql'";
+
+            if ($connection->query($deleteSql) === TRUE) {
+                echo '<script>window.location.href = "../tipo_papel.php"</script>';
+            }else {
+                echo "ERROR";
+            }
+        }
     }else{
         echo 'Tabla no encontrada verifique que todo este bien';
     } 	

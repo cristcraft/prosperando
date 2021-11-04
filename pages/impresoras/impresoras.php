@@ -104,7 +104,7 @@ if(!isset($_SESSION['user_logeado'])){
                         <td><?php echo $row['mac']?></td>
                         <td><?php echo $row['nombre_host']?></td>
                         <td><?php echo $row['novedades']?></td>
-                        <td><?php echo $row['tipo_papel']?></td>
+                        <td class="long"><?php echo $row['tipo_papel']?></td>
                         
                     </tr>
                     <?php }} ?>

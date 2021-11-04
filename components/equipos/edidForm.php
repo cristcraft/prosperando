@@ -44,6 +44,7 @@
         $pass_core = $_POST['pass_core'];
         $bateria = $_POST['bateria'];
         $carga_electrica = $_POST['carga_electrica'];
+        $cargador = $_POST['cargador'];
         $voltaje = $_POST['voltaje'];$_POST['salida_plug'];
         $salida_plug =$_POST['salida_plug'];
         $os = $_POST['os'];
@@ -88,6 +89,7 @@
             pass_core = '$pass_core',
             bateria = '$bateria',
             carga_electrica = '$carga_electrica',
+            cargador = '$cargador',
             voltaje = '$voltaje',
             salida_plug = '$salida_plug',
             os = '$os',

@@ -110,6 +110,7 @@ if(!isset($_SESSION['user_logeado'])){
                         <th scope="col">Pass core</th>
                         <th scope="col">Bateria</th>
                         <th scope="col">Carga electrica</th>
+                        <th scope="col">Cargador</th>
                         <th scope="col">Voltaje</th>
                         <th scope="col">Salida plug</th>
                         <th scope="col">Sistema operativo</th>
@@ -166,6 +167,7 @@ if(!isset($_SESSION['user_logeado'])){
                         <td><?php echo $row['pass_core']?></td>
                         <td><?php echo $row['bateria']?></td>
                         <td><?php echo $row['carga_electrica']?> mAh</td>
+                        <td><?php echo $row['cargador']?> </td>
                         <td><?php echo $row['voltaje']?></td>
                         <td><?php echo $row['salida_plug']?></td>
                         <td><?php echo $row['os']?></td>

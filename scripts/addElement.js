@@ -284,7 +284,7 @@ function deleteOs_tablets(id, name){
 //===============================================================================
 
 //===================== AREAS IMPRESORAS ====================================
-function AddAreas_impresoras(){
+function addAreas_impresoras(){
     let area = prompt('Escribe el area deseas agregar: ')
     if(area){
         window.location.href = `../addElements/addElements.php/?table=areas_impresoras&accion=add&area=${area}`
@@ -292,7 +292,7 @@ function AddAreas_impresoras(){
 }
 
 function editAreas_impresoras(id,old){
-    let area = prompt('Escribe la version de android que deseas editar: ')
+    let area = prompt('Escribe el area que deseas editar: ')
     if(area !== null){
         window.location.href = `../addElements/addElements.php/?table=areas_impresoras&accion=edit&area=${area}&id=${id}&old=${old}`
     }
@@ -302,6 +302,78 @@ function deleteAreas_impresoras(id, name){
     let confirm1 = confirm(`¿Seguro quieres eliminar el area ${name}?`)
     if(confirm1){
         window.location.href = `../addElements/addElements.php/?table=areas_impresoras&accion=delete&id=${id}`
+    }
+}
+
+//===============================================================================
+
+//===================== AREAS IMPRESORAS ====================================
+function addTipo_impresoras(){
+    let impresora = prompt('Escribe el tipo de impresora deseas agregar: ')
+    if(impresora){
+        window.location.href = `../addElements/addElements.php/?table=tipo_impresoras&accion=add&tipo=${impresora}`
+    }
+}
+
+function editTipo_impresoras(id,old){
+    let impresora = prompt('Escribe la impresora que deseas editar: ')
+    if(impresora !== null){
+        window.location.href = `../addElements/addElements.php/?table=tipo_impresoras&accion=edit&tipo=${impresora}&id=${id}&old=${old}`
+    }
+}
+
+function deleteTipo_impresoras(id, name){
+    let confirm1 = confirm(`¿Seguro quieres eliminar la impresora ${name}?`)
+    if(confirm1){
+        window.location.href = `../addElements/addElements.php/?table=tipo_impresoras&accion=delete&id=${id}`
+    }
+}
+
+//===============================================================================
+
+//===================== MARCAS IMPRESORAS ==================================================
+function addMarcas_impresoras(){
+    let marca = prompt('Escribe el nombre de la marca que deseas agregar: ')
+    if(marca){
+        window.location.href = `../addElements/addElements.php/?table=marcas_impresoras&accion=add&marca=${marca}`
+    }
+}
+
+function editMarcas_impresoras(id, old){
+    let marca = prompt('Escribe el nombre de la marca que deseas editar: ')
+    if(marca !== null){
+        window.location.href = `../addElements/addElements.php/?table=marcas_impresoras&accion=edit&marca=${marca}&id=${id}&old=${old}`
+    }
+}
+
+function deleteMarcas_impresoras(id, name){
+    let confirm1 = confirm(`¿Seguro quieres eliminar ${name}?`)
+    if(confirm1){
+        window.location.href = `../addElements/addElements.php/?table=marcas_impresoras&accion=delete&id=${id}`
+    }
+}
+
+//===============================================================================
+
+//===================== TIPO MEMORIAS ============================================
+function addTipo_papel(){
+    let tipo_papel = prompt('Escribe el tipo de papel que deseas agregar: ')
+    if(tipo_papel){
+        window.location.href = `../addElements/addElements.php/?table=tipo_papel&accion=add&tipo_papel=${tipo_papel}`
+    }
+}
+
+function editTipo_papel(id,old){
+    let tipo_papel = prompt('Escribe el tipo de papel que deseas editar: ')
+    if(tipo_papel !== null){
+        window.location.href = `../addElements/addElements.php/?table=tipo_papel&accion=edit&tipo_papel=${tipo_papel}&id=${id}&old=${old}`
+    }
+}
+
+function deleteTipo_papel(id, name){
+    let confirm1 = confirm(`¿Seguro quieres eliminar ${name}?`)
+    if(confirm1){
+        window.location.href = `../addElements/addElements.php/?table=tipo_papel&accion=delete&id=${id}`
     }
 }
 

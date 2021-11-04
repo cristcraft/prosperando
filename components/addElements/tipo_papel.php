@@ -27,13 +27,13 @@ if(!isset($_SESSION['user_logeado'])){
     
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../../styles/styles.css">
-    <title>Areas Impresoras</title>
+    <title>Tipo Papel</title>
 </head>
 
 <body id="body">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Areas Impresoras</a>
+            <a class="navbar-brand" href="#">Tipo Papel</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -65,7 +65,7 @@ if(!isset($_SESSION['user_logeado'])){
 
     <div class="container-fluid d-flex flex-column align-items-center mt-3">
 
-        <a onclick="addAreas_impresoras()" class="btn btn-outline-primary p-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
+        <a onclick="addTipo_papel()" class="btn btn-outline-primary p-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
     
         <div class="tabla">
             <table id="equipos" class="table text-center mt-4">
@@ -73,21 +73,21 @@ if(!isset($_SESSION['user_logeado'])){
                     <tr class="bg-primary text-white">
                         <th>Acciones</th>
                         <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
+                        <th scope="col">Tipo memoria</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
-                        if($areas_impresorasResult ->num_rows>0){
-                            while($row = $areas_impresorasResult ->fetch_assoc()){ 
+                        if($tiposDiscoResult ->num_rows>0){
+                            while($row = $tipo_papelResult ->fetch_assoc()){ 
                     ?>
                     <tr>
                         <td>
-                            <a onclick="editAreas_impresoras(<?php echo $row['id']?>, '<?php echo $row['area'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                            <a  onclick="deleteAreas_impresoras('<?php echo $row['id']?>', '<?php echo $row['area'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            <a onclick="editTipo_papel(<?php echo $row['id']?>, '<?php echo $row['tipo_papel'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                            <a  onclick="deleteTipo_papel('<?php echo $row['id']?>', '<?php echo $row['tipo_papel'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
-                        <td><?php echo $row['area'] ?></td>
+                        <td><?php echo $row['tipo_papel'] ?></td>
                     </tr>
                     <?php }} ?>
                 </tbody>

@@ -17,6 +17,10 @@ td{
     min-width: 100px !important;
 }
 
+.long{
+    min-width: 200px !important;
+}
+
 tr{
     border-bottom: 3px solid black;
     vertical-align: middle;
