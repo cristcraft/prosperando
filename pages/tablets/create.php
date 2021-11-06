@@ -121,57 +121,57 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="funcionario_responsable" class="form-label">funcionario Responsable</label>
-                <input type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control">
+                <input required type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="novedades" class="form-label">Novedades</label>
-                <input type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control">
+                <input required type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="modelo" class="form-label">Modelo</label>
-                <input type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control">
+                <input required type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="nucleos" class="form-label">Nucleos</label>
-                <input type="number" name="nucleos" id="nucleos" placeholder="nucleos" class="form-control">
+                <input required type="number" name="nucleos" id="nucleos" placeholder="nucleos" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="ram" class="form-label">Ram</label>
-                <input type="number" name="ram" id="ram" placeholder="Ram" class="form-control">
+                <input required type="number" name="ram" id="ram" placeholder="Ram" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="serial" class="form-label">Serial</label>
-                <input type="text" name="serial" id="serial" placeholder="Serial" class="form-control">
+                <input required type="text" name="serial" id="serial" placeholder="Serial" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="imei" class="form-label">Imei</label>
-                <input type="text" name="imei" id="imei" placeholder="imei" class="form-control">
+                <input required type="text" name="imei" id="imei" placeholder="imei" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="bateria" class="form-label">Bateria</label>
-                <input type="number" name="bateria" id="bateria" placeholder="Bateria" class="form-control">
+                <input required type="number" name="bateria" id="bateria" placeholder="Bateria" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="rom" class="form-label">Rom</label>
-                <input type="number" name="rom" id="rom" placeholder="Rom" class="form-control">
+                <input required type="number" name="rom" id="rom" placeholder="Rom" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="camara_frontal" class="form-label">Camara frontal</label>
-                <input type="text" name="camara_frontal" id="camara_frontal" placeholder="camara frontal" class="form-control">
+                <input required type="text" name="camara_frontal" id="camara_frontal" placeholder="camara frontal" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="camara_trasera" class="form-label">Camara trasera</label>
-                <input type="text" name="camara_trasera" id="camara_trasera" placeholder="camara trasera" class="form-control">
+                <input required type="text" name="camara_trasera" id="camara_trasera" placeholder="camara trasera" class="form-control">
             </div>
 
 

@@ -112,12 +112,12 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="modelo" class="form-label">modelo</label>
-                <input type="text" name="modelo" id="modelo" placeholder="modelo" class="form-control">
+                <input required type="text" name="modelo" id="modelo" placeholder="modelo" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="serial" class="form-label">Serial</label>
-                <input type="text" name="serial" id="serial" placeholder="serial" class="form-control">
+                <input required type="text" name="serial" id="serial" placeholder="serial" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -132,7 +132,7 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="nombre_host" class="form-label">Nombre host</label>
-                <input type="text" name="nombre_host" id="nombre_host" placeholder="nombre_host" class="form-control">
+                <input required type="text" name="nombre_host" id="nombre_host" placeholder="nombre_host" class="form-control">
             </div>
 
             <div class="mb-3">

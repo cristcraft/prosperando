@@ -70,7 +70,7 @@ if(!isset($_SESSION['user_logeado'])){
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
         <form action="../../../components/tablets/edidForm.php" method="POST" id="form_edit_tablets" class="form" >
             <?php while($row = $result -> fetch_assoc()){ ?>
-                <input id="id" name="id" value="<?php echo $row['id'] ?>" hidden >
+                <input required id="id" name="id" value="<?php echo $row['id'] ?>" hidden >
 
                 <div class="mb-3">
                     <label for="sucursal" class="form-label">Sucursal</label>
@@ -183,57 +183,57 @@ if(!isset($_SESSION['user_logeado'])){
             
                 <div class="mb-3">
                     <label for="funcionario_responsable" class="form-label">funcionario Responsable</label>
-                    <input type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control" value="<?php echo $row['funcionario_responsable'] ?>">
+                    <input required type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control" value="<?php echo $row['funcionario_responsable'] ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="novedades" class="form-label">Novedades</label>
-                    <input type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control" value="<?php echo $row['novedades'] ?>">
+                    <input required type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control" value="<?php echo $row['novedades'] ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="modelo" class="form-label">Modelo</label>
-                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control" value="<?php echo $row['modelo'] ?>">
+                    <input required type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control" value="<?php echo $row['modelo'] ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="nucleos" class="form-label">nucleos</label>
-                    <input type="number" name="nucleos" id="nucleos" placeholder="nucleos" class="form-control" value="<?php echo $row['nucleos'] ?>">
+                    <input required type="number" name="nucleos" id="nucleos" placeholder="nucleos" class="form-control" value="<?php echo $row['nucleos'] ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="ram" class="form-label">Ram</label>
-                    <input type="text" name="ram" id="ram" placeholder="ram" class="form-control" value="<?php echo $row['ram'] ?>">
+                    <input required type="text" name="ram" id="ram" placeholder="ram" class="form-control" value="<?php echo $row['ram'] ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="serial" class="form-label">Serial</label>
-                    <input type="text" name="serial" id="serial" placeholder="Serial" class="form-control" value="<?php echo $row['serial'] ?>">
+                    <input required type="text" name="serial" id="serial" placeholder="Serial" class="form-control" value="<?php echo $row['serial'] ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="imei" class="form-label">Imei</label>
-                    <input type="number" name="imei" id="imei" placeholder="Imei" class="form-control" value="<?php echo $row['imei'] ?>">
+                    <input required type="number" name="imei" id="imei" placeholder="Imei" class="form-control" value="<?php echo $row['imei'] ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="bateria" class="form-label">Bateria</label>
-                    <input type="number" name="bateria" id="bateria" placeholder="Bateria" class="form-control" value="<?php echo $row['bateria'] ?>">
+                    <input required type="number" name="bateria" id="bateria" placeholder="Bateria" class="form-control" value="<?php echo $row['bateria'] ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="rom" class="form-label">Rom</label>
-                    <input type="text" name="rom" id="rom" placeholder="Rom" class="form-control" value="<?php echo $row['rom'] ?>">
+                    <input required type="text" name="rom" id="rom" placeholder="Rom" class="form-control" value="<?php echo $row['rom'] ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="camara_frontal" class="form-label">Camara frontal</label>
-                    <input type="text" name="camara_frontal" id="camara_frontal" placeholder="Camara frontal" class="form-control" value="<?php echo $row['camara_frontal'] ?>">
+                    <input required type="text" name="camara_frontal" id="camara_frontal" placeholder="Camara frontal" class="form-control" value="<?php echo $row['camara_frontal'] ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="camara_trasera" class="form-label">Camara trasera</label>
-                    <input type="text" name="camara_trasera" id="camara_trasera" placeholder="Camara trasera" class="form-control" value="<?php echo $row['camara_trasera'] ?>">
+                    <input required type="text" name="camara_trasera" id="camara_trasera" placeholder="Camara trasera" class="form-control" value="<?php echo $row['camara_trasera'] ?>">
                 </div>
 
             <?php } ?>

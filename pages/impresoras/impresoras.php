@@ -114,6 +114,7 @@ if(!isset($_SESSION['user_logeado'])){
 
         <a href="./create.php" class="btn btn-outline-primary p-3 m-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
         
+        <a href="./exportarTablaImpresoras.php" class="btn btn-outline-info">Descargar</a>
     </div>
     
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

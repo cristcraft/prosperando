@@ -85,13 +85,13 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="funcionario_responsable" class="form-label">funcionario Responsable</label>
-                <input type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control">
+                <input required type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control">
             </div>
 
             
             <div class="mb-3">
                 <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
-                <input type="text" name="nombre_equipo" id="nombre_equipo" placeholder="nombre del quipo" class="form-control">
+                <input required type="text" name="nombre_equipo" id="nombre_equipo" placeholder="nombre del quipo" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -128,17 +128,17 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="modelo" class="form-label">Modelo</label>
-                <input type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control">
+                <input required type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="serial" class="form-label">Serial</label>
-                <input type="text" name="serial" id="serial" placeholder="Serial" class="form-control">
+                <input required type="text" name="serial" id="serial" placeholder="Serial" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="fecha_fabricacion" class="form-label">Fecha</label>
-                <input type="date" name="fecha_fabricacion" id="fecha_fabricacion" placeholder="fecha_fabricacion" class="form-control">
+                <input  type="date" name="fecha_fabricacion" id="fecha_fabricacion" placeholder="fecha_fabricacion" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -152,22 +152,22 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="generacion_procesador" class="form-label">Generacion del procesador</label>
-                <input type="text" name="generacion_procesador" id="generacion_procesador" placeholder="generacion del procesador" class="form-control">
+                <input required type="text" name="generacion_procesador" id="generacion_procesador" placeholder="generacion del procesador" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="nucleos" class="form-label">nucleos</label>
-                <input type="number" name="nucleos" id="nucleos" placeholder="nucleos" class="form-control">
+                <input required type="number" name="nucleos" id="nucleos" placeholder="nucleos" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="velocidad_mz" class="form-label">velocidad en mz</label>
-                <input type="number" name="velocidad_mz" id="velocidad_mz" placeholder="velocidad en mz" class="form-control">
+                <input required type="number" name="velocidad_mz" id="velocidad_mz" placeholder="velocidad en mz" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="ram_gb" class="form-label">RAM en GB</label>
-                <input type="number" name="ram_gb" id="ram_gb" placeholder="ram en gb" class="form-control">
+                <input required type="number" name="ram_gb" id="ram_gb" placeholder="ram en gb" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -181,12 +181,12 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="adaptador_multimedia" class="form-label">Adaptador multimedia</label>
-                <input type="text" name="adaptador_multimedia" id="adaptador_multimedia" placeholder="adaptador multimedia" class="form-control">
+                <input required type="text" name="adaptador_multimedia" id="adaptador_multimedia" placeholder="adaptador multimedia" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="adaptador_video" class="form-label">Adaptador video</label>
-                <input type="text" name="adaptador_video" id="adaptador_video" placeholder="adaptador video" class="form-control">
+                <input required type="text" name="adaptador_video" id="adaptador_video" placeholder="adaptador video" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -200,7 +200,7 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="capacidad_disco" class="form-label">Capacidad del disco</label>
-                <input type="text" name="capacidad_disco" id="capacidad_disco" placeholder="capacidad del disco" class="form-control">
+                <input required type="text" name="capacidad_disco" id="capacidad_disco" placeholder="capacidad del disco" class="form-control">
             </div>
             
             <div class="mb-3">
@@ -214,107 +214,107 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="red_ethernet" class="form-label">Red ethernet</label>
-                <input type="text" name="red_ethernet" id="red_ethernet" placeholder="red ethernet" class="form-control">
+                <input required type="text" name="red_ethernet" id="red_ethernet" placeholder="red ethernet" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="ip" class="form-label">IP</label>
-                <input type="text" name="ip" id="ip" placeholder="ip" class="form-control">
+                <input  type="text" name="ip" id="ip" placeholder="ip" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="mac_ethernet" class="form-label">MAC ethernet</label>
-                <input type="text" name="mac_ethernet" id="mac_ethernet" placeholder="mac_ethernet" class="form-control">
+                <input required type="text" name="mac_ethernet" id="mac_ethernet" placeholder="mac_ethernet" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="red_wifi" class="form-label">Red wifi</label>
-                <input type="text" name="red_wifi" id="red_wifi" placeholder="red wifi" class="form-control">
+                <input required type="text" name="red_wifi" id="red_wifi" placeholder="red wifi" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="mac" class="form-label">MAC</label>
-                <input type="text" name="mac" id="mac" placeholder="mac" class="form-control">
+                <input required type="text" name="mac" id="mac" placeholder="mac" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="marca_monitor" class="form-label">Marca del monitor</label>
-                <input type="text" name="marca_monitor" id="marca_monitor" placeholder="Marca del monitor" class="form-control">
+                <input required type="text" name="marca_monitor" id="marca_monitor" placeholder="Marca del monitor" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="tipo_monitor" class="form-label">Tipo monitor</label>
-                <input type="text" name="tipo_monitor" id="tipo_monitor" placeholder="Tipo monitor" class="form-control">
+                <input required type="text" name="tipo_monitor" id="tipo_monitor" placeholder="Tipo monitor" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="serial_monitor" class="form-label">Serial monitor</label>
-                <input type="text" name="serial_monitor" id="serial_monitor" placeholder="Serial monitor" class="form-control">
+                <input required type="text" name="serial_monitor" id="serial_monitor" placeholder="Serial monitor" class="form-control">
             </div>
             
             <div class="mb-3">
                 <label for="modelo_monitor" class="form-label">Modelo monitor</label>
-                <input type="text" name="modelo_monitor" id="modelo_monitor" placeholder="Modelo monitor" class="form-control">
+                <input required type="text" name="modelo_monitor" id="modelo_monitor" placeholder="Modelo monitor" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="pulgadas" class="form-label">Pulgadas monitor</label>
-                <input type="text" name="pulgadas" id="pulgadas" placeholder="Pulgadas monitor" class="form-control">
+                <input required type="text" name="pulgadas" id="pulgadas" placeholder="Pulgadas monitor" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="cables_poder" class="form-label">Cables de poder</label>
-                <input type="number" name="cables_poder" id="cables_poder" placeholder="Cables de poder" class="form-control">
+                <input required type="number" name="cables_poder" id="cables_poder" placeholder="Cables de poder" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="vga" class="form-label">vga</label>
-                <input type="number" name="vga" id="vga" placeholder="vga" class="form-control">
+                <input required type="number" name="vga" id="vga" placeholder="vga" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="pass_core" class="form-label">Pass core</label>
-                <input type="number" name="pass_core" id="pass_core" placeholder="Pass core" class="form-control">
+                <input required type="number" name="pass_core" id="pass_core" placeholder="Pass core" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="bateria" class="form-label">Bateria</label>
-                <input type="text" name="bateria" id="bateria" placeholder="Bateria" class="form-control">
+                <input required type="text" name="bateria" id="bateria" placeholder="Bateria" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="carga_electrica" class="form-label">Carga electrica</label>
-                <input type="text" name="carga_electrica" id="carga_electrica" placeholder="Carga electrica" class="form-control">
+                <input required type="text" name="carga_electrica" id="carga_electrica" placeholder="Carga electrica" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="cargador" class="form-label">Cargador</label>
-                <input type="text" name="cargador" id="cargador" placeholder="cargador" class="form-control">
+                <input required type="text" name="cargador" id="cargador" placeholder="cargador" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="voltaje" class="form-label">Voltaje</label>
-                <input type="text" name="voltaje" id="voltaje" placeholder="Voltaje" class="form-control">
+                <input required type="text" name="voltaje" id="voltaje" placeholder="Voltaje" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="salida_plug" class="form-label">Salida plug</label>
-                <input type="text" name="salida_plug" id="salida_plug" placeholder="Salida plug" class="form-control">
+                <input required type="text" name="salida_plug" id="salida_plug" placeholder="Salida plug" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="os" class="form-label">Sistema operativo</label>
-                <input type="text" name="os" id="os" placeholder="Sistema operativo" class="form-control">
+                <input required type="text" name="os" id="os" placeholder="Sistema operativo" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="bit" class="form-label">Bit</label>
-                <input type="text" name="bit" id="bit" placeholder="Bit" class="form-control">
+                <input required type="text" name="bit" id="bit" placeholder="Bit" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="licencia" class="form-label">Licencia</label>
-                <input type="text" name="licencia" id="licencia" placeholder="Licencia" class="form-control">
+                <input required type="text" name="licencia" id="licencia" placeholder="Licencia" class="form-control">
             </div>
 
             <div class="mb-3 d-flex justify-content-around align-items-center">
