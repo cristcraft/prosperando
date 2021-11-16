@@ -65,6 +65,11 @@ if(!isset($_SESSION['user_logeado'])){
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
         <form action="../../components/equipos/saveForm.php" method="POST" id="form_create_equipos" class="form" >
 
+        <div class="mb-3">
+                    <label for="codigo_administrativo" class="form-label">Codigo administrativo</label>
+                    <input required type="text" id="codigo_administrativo" name="codigo_administrativo" class="form-control" require>
+                </div>
+
             <div class="mb-3">
                 <label for="sucursal" class="form-label">Sucursal  <a href="../../components/addElements/addElements.php/?table=sucursales&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
                 <select name="sucursal" id="sucursal" class="form-select">

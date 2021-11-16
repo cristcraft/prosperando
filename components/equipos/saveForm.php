@@ -5,7 +5,8 @@ require_once("../../connection/connection.php");
 require_once("../../tables/tables.php");
 
     $editFormAction = $_SERVER['PHP_SELF'];
-    
+
+        $codigo_administrativo = $_POST['codigo_administrativo'];
         $sucursal = $_POST['sucursal'];
         $area = $_POST['area'];
         $funcionario_responsable = $_POST['funcionario_responsable'];
@@ -53,6 +54,7 @@ require_once("../../tables/tables.php");
 
         $insertsql="INSERT INTO 
         equipos(
+            codigo_administrativo,
             sucursal,
             area,
             funcionario_responsable,
@@ -98,6 +100,7 @@ require_once("../../tables/tables.php");
             licencia
             ) 
         VALUES( 
+            '$codigo_administrativo',
             '$sucursal',
             '$area',
             '$funcionario_responsable',
@@ -142,8 +145,26 @@ require_once("../../tables/tables.php");
             '$bit',
             '$licencia'
             )";
-        mysqli_query($connection,$insertsql);
 
-        echo '<script>window.location.href = "../../pages/equipos/equipos.php"</script>';
+        if ($connection->query($insertsql) === TRUE) {
+            echo '<script>window.location.href = "../../pages/equipos/equipos.php"</script>';
+        }else {
+            /*Verificar si el codigo que se ha introducido ya existe en la tabal equipos */
+            $codigoRepetido = "SELECT * FROM equipos WHERE codigo_administrativo = '$codigo_administrativo' ";
+            $result = $connection->query($codigoRepetido);
+
+            /*Si hay algun equipo con el codigo que se puso la condicion se cumplira porque el codigo ya existe */
+            if($result ->num_rows>0){
+                echo '
+                <script>
+                    alert("El codigo introducido ya existe")
+                    localStorage.setItem("change", "error")
+                    window.location.href = "../../pages/equipos/equipos.php"
+                </script>
+            ';
+            }else{
+                echo "ERROR";
+            };
+        }
         
 ?>

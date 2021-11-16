@@ -18,7 +18,7 @@ if(!isset($_SESSION['user_logeado'])){
     require_once("../../tables/tables.php");
 
     $id = $_GET['id'];
-    $sql = "SELECT * FROM equipos WHERE id='$id'";
+    $sql = "SELECT * FROM equipos WHERE codigo_administrativo='$id'";
     $result = $connection->query($sql);
     
 ?>
@@ -70,8 +70,13 @@ if(!isset($_SESSION['user_logeado'])){
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
         <form action="../../../components/equipos/edidForm.php" method="POST" id="form_edit_equipos" class="form" >
             <?php while($row = $result -> fetch_assoc()){ ?>
-                <input required id="id" name="id" value="<?php echo $row['id'] ?>" hidden >
+                <input required type="text" id="viejoCodigo_administrativo" name="viejoCodigo_administrativo" value="<?php echo $row['codigo_administrativo'] ?>" hidden>
 
+                <div class="mb-3">
+                    <label for="nuevoCodigo_administrativo" class="form-label">Codigo administrativo</label>
+                    <input required type="text" id="nuevoCodigo_administrativo" name="nuevoCodigo_administrativo" value="<?php echo $row['codigo_administrativo'] ?>" class="form-control">
+                </div>
+                
                 <div class="mb-3">
                     <label for="sucursal" class="form-label">Sucursal</label>
                     <select name="sucursal" id="sucursal" class="form-select">

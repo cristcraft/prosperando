@@ -88,5 +88,10 @@
     $tipo_papelResult = $connection->query($tipo_papel);
     //===============================================
 
+    //========== TIPO PAPEL IMPRESORAS =======================
+    $switches = "SELECT *FROM switches";
+    $switchesResult = $connection->query($switches);
+    //===============================================
+
 ?>
 

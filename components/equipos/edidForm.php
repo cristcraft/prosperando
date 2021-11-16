@@ -6,7 +6,8 @@
     
     $editFormAction = $_SERVER['PHP_SELF'];
 
-        $id = $_POST['id'];
+        $nuevoCodigo_administrativo = $_POST['nuevoCodigo_administrativo'];
+        $viejoCodigo_administrativo = $_POST['viejoCodigo_administrativo'];
         $sucursal = $_POST['sucursal'];
         $area = $_POST['area'];
         $funcionario_responsable = $_POST['funcionario_responsable'];
@@ -52,6 +53,7 @@
         $licencia = $_POST['licencia'];
 
         $updateSql="UPDATE equipos SET
+            codigo_administrativo = '$nuevoCodigo_administrativo',
             sucursal = '$sucursal',
             area = '$area',
             funcionario_responsable = '$funcionario_responsable',
@@ -96,13 +98,28 @@
             bit = '$bit',
             licencia = '$licencia'
 
-            WHERE id = '$id'";
+            WHERE codigo_administrativo = '$viejoCodigo_administrativo'";
         mysqli_query($connection,$updateSql);
-        echo $id;
+
         if ($connection->query($updateSql) === TRUE) {
             echo '<script>window.location.href = "../../pages/equipos/equipos.php"</script>';
         }else {
-            echo "ERROR";
+            /*Verificar si el codigo que se ha introducido ya existe en la tabal equipos */
+            $codigoRepetido = "SELECT * FROM equipos WHERE codigo_administrativo = '$viejoCodigo_administrativo' ";
+            $result = $connection->query($codigoRepetido);
+
+            /*Si hay algun equipo con el codigo que se puso la condicion se cumplira porque el codigo ya existe */
+            if($result ->num_rows>0){
+                echo '
+                <script>
+                    alert("El codigo introducido ya existe")
+                    localStorage.setItem("change", "error")
+                    window.location.href = "../../pages/equipos/equipos.php"
+                </script>
+            ';
+            }else{
+                echo "ERROR";
+            };
         }
 
 ?>

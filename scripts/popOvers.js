@@ -20,13 +20,22 @@ function sync() {
             showConfirmButton: false,
             timer: 2000
         })
+    }else if(changeState === 'error'){
+        localStorage.setItem('change', false)
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'No se realizaron cambios',
+            showConfirmButton: false,
+            timer: 2000
+        })
     }
 }
 
 //confirma la eliminacion
 function confirmar(id, page) {
     Swal.fire({
-        title: '¿Quiueres eliminar el id: ' + id + '?',
+        title: '¿Quiueres eliminar el Codigo: ' + id + '?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'confirmar',
@@ -36,11 +45,13 @@ function confirmar(id, page) {
             Swal.fire('Eliminado Exitosamente!', '', 'success')
             setTimeout(() => {
                 if(page === 'equipos'){
-                    window.location.href = "../../components/equipos/delete.php/?id=" + id
+                    window.location.href = "../../components/equipos/delete.php/?codigo_administrativo=" + id
                 }else if(page === 'tablets'){
                     window.location.href = "../../components/tablets/delete.php/?id=" + id
                 }else if(page === 'impresoras'){
                     window.location.href = "../../components/impresoras/delete.php/?id=" + id
+                }else if(page === 'switches'){
+                    window.location.href = "../../components/switches/delete.php/?id=" + id
                 }else{
                     alert('<-- Error -->')
                 }
