@@ -17,7 +17,7 @@ if(!isset($_SESSION['user_logeado'])){
 
     header("Pragma: public");
     header("Expires: 0");
-    $filename = "Tablets.xls";
+    $filename = "Switches.xls";
     header("Content-type: application / vnd.ms-excel");
     header("Content-Disposition: attachment; filename=$filename");
     header("Pragma: no-cache");
@@ -41,49 +41,27 @@ if(!isset($_SESSION['user_logeado'])){
                 <thead>
                     <tr class="bg-primary text-white">
                         <th scope="col">ID</th>
-                        <th scope="col">Sucursal</th>
-                        <th scope="col">Area</th>
-                        <th scope="col">Funcionario Responsable</th>
-                        <th scope="col">Novedades</th>
                         <th scope="col">Marca</th>
                         <th scope="col">Modelo</th>
-                        <th scope="col">Procesador</th>
-                        <th scope="col">Nucleos</th>
-                        <th scope="col">RAM en GB</th>
-                        <th scope="col">Resolucion</th>
                         <th scope="col">Serial</th>
-                        <th scope="col">Imei</th>
-                        <th scope="col">Bateria</th>
-                        <th scope="col">Rom</th>
-                        <th scope="col">Camara frontal</th>
-                        <th scope="col">Camara trasera</th>
-                        <th scope="col">OS</th>
+                        <th scope="col">Mac</th>
+                        <th scope="col">Ip asignada</th>
+                        <th scope="col">Manual</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
-                        if($tabletssResult ->num_rows>0){
-                            while($row = $tabletssResult ->fetch_assoc()){ 
+                        if($switchesResult ->num_rows>0){
+                            while($row = $switchesResult ->fetch_assoc()){ 
                     ?>
                     <tr id="tr<?php echo $row['id']?>">
                         <td><?php echo $row['id']  ?></td>
-                        <td><?php echo $row['sucursal'] ?></td>
-                        <td><?php echo $row['area'] ?></td>
-                        <td><?php echo $row['funcionario_responsable']?></td>
-                        <td><?php echo $row['novedades']?></td>
-                        <td><?php echo $row['marca'];  ?></td>
-                        <td><?php echo $row["modelo"]  ?></td>
-                        <td><?php echo $row['procesador']?></td>
-                        <td><?php echo $row['nucleos']?></td>
-                        <td><?php echo $row['ram']?></td>
-                        <td><?php echo $row['resolucion']?></td>
+                        <td><?php echo $row['marca'] ?></td>
+                        <td><?php echo $row['modelo'] ?></td>
                         <td><?php echo $row['serial']?></td>
-                        <td><?php echo $row['imei']?></td>
-                        <td><?php echo $row['bateria']?></td>
-                        <td><?php echo $row['rom']?></td>
-                        <td><?php echo $row['camara_frontal']?></td>
-                        <td><?php echo $row['camara_trasera']?></td>
-                        <td><?php echo $row['os']?></td>
+                        <td><?php echo $row['mac']?></td>
+                        <td><?php echo $row['ip']  ?></td>
+                        <td><?php echo $row["manual"] ?></td>
                         
                     </tr>
                     <?php }} ?>

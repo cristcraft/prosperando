@@ -18,7 +18,8 @@ if(!isset($_SESSION['user_logeado'])){
     require_once("../../tables/tables.php");
 
     $id = $_GET['id'];
-    
+    $sql = "SELECT * FROM switches WHERE id='$id'";
+    $result = $connection->query($sql);
 ?>
 
 <!doctype html>
@@ -67,7 +68,7 @@ if(!isset($_SESSION['user_logeado'])){
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
         <form action="../../../components/switches/edidForm.php" method="POST" id="form_edit_switches" class="form" >
-            <?php while($row = $switchesResult -> fetch_assoc()){ ?>
+            <?php while($row = $result -> fetch_assoc()){ ?>
                 <input required id="id" name="id" value="<?php echo $row['id'] ?>" hidden >
             
                 <div class="mb-3">
