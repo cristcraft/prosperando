@@ -52,6 +52,12 @@ if(!isset($_SESSION['user_logeado'])){
                     <li class="nav-item">
                         <a class="nav-link" href="../../components/router.php?page=impresoras">Impresoras</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../components/router.php?page=switches">Switches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../components/router.php?page=servidores">Servidores</a>
+                    </li>
                 </ul>
                 <div class="d-flex">
                     <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"  title="Modo oscuro"><i class="fas fa-sun"></i></button>
@@ -177,7 +183,7 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3 d-flex justify-content-around align-items-center">
                 <button class="btn btn-primary text-white" type="submit" onclick="change()">Guardar</button>
-                <a href="../../pages/equipos.php" class="btn btn-secondary">Cancelar</a>
+                <a href="../../pages/tablets/tablets.php" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>

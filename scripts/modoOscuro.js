@@ -12,6 +12,9 @@ let txtPag = document.querySelector('#equipos_info')
 let buscador = document.querySelector('#equipos_filter')
 //formulario creacion/edicion
 let form = document.querySelector('.form')
+//botones de la pagina mantenimiento
+let buttons = document.querySelectorAll('.mantenimiento')
+
 
 
 
@@ -40,6 +43,9 @@ function onModoOscuro(){
 
     //pag Create
     pagCreate()
+
+    //
+    pageMantenimietno()
     
 }
 
@@ -117,6 +123,8 @@ function pagCreate(){
 }
 
 
+
+
 function addTxtBlanco(){
     /*agrega la clse text-white para que el texto se de color blanco*/
     body.classList.add('text-white')
@@ -133,7 +141,18 @@ function removeTxtBlanco(){
     }
 }
 
-
-function pickColor(min,max){
-    return Math.round(Math.random() * (max - min) + min)
+function pageMantenimietno(){
+    if(body.classList.contains('bg-dark')){
+        addTxtBlanco()
+        buttons.forEach(button => {
+            button.classList.remove('btn-outline-dark')
+            button.classList.add('btn-outline-light')
+        });
+    }else{
+        removeTxtBlanco()
+        buttons.forEach(button => {
+            button.classList.add('btn-outline-dark')
+            button.classList.remove('btn-outline-light')
+        });
+    }
 }

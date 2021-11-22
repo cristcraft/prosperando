@@ -47,10 +47,16 @@ if(!isset($_SESSION['user_logeado'])){
                         <a class="nav-link" href="../../components/router.php?page=equipos">Equipos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../../components/router.php?page=tablets">Tablets</a>
+                    <a class="nav-link" href="../../components/router.php?page=tablets">Tablets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../components/router.php?page=impresoras">Impresoras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  active" aria-current="page" href="../../components/router.php?page=switches">Switches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../components/router.php?page=servidores">Servidores</a>
                     </li>
                 </ul>
                 <div class="d-flex">
@@ -98,7 +104,7 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3 d-flex justify-content-around align-items-center">
                 <button class="btn btn-primary text-white" type="submit" onclick="change()">Guardar</button>
-                <a href="../../pages/switches.php" class="btn btn-secondary">Cancelar</a>
+                <a href="./switches.php" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>

@@ -45,10 +45,16 @@ if(!isset($_SESSION['user_logeado'])){
                         <a class="nav-link" href="../../components/router.php?page=equipos">Equipos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../../components/router.php?page=tablets">Tablets</a>
+                    <a class="nav-link" href="../../components/router.php?page=tablets">Tablets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../components/router.php?page=impresoras">Impresoras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../components/router.php?page=switches">Switches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../components/router.php?page=servidores">Servidores</a>
                     </li>
                 </ul>
                 <div class="d-flex">

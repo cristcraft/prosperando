@@ -50,13 +50,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="../components/router.php?page=equipos">Equipos</a>
+                        <a class="nav-link" href="./equipos/equipos.php">Equipos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="../components/router.php?page=tablets">Tablets</a>
+                    <a class="nav-link" href="./tablets/tablets.php">Tablets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../components/router.php?page=impresoras">Impresoras</a>
+                        <a class="nav-link" href="./impresoras/impresoras.php">Impresoras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./switches/switches.php">Switches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./servidores/servidores.php">Servidores</a>
                     </li>
                 </ul>
                 <div class="d-flex">

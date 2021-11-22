@@ -45,7 +45,7 @@ if(!isset($_SESSION['user_logeado'])){
                         <a class="nav-link" href="../../components/router.php?page=equipos">Equipos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../../components/router.php?page=tablets">Tablets</a>
+                    <a class="nav-link" href="../../components/router.php?page=tablets">Tablets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../components/router.php?page=impresoras">Impresoras</a>
@@ -54,7 +54,7 @@ if(!isset($_SESSION['user_logeado'])){
                         <a class="nav-link" href="../../components/router.php?page=switches">Switches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../components/router.php?page=servidores">Servidores</a>
+                        <a class="nav-link active" aria-current="page" href="../../components/router.php?page=servidores">Servidores</a>
                     </li>
                 </ul>
                 <div class="d-flex">
@@ -67,7 +67,7 @@ if(!isset($_SESSION['user_logeado'])){
     </nav>
 
     <div class="container-fluid d-flex flex-column align-items-center mt-3">
-        <h1>Tablets</h1>
+        <h1>Servidores</h1>
 
         <div class="tabla">
             <table id="equipos" class="table text-center mt-4">
@@ -75,55 +75,103 @@ if(!isset($_SESSION['user_logeado'])){
                     <tr class="bg-primary text-white">
                         <th scope="col">Acciones</th>
                         <th scope="col">ID</th>
-                        <th scope="col">Sucursal</th>
-                        <th scope="col">Area</th>
-                        <th scope="col">Funcionario Responsable</th>
-                        <th scope="col">Novedades</th>
+                        <th scope="col">Serial</th>
                         <th scope="col">Marca</th>
                         <th scope="col">Modelo</th>
+                        <th scope="col">fecha</th>
+                        <th scope="col">nombre_equipo</th>
                         <th scope="col">Procesador</th>
+                        <th scope="col">generacion</th>
                         <th scope="col">Nucleos</th>
-                        <th scope="col">RAM en GB</th>
-                        <th scope="col">Resolucion</th>
-                        <th scope="col">Serial</th>
-                        <th scope="col">Imei</th>
-                        <th scope="col">Bateria</th>
-                        <th scope="col">Rom</th>
-                        <th scope="col">Camara frontal</th>
-                        <th scope="col">Camara trasera</th>
-                        <th scope="col">OS</th>
+                        <th scope="col">velocidad_mz</th>
+                        <th scope="col">ram</th>
+                        <th scope="col">tipo_memoria</th>
+                        <th scope="col">adaptador_multimedia</th>
+                        <th scope="col">adaptador_video</th>
+                        <th scope="col">red_ethernet</th>
+                        <th scope="col">mac</th>
+                        <th scope="col">ip</th>
+                        <th scope="col">red_ethernet1</th>
+                        <th scope="col">mac1</th>
+                        <th scope="col">ip1</th>
+                        <th scope="col">so</th>
+                        <th scope="col">licencia</th>
+                        <th scope="col">total_discos</th>
+                        <?php
+                        for ($i=1; $i <= 16; $i++) { 
+                            echo "
+                            <th scope='col'>Marca $i</th>
+                            <th scope='col'>capacidad $i</th>";
+                        }
+                        ?>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
-                        if($tabletssResult ->num_rows>0){
-                            while($row = $tabletssResult ->fetch_assoc()){ 
+                        if($servidoresResult ->num_rows>0){
+                            while($row = $servidoresResult ->fetch_assoc()){ 
                     ?>
                     <tr id="tr<?php echo $row['id']?>">
                     <td class="d-flex flex-column justify-content-around">
                             <a href="./edid.php/?id=<?php echo $row['id']?>" class="btn btn-info m-2"  title="editar"><i class="fas fa-edit"></i></a>
-                            <a  onclick="confirmar('<?php echo $row['id']?>', 'tablets')" class="btn btn-danger m-2"  title="eliminar"><i class="fas fa-trash"></i></a>
+                            <a  onclick="confirmar('<?php echo $row['id']?>', 'servidores')" class="btn btn-danger m-2"  title="eliminar"><i class="fas fa-trash"></i></a>
                             <a  onclick="select('<?php echo $row['id']?>')" class="btn btn-warning m-2"  title="seleccionar"><i class="fas fa-arrow-right"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
-                        <td><?php echo $row['sucursal'] ?></td>
-                        <td><?php echo $row['area'] ?></td>
-                        <td><?php echo $row['funcionario_responsable']?></td>
-                        <td><?php echo $row['novedades']?></td>
-                        <td><?php echo $row['marca'];  ?></td>
-                        <td><?php echo $row["modelo"]  ?></td>
-                        <td><?php echo $row['procesador']?></td>
+                        <td><?php echo $row['serial'] ?></td>
+                        <td><?php echo $row['marca'] ?></td>
+                        <td><?php echo $row['modelo']?></td>
+                        <td><?php echo $row['fecha']?></td>
+                        <td><?php echo $row['nombre_equipo'];  ?></td>
+                        <td><?php echo $row["procesador"]  ?></td>
+                        <td><?php echo $row['generacion']?></td>
                         <td><?php echo $row['nucleos']?></td>
+                        <td><?php echo $row['velocidad_mz']?></td>
                         <td><?php echo $row['ram']?></td>
-                        <td><?php echo $row['resolucion']?></td>
-                        <td><?php echo $row['serial']?></td>
-                        <td><?php echo $row['imei']?></td>
-                        <td><?php echo $row['bateria']?></td>
-                        <td><?php echo $row['rom']?></td>
-                        <td><?php echo $row['camara_frontal']?></td>
-                        <td><?php echo $row['camara_trasera']?></td>
-                        <td><?php echo $row['os']?></td>
-                        
+                        <td><?php echo $row['tipo_memoria']?></td>
+                        <td><?php echo $row['adaptador_multimedia']?></td>
+                        <td><?php echo $row['adaptador_video']?></td>
+                        <td><?php echo $row['red_ethernet']?></td>
+                        <td><?php echo $row['mac']?></td>
+                        <td><?php echo $row['ip']?></td>
+                        <td><?php echo $row['red_ethernet1']?></td>
+                        <td><?php echo $row['mac1']?></td>
+                        <td><?php echo $row['ip1']?></td>
+                        <td><?php echo $row['so']?></td>    
+                        <td><?php echo $row['licencia']?></td>
+                        <td><?php echo $row['total_discos']?></td>
+                        <td><?php echo $row['marca1'] ?></td>
+                        <td><?php echo $row['capacidad1']?></td>
+                        <td><?php echo $row['marca2'] ?></td>
+                        <td><?php echo $row['capacidad2']?></td>
+                        <td><?php echo $row['marca3'] ?></td>
+                        <td><?php echo $row['capacidad3']?></td>
+                        <td><?php echo $row['marca4'] ?></td>
+                        <td><?php echo $row['capacidad4']?></td>
+                        <td><?php echo $row['marca5'] ?></td>
+                        <td><?php echo $row['capacidad5']?></td>
+                        <td><?php echo $row['marca6'] ?></td>
+                        <td><?php echo $row['capacidad6']?></td>
+                        <td><?php echo $row['marca7'] ?></td>
+                        <td><?php echo $row['capacidad7']?></td>
+                        <td><?php echo $row['marca8'] ?></td>
+                        <td><?php echo $row['capacidad8']?></td>
+                        <td><?php echo $row['marca9'] ?></td>
+                        <td><?php echo $row['capacidad9']?></td>
+                        <td><?php echo $row['marca10'] ?></td>
+                        <td><?php echo $row['capacidad10']?></td>
+                        <td><?php echo $row['marca11'] ?></td>
+                        <td><?php echo $row['capacidad11']?></td>
+                        <td><?php echo $row['marca12'] ?></td>
+                        <td><?php echo $row['capacidad12']?></td>
+                        <td><?php echo $row['marca13'] ?></td>
+                        <td><?php echo $row['capacidad13']?></td>
+                        <td><?php echo $row['marca14'] ?></td>
+                        <td><?php echo $row['capacidad14']?></td>
+                        <td><?php echo $row['marca15'] ?></td>
+                        <td><?php echo $row['capacidad15']?></td>
+                        <td><?php echo $row['marca16'] ?></td>
+                        <td><?php echo $row['capacidad16']?></td>
                     </tr>
                     <?php }} ?>
                 </tbody>
@@ -132,7 +180,7 @@ if(!isset($_SESSION['user_logeado'])){
 
         <a href="./create.php" class="btn btn-outline-primary p-3 m-3">Crear un registro nuevo <i class='fas fa-plus' ></i></a>
         
-        <a href="./exportarTablaTablets.php" class="btn btn-outline-info">Descargar</a>
+        <a href="./exportarTablaServidores.php" class="btn btn-outline-info">Descargar</a>
     </div>
     
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

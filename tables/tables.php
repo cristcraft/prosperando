@@ -1,5 +1,5 @@
 <?php 
-    require_once("../../connection/connection.php");
+    require_once("../connection/connection.php");
 
     //=========tabla principal de equipos =================
     $equipos = "SELECT * FROM equipos";
@@ -88,10 +88,25 @@
     $tipo_papelResult = $connection->query($tipo_papel);
     //===============================================
 
-    //========== TIPO PAPEL IMPRESORAS =======================
+    //========== SWITCHES =======================
     $switches = "SELECT *FROM switches";
     $switchesResult = $connection->query($switches);
     //===============================================
+
+    //========== SERVIDORES  =======================
+    $servidores = "SELECT *FROM servidores";
+    $servidoresResult = $connection->query($servidores);
+    //===============================================
+
+     //========== Mantenimientos  =======================
+    $mantenimientos = "SELECT *FROM mantenimientos";
+    $mantenimientosResult = $connection->query($mantenimientos);
+     //===============================================
+
+     //========== Mantenimientos preventivos  =======================
+    $mantenimientoPreventivo = "SELECT * FROM mantenimientos WHERE tipo_mantenimiento = 'preventivo'";
+    $mantenimientoPreventivoResult = $connection->query($mantenimientoPreventivo);
+     //===============================================
 
 ?>
 

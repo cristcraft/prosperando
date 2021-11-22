@@ -3,6 +3,16 @@
     include "../connection/connection.php";
     $user = $_POST['user'];
     $password = $_POST['password'];
+
+    // $opciones = [
+    //     'cost' => 12,
+    // ];
+
+    // $hash = password_hash($password,PASSWORD_BCRYPT, $opciones);
+    // $secretPassword_verify($password, $hash);
+    // echo $has;
+
+
     $validar_login = mysqli_query($connection, "SELECT * FROM users WHERE user='$user' AND password='$password'");
     $row = $validar_login ->fetch_assoc();
     if($user === $row['user']){
