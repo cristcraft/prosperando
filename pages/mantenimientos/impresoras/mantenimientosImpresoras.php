@@ -86,7 +86,7 @@
         <div class="form-buttons">
             <form action="../../../components/mantenimientos/equipos/saveForm.php" method="post" id="form-mante" class="form"> 
                 <div >
-                    <h1 class="m-3 p-3">Mantenimiento de los equipos</h1>
+                    <h1 class="m-3 p-3">Mantenimiento de las impresoras</h1>
                 </div>
 
                 <div class="mb-3">

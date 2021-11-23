@@ -14,7 +14,7 @@
 .onlyButtons{
     display: flex;
     width: 10%;
-    height: 200px;
+    height: 300px;
 }
 .buttonsFixed{
     position: fixed;

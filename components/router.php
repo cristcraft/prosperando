@@ -40,6 +40,18 @@ switch ($page) {
         echo "<script>window.location.href = '../pages/$page/$page.php'</script>";
         break;
 
+    case 'equiposMante':
+        echo "<script>window.location.href = '../pages/mantenimientos/equipos/mantenimientosEquipos.php'</script>";
+        break;
+
+    case 'impresorasMante':
+        echo "<script>window.location.href = '../pages/mantenimientos/impresoras/mantenimientosImpresoras.php'</script>";
+        break;
+
+    case 'servidoresMante':
+        echo "<script>window.location.href = '../pages/mantenimientos/servidores/mantenimientosServidores.php'</script>";
+        break;
+
     case 'logout':
         echo "<script>window.location.href = './$page.php'</script>";
         break;

@@ -1,3 +1,4 @@
+let ambos = document.querySelector('#mantenimientoAmbos')
 let correctivo = document.querySelector('#mantenimientoCorrectivo')
 let preventivo = document.querySelector('#mantenimientoPreventivo')
 let bntCrear = document.querySelector('#crear')
@@ -7,6 +8,10 @@ let divButtons = document.querySelector('.buttons')
 
 function mostrar(opcion){
     switch (opcion) {
+        case 'ambos':
+            verificarClase(ambos)
+            break;
+
         case 'correctivo':
             verificarClase(correctivo)
             break;
@@ -30,6 +35,10 @@ function mostrar(opcion){
 
 function verificarClase(opcion){
     if(opcion == 'todo'){
+
+        ambos.classList.remove('d-none')
+        ambos.classList.add('d-none')
+
         correctivo.classList.remove('d-none')
         correctivo.classList.add('d-none')
 
@@ -56,7 +65,7 @@ function add(opcion){
 }
 
 function mostrarCards(){
-    if(divFormButtons.classList.contains('onlyButtons') && correctivo.classList.contains('d-none') && preventivo.classList.contains('d-none')){
+    if(divFormButtons.classList.contains('onlyButtons') && correctivo.classList.contains('d-none') && preventivo.classList.contains('d-none') && ambos.classList.contains('d-none')){
         //mostrar el formulario
         formMante.classList.remove('d-none')
 

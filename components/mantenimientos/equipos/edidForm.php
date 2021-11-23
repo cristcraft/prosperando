@@ -11,7 +11,7 @@
     $nombre_encargado = $_POST['nombre_encargado'];
 
 
-        $updateSql="UPDATE mantenimientos SET
+        $updateSql="UPDATE mantenimientos_equipos SET
             codigo_administrativo = '$codigo_administrativo',
             nombre_equipo = '$nombre_equipo',
             fecha =  '$fecha',

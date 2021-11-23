@@ -9,7 +9,7 @@
     $nombre_tecnico = $_POST['nombre_tecnico'];
     $nombre_encargado = $_POST['nombre_encargado'];
 
-    $insertsql = "INSERT INTO mantenimientos(
+    $insertsql = "INSERT INTO mantenimientos_equipos(
     codigo_administrativo,
     nombre_equipo,
     fecha,

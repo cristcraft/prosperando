@@ -1,5 +1,5 @@
 <?php 
-    require_once("../connection/connection.php");
+    // include_once("../connection/connection.php");
 
     //=========tabla principal de equipos =================
     $equipos = "SELECT * FROM equipos";
@@ -99,13 +99,17 @@
     //===============================================
 
      //========== Mantenimientos  =======================
-    $mantenimientos = "SELECT *FROM mantenimientos";
+    $mantenimientos = "SELECT *FROM mantenimientos_equipos";
     $mantenimientosResult = $connection->query($mantenimientos);
-     //===============================================
 
-     //========== Mantenimientos preventivos  =======================
-    $mantenimientoPreventivo = "SELECT * FROM mantenimientos WHERE tipo_mantenimiento = 'preventivo'";
-    $mantenimientoPreventivoResult = $connection->query($mantenimientoPreventivo);
+    $sqlPreventivo = "SELECT * FROM mantenimientos_equipos WHERE tipo_mantenimiento = 'preventivo'";
+    $resultPreventivo = $connection->query($sqlPreventivo);
+
+    $sqlCorrectivo = "SELECT * FROM mantenimientos_equipos WHERE tipo_mantenimiento = 'correctivo'";
+    $resultCorrectivo = $connection->query($sqlCorrectivo);
+
+    $sqlAmbos = "SELECT * FROM mantenimientos_equipos WHERE tipo_mantenimiento = 'ambos'";
+    $resultAmbos = $connection->query($sqlAmbos);
      //===============================================
 
 ?>

@@ -65,10 +65,10 @@
                             Mantenimientos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="../../../components/router.php?page=equiposMante">Equipos</a></li>
-                        <li><a class="dropdown-item" href="../../../components/router.php?page=impresorasMante">Impresoras</a></li>
-                        <li><a class="dropdown-item" href="../../../components/router.php?page=servidoresMante">Servidores</a></li>
-                    </ul>
+                            <li><a class="dropdown-item" href="../../../components/router.php?page=equiposMante">Equipos</a></li>
+                            <li><a class="dropdown-item" href="../../../components/router.php?page=impresorasMante">Impresoras</a></li>
+                            <li><a class="dropdown-item" href="../../../components/router.php?page=servidoresMante">Servidores</a></li>
+                        </ul>
                     </li>
                 </ul>
                 <div class="d-flex">
@@ -86,7 +86,7 @@
         <div class="form-buttons">
             <form action="../../../components/mantenimientos/equipos/saveForm.php" method="post" id="form-mante" class="form"> 
                 <div >
-                    <h1 class="m-3 p-3">Mantenimiento de los equipos</h1>
+                    <h1 class="m-3 p-3">Mantenimiento de los Servidores</h1>
                 </div>
 
                 <div class="mb-3">
@@ -103,7 +103,7 @@
 
                 <div class="mb-3">
                     <label for="fecha" class="form-label">Fecha</label>
-                    <input type="date" name="fecha" id="fecha" class="form-control">
+                    <input type="datetime-local" name="fecha" id="fecha" class="form-control">
                 </div>
 
                 <div class="mb-3">

@@ -64,6 +64,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./servidores/servidores.php">Servidores</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mantenimientos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="./mantenimientos/equipos/mantenimientosEquipos.php">Equipos</a></li>
+                            <li><a class="dropdown-item" href="./mantenimientos/impresoras/mantenimientosImpresoras.php">Impresoras</a></li>
+                            <li><a class="dropdown-item" href="./mantenimientos/servidores/mantenimientosServidores.php">Servidores</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <div class="d-flex">
                     <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"  title="Modo oscuro"><i class="fas fa-sun"></i></button>
