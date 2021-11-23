@@ -14,8 +14,11 @@
     }
     include('../../../connection/connection.php');
 
-    $sql = "SELECT * FROM mantenimientos WHERE tipo_mantenimiento = 'preventivo'";
-    $result = $connection->query($sql);
+    $sqlPreventivo = "SELECT * FROM mantenimientos WHERE tipo_mantenimiento = 'preventivo'";
+    $resultPreventivo = $connection->query($sqlPreventivo);
+
+    $sqlCorrectivo = "SELECT * FROM mantenimientos WHERE tipo_mantenimiento = 'correctivo'";
+    $resultCorrectivo = $connection->query($sqlCorrectivo);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +27,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -75,7 +79,7 @@
 
     <div class="content-fluid contenido text-center m-3">
         <div class="form-buttons">
-            <form action="" method="post" id="form-mante">
+            <form action="../../../components/mantenimientos/equipos/saveForm.php" method="post" id="form-mante" class="form"> 
                 <div >
                     <h1 class="m-3 p-3">Mantenimiento de los equipos</h1>
                 </div>
@@ -117,34 +121,34 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="">Nombre del Encargado</span>
-                    <input type="text" class="form-control" id="nombre_encargado" class="nombre_encargado">
+                    <span class="input-group-text" for="nombre_encargado" id="">Nombre del Encargado</span>
+                    <input type="text" class="form-control" id="nombre_encargado" class="nombre_encargado" name="nombre_encargado">
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-outline-dark" type="submit">Guardar</button>
                 </div>
             </form>
 
             <div class="buttons m-2 d-flex">
-                    <a class="btn btn-outline-dark mantenimiento" onclick="mostrar('correctivo')">Mantenimiento
-                        Correctivo</a>
-                    <a class="btn btn-outline-dark mantenimiento" onclick="mostrar('preventivo')">Mantenimiento
-                        Preventivo</a>
+                    <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('correctivo')" href="#mantenimientoCorrectivo">Mantenimiento Correctivo</a>
+                    <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('preventivo')" href="#mantenimientoPreventivo">Mantenimiento Preventivo</a>
+                    <a class="btn btn-outline-dark d-none m-2" id="crear" onclick="mostrar('crear')">Crear</a>
             </div>
         </div>
 
         <div class="mantenimientos">
-            <div class="mantenimientoCorrectivo d-none" id="mantenimientoCorrectivo">
-                    <h2>Correctivo</h2>
-            </div>
-
-            <div class="mantenimientoPreventivo " id="mantenimientoPreventivo">
-                    <form action="" method="post" id="form">
+            <div class="mantenimientoCorrectivo d-flex flex-wrap justify-content-center d-none" id="mantenimientoCorrectivo">
+            <?php  while($row = $resultCorrectivo ->fetch_assoc()){  ?>
+                    <form action="../../../components/mantenimientos/equipos/edidForm.php" method="post" class="form-preventivo m-2">
+                        <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
                         <div>
-                            <h2>Preventivo</h2>
+                            <h2>Correctivo</h2>
                         </div>
-                        <?php  while($row = $result ->fetch_assoc()){  ?>
                         <div class="mb-3">
                             <label for="codigo_administrativo" class="form-label">Codigo administrativo</label>
                             <input type="text" name="codigo_administrativo" id="codigo_administrativo" class="form-control"
-                                placeholder="Codigo administrativo" value="<?php echo $row['codigo_administrativo'] ?>" disabled>
+                                placeholder="Codigo administrativo" value="<?php echo $row['codigo_administrativo'] ?>" >
                         </div>
 
                         <div class="mb-3">
@@ -155,35 +159,99 @@
 
                         <div class="mb-3">
                             <label for="fecha" class="form-label">Fecha</label>
-                            <input type="date" name="fecha" id="fecha" class="form-control">
+                            <input type="date" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
                         </div>
 
                         <div class="mb-3">
                             <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
                             <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
-                                <option value="preventivo">Preventivo</option>
-                                <option value="correctivo">Correctivo</option>
+                                <option value="<?php echo $row['tipo_mantenimiento'] ?>">Correctivo</option>
+                                <option value="correctivo">Preventivo</option>
+                                <option value="ambos">Ambos</option>
                             </select>
                         </div>
 
                         <div class="input-group mb-3">
                             <span class="input-group-text">Descripción del Mantenimiento </span>
                             <input type="text" class="form-control" name="descripcion_mantenimiento"
-                                id="descripcion_mantenimiento" class="form-control">
+                                id="descripcion_mantenimiento" class="form-control" value="<?php echo $row['descripcion_mantenimiento'] ?>">
                         </div>
 
                         <div class="input-group mb-3">
                             <span class="input-group-text">Nombre del Técnico</span>
                             <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
-                                name="nombre_tecnico">
+                                name="nombre_tecnico" value="<?php echo $row['nombre_tecnico'] ?>">
                         </div>
 
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="">Nombre del Encargado</span>
-                            <input type="text" class="form-control" id="nombre_encargado" class="nombre_encargado">
+                            <span class="input-group-text" for="nombre_encargado" id="">Nombre del Encargado</span>
+                            <input type="text" class="form-control" id="nombre_encargado" name="nombre_encargado" class="nombre_encargado" value="<?php echo $row['nombre_encargado'] ?>" >
                         </div>
-                        <?php } ?>
+
+                        <div class="mb-3">
+                            <button class="btn btn-outline-dark" type="submit">Guardar cambios</button>
+                            <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientos')" class="btn btn-outline-danger">Eliminar</a>
+                        </div>
                     </form>
+                <?php } ?>
+            </div>
+            <hr>
+            <div class="mantenimientoPreventivo d-flex flex-wrap justify-content-center d-none" id="mantenimientoPreventivo">
+                <?php  while($row = $resultPreventivo ->fetch_assoc()){  ?>
+                    <form action="../../../components/mantenimientos/equipos/edidForm.php" method="post" class="form-preventivo m-2">
+                        <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
+                        <div>
+                            <h2>Preventivo</h2>
+                        </div>
+                        <div class="mb-3">
+                            <label for="codigo_administrativo" class="form-label">Codigo administrativo</label>
+                            <input type="text" name="codigo_administrativo" id="codigo_administrativo" class="form-control"
+                                placeholder="Codigo administrativo" value="<?php echo $row['codigo_administrativo'] ?>" >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
+                            <input type="text" name="nombre_equipo" id="nombre_equipo" class="form-control"
+                                placeholder="Nombre del equipo" value="<?php echo $row['nombre_equipo'] ?>">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="fecha" class="form-label">Fecha</label>
+                            <input type="date" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
+                            <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
+                                <option value="<?php echo $row['tipo_mantenimiento'] ?>">Preventivo</option>
+                                <option value="correctivo">Correctivo</option>
+                                <option value="ambos">Ambos</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Descripción del Mantenimiento </span>
+                            <input type="text" class="form-control" name="descripcion_mantenimiento"
+                                id="descripcion_mantenimiento" class="form-control" value="<?php echo $row['descripcion_mantenimiento'] ?>">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Nombre del Técnico</span>
+                            <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
+                                name="nombre_tecnico" value="<?php echo $row['nombre_tecnico'] ?>">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" for="nombre_encargado" id="">Nombre del Encargado</span>
+                            <input type="text" class="form-control" id="nombre_encargado" name="nombre_encargado" class="nombre_encargado" value="<?php echo $row['nombre_encargado'] ?>" >
+                        </div>
+
+                        <div class="mb-3">
+                            <button class="btn btn-outline-dark" type="submit">Guardar cambios</button>
+                            <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientos')" class="btn btn-outline-danger">Eliminar</a>
+                        </div>
+                    </form>
+                <?php } ?>
 
             </div>
         </div>
@@ -192,6 +260,8 @@
 
     <script src="../../../scripts/modoOscuro.js"></script>
     <script src="../../../scripts/mantenimientos.js"></script>
+    <script src="../../../scripts/popOvers.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>

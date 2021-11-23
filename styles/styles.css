@@ -65,12 +65,12 @@ form{
     padding: 20px;
 }
 
-#form-mante{
-    max-width: 100%;
+#form-mante, .form-preventivo{
+    max-width: 40%;
     height: 100%;
 }
 
-#form-mante > .mb-3{
+#form-mante, .form-preventivo > .mb-3{
     text-align: left;
 }
 

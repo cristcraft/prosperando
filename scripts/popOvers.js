@@ -54,6 +54,8 @@ function confirmar(id, page) {
                     window.location.href = "../../components/switches/delete.php/?id=" + id
                 }else if(page === 'servidores'){
                     window.location.href = "../../components/servidores/delete.php/?id=" + id
+                }else if(page === 'mantenimientos'){
+                    window.location.href = "../../../components/mantenimientos/equipos/delete.php/?id=" + id
                 }else{
                     alert('<-- Error -->')
                 }
