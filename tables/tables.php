@@ -98,7 +98,7 @@
     $servidoresResult = $connection->query($servidores);
     //===============================================
 
-     //========== Mantenimientos  =======================
+     //========== Mantenimientos Equipos =======================
     $mantenimientos = "SELECT *FROM mantenimientos_equipos";
     $mantenimientosResult = $connection->query($mantenimientos);
 
@@ -111,6 +111,11 @@
     $sqlAmbos = "SELECT * FROM mantenimientos_equipos WHERE tipo_mantenimiento = 'ambos'";
     $resultAmbos = $connection->query($sqlAmbos);
      //===============================================
+
+    //========== Mantenimientos Equipos =======================
+    $mantenimientosImpresoras = "SELECT *FROM mantenimientos_impresoras";
+    $mantenimientosImpresorasResult = $connection->query($mantenimientosImpresoras);
+    //===============================================
 
 ?>
 

@@ -66,6 +66,7 @@ form{
 }
 
 #form-mante, .form-preventivo{
+    min-width: 300px;
     max-width: 40%;
     height: 100%;
     border-color: white;

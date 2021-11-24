@@ -11,6 +11,8 @@
     $marca = $_POST['marca'];
     $modelo = $_POST['modelo'];
     $serial = $_POST['serial'];
+    $reporte_tecnico = $_POST['reporte_tecnico'];
+    $observaciones = $_POST['observaciones'];
 
     $insertsql = "INSERT INTO mantenimientos_impresoras(
     ciudad,
@@ -22,7 +24,9 @@
     tipo_impresora,
     marca,
     modelo,
-    serial) 
+    serial,
+    reporte_tecnico,
+    observaciones) 
     VALUES (
     '$ciudad',
     '$cliente',
@@ -33,7 +37,9 @@
     '$tipo_impresora',
     '$marca',
     '$modelo',
-    '$serial')";
+    '$serial',
+    '$reporte_tecnico',
+    '$observaciones')";
 
 
     if ($connection->query($insertsql) === TRUE) {
