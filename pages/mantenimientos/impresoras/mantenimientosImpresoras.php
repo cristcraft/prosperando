@@ -84,21 +84,15 @@
 
     <div class="content-fluid contenido text-center m-3">
         <div class="form-buttons">
-            <form action="../../../components/mantenimientos/equipos/saveForm.php" method="post" id="form-mante" class="form"> 
+            <form action="../../../components/mantenimientos/impresoras/saveForm.php" method="post" id="form-mante" class="form"> 
                 <div >
                     <h1 class="m-3 p-3">Mantenimiento de las impresoras</h1>
                 </div>
 
                 <div class="mb-3">
-                    <label for="codigo_administrativo" class="form-label">Codigo administrativo</label>
-                    <input type="text" name="codigo_administrativo" id="codigo_administrativo" class="form-control"
-                        placeholder="Codigo administrativo">
-                </div>
-
-                <div class="mb-3">
-                    <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
-                    <input type="text" name="nombre_equipo" id="nombre_equipo" class="form-control"
-                        placeholder="Nombre del equipo">
+                    <label for="ciudad" class="form-label">Ciudad</label>
+                    <input type="text" name="ciudad" id="ciudad" class="form-control"
+                        placeholder="Ciudad">
                 </div>
 
                 <div class="mb-3">
@@ -107,32 +101,71 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
-                    <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
-                        <option value="preventivo">Preventivo</option>
-                        <option value="correctivo">Correctivo</option>
-                        <option value="ambos">Ambos</option>
+                    <label for="cliente" class="form-label">Cliente</label>
+                    <input type="text" name="cliente" id="cliente" class="form-control"
+                        placeholder="Cliente">
+                </div>
+
+                <div class="mb-3">
+                    <label for="direccion" class="form-label">Direccion</label>
+                    <input type="text" name="direccion" id="direccion" class="form-control"
+                        placeholder="Direccion">
+                </div>
+
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Telefono</label>
+                    <input type="text" name="telefono" id="telefono" class="form-control"
+                        placeholder="Direccion">
+                </div>
+
+                <div class="mb-3">
+                    <label for="encargado" class="form-label">Encargado</label>
+                    <input type="text" name="encargado" id="encargado" class="form-control"
+                        placeholder="Direccion">
+                </div>
+
+                <div class="mb-3">
+                    <label for="tipo_impresora" class="form-label">Tipo de impresora</label>
+                    <select name="tipo_impresora" id="tipo_impresora" class="form-select">
+                        <option value="multif">Multi F.</option>
+                        <option value="impresora">Impresora</option>
+                        <option value="escaner">escaner</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Descripción del Mantenimiento </label>
-                    <textarea type="text" class="form-control" name="descripcion_mantenimiento" id="descripcion_mantenimiento"
+                    <label for="marca" class="form-label">Marca</label>
+                    <select name="marca" id="marca" class="form-select">
+                        <option value="kyocera">KYOCERA</option>
+                        <option value="epson">EPSON</option>
+                        <option value="sharp">SHARP</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="modelo">Modelo</label>
+                    <input type="text" class="form-control" id="modelo" class="form-control" name="modelo" placeholder="Modelo">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="serial">Serial</label>
+                    <input type="text" class="form-control" id="serial" class="form-control" name="serial" placeholder="Serial">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Reporte tecnico</label>
+                    <textarea type="text" class="form-control" name="reporte_tecnico" id="reporte_tecnico"
                         class="form-control" placeholder="Descripcion del mantenimietno que se realizo "></textarea>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Nombre del Técnico</label>
-                    <input type="text" class="form-control" id="nombre_tecnico" class="form-control" name="nombre_tecnico" placeholder="Nombre del tecnico">
+                    <label class="form-label">Observaciones</label>
+                    <textarea type="text" class="form-control" name="observaciones" id="observaciones"
+                        class="form-control" placeholder="Descripcion del mantenimietno que se realizo "></textarea>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="nombre_encargado" id="">Nombre del Encargado</label>
-                    <input type="text" class="form-control" id="nombre_encargado" class="nombre_encargado" name="nombre_encargado" placeholder="Nombre del encargado">
-                </div>
-
-                <div class="mb-3">
-                    <button class="btn btn-outline-dark" type="submit">Guardar</button>
+                    <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar</button>
                 </div>
             </form>
 
@@ -153,15 +186,15 @@
                             <h2>Preventivo y Correctivo</h2>
                         </div>
                         <div class="mb-3">
-                            <label for="codigo_administrativo" class="form-label">Codigo administrativo</label>
-                            <input type="text" name="codigo_administrativo" id="codigo_administrativo" class="form-control"
-                                placeholder="Codigo administrativo" value="<?php echo $row['codigo_administrativo'] ?>" >
+                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <input type="text" name="ciudad" id="ciudad" class="form-control"
+                                placeholder="Ciudad" value="<?php echo $row['ciudad'] ?>" >
                         </div>
 
                         <div class="mb-3">
-                            <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
-                            <input type="text" name="nombre_equipo" id="nombre_equipo" class="form-control"
-                                placeholder="Nombre del equipo" value="<?php echo $row['nombre_equipo'] ?>">
+                            <label for="direccion" class="form-label">Direccion</label>
+                            <input type="text" name="direccion" id="direccion" class="form-control"
+                                placeholder="Direccion" value="<?php echo $row['direccion'] ?>">
                         </div>
 
                         <div class="mb-3">
@@ -170,9 +203,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
-                            <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
-                                <option value="<?php echo $row['tipo_mantenimiento'] ?>">Preventivo</option>
+                            <label for="tipo_impresora" class="form-label">Tipo de mantenimiento</label>
+                            <select name="tipo_impresora" id="tipo_impresora" class="form-select">
+                                <option value="<?php echo $row['tipo_impresora'] ?>">Preventivo</option>
                                 <option value="correctivo">Correctivo</option>
                                 <option value="ambos">Ambos</option>
                             </select>
@@ -180,14 +213,14 @@
 
                         <div class="mb-3">
                             <label class="form-label">Descripción del Mantenimiento </label>
-                            <textarea type="text" class="form-control" name="descripcion_mantenimiento"
-                                id="descripcion_mantenimiento" class="form-control"><?php echo $row['descripcion_mantenimiento'] ?></textarea>
+                            <textarea type="text" class="form-control" name="reporte_tecnico"
+                                id="reporte_tecnico" class="form-control"><?php echo $row['reporte_tecnico'] ?></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Nombre del Técnico</label>
-                            <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
-                                name="nombre_tecnico" value="<?php echo $row['nombre_tecnico'] ?>">
+                            <input type="text" class="form-control" id="modelo" class="form-control"
+                                name="modelo" value="<?php echo $row['modelo'] ?>">
                         </div>
 
                         <div class="mb-3">
@@ -212,15 +245,15 @@
                                 <h2>Correctivo</h2>
                             </div>
                             <div class="mb-3">
-                                <label for="codigo_administrativo" class="form-label">Codigo administrativo</label>
-                                <input type="text" name="codigo_administrativo" id="codigo_administrativo" class="form-control"
-                                    placeholder="Codigo administrativo" value="<?php echo $row['codigo_administrativo'] ?>" >
+                                <label for="ciudad" class="form-label">Ciudad</label>
+                                <input type="text" name="ciudad" id="ciudad" class="form-control"
+                                    placeholder="Ciudad" value="<?php echo $row['ciudad'] ?>" >
                             </div>
 
                             <div class="mb-3">
-                                <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
-                                <input type="text" name="nombre_equipo" id="nombre_equipo" class="form-control"
-                                    placeholder="Nombre del equipo" value="<?php echo $row['nombre_equipo'] ?>">
+                                <label for="direccion" class="form-label">Direccion</label>
+                                <input type="text" name="direccion" id="direccion" class="form-control"
+                                    placeholder="Direccion" value="<?php echo $row['direccion'] ?>">
                             </div>
 
                             <div class="mb-3">
@@ -229,9 +262,9 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
-                                <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
-                                    <option value="<?php echo $row['tipo_mantenimiento'] ?>">Correctivo</option>
+                                <label for="tipo_impresora" class="form-label">Tipo de mantenimiento</label>
+                                <select name="tipo_impresora" id="tipo_impresora" class="form-select">
+                                    <option value="<?php echo $row['tipo_impresora'] ?>">Correctivo</option>
                                     <option value="correctivo">Preventivo</option>
                                     <option value="ambos">Ambos</option>
                                 </select>
@@ -239,14 +272,14 @@
 
                             <div class="mb-3">
                                 <label class="form-label">Descripción del Mantenimiento </label>
-                                <textarea type="text" class="form-control" name="descripcion_mantenimiento"
-                                id="descripcion_mantenimiento" class="form-control" value=""><?php echo $row['descripcion_mantenimiento'] ?></textarea>
+                                <textarea type="text" class="form-control" name="reporte_tecnico"
+                                id="reporte_tecnico" class="form-control" value=""><?php echo $row['reporte_tecnico'] ?></textarea>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Nombre del Técnico</label>
-                                <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
-                                    name="nombre_tecnico" value="<?php echo $row['nombre_tecnico'] ?>">
+                                <input type="text" class="form-control" id="modelo" class="form-control"
+                                    name="modelo" value="<?php echo $row['modelo'] ?>">
                             </div>
 
                             <div class="mb-3">
@@ -270,15 +303,15 @@
                             <h2>Preventivo</h2>
                         </div>
                         <div class="mb-3">
-                            <label for="codigo_administrativo" class="form-label">Codigo administrativo</label>
-                            <input type="text" name="codigo_administrativo" id="codigo_administrativo" class="form-control"
-                                placeholder="Codigo administrativo" value="<?php echo $row['codigo_administrativo'] ?>" >
+                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <input type="text" name="ciudad" id="ciudad" class="form-control"
+                                placeholder="Ciudad" value="<?php echo $row['ciudad'] ?>" >
                         </div>
 
                         <div class="mb-3">
-                            <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
-                            <input type="text" name="nombre_equipo" id="nombre_equipo" class="form-control"
-                                placeholder="Nombre del equipo" value="<?php echo $row['nombre_equipo'] ?>">
+                            <label for="direccion" class="form-label">Direccion</label>
+                            <input type="text" name="direccion" id="direccion" class="form-control"
+                                placeholder="Direccion" value="<?php echo $row['direccion'] ?>">
                         </div>
 
                         <div class="mb-3">
@@ -287,9 +320,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
-                            <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
-                                <option value="<?php echo $row['tipo_mantenimiento'] ?>">Preventivo</option>
+                            <label for="tipo_impresora" class="form-label">Tipo de mantenimiento</label>
+                            <select name="tipo_impresora" id="tipo_impresora" class="form-select">
+                                <option value="<?php echo $row['tipo_impresora'] ?>">Preventivo</option>
                                 <option value="correctivo">Correctivo</option>
                                 <option value="ambos">Ambos</option>
                             </select>
@@ -297,14 +330,14 @@
 
                         <div class="mb-3">
                             <label class="form-label">Descripción del Mantenimiento </label>
-                            <textarea type="text" class="form-control" name="descripcion_mantenimiento"
-                                id="descripcion_mantenimiento" class="form-control" value=""><?php echo $row['descripcion_mantenimiento'] ?></textarea>
+                            <textarea type="text" class="form-control" name="reporte_tecnico"
+                                id="reporte_tecnico" class="form-control" value=""><?php echo $row['reporte_tecnico'] ?></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Nombre del Técnico</label>
-                            <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
-                                name="nombre_tecnico" value="<?php echo $row['nombre_tecnico'] ?>">
+                            <input type="text" class="form-control" id="modelo" class="form-control"
+                                name="modelo" value="<?php echo $row['modelo'] ?>">
                         </div>
 
                         <div class="mb-3">

@@ -1,0 +1,1 @@
+DROP TABLES areas_tablets, areas_impresoras, equipos, impresoras, lugar_trabajo, mantenimientos_equipos, marcas, marcas_disco_duro, marcas_impresoras,marcas_tablets,os_tablets,procesadores,procesadores_tablets,servidores,sucursales,switches,tablets,tipos_disco,tipo_equipo,tipo_impresoras,tipo_memorias,tipo_papel,users

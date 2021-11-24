@@ -149,7 +149,7 @@
                 <?php  while($row = $resultAmbos ->fetch_assoc()){  ?>
                     <form action="../../../components/mantenimientos/equipos/edidForm.php" method="post" class="form-preventivo m-2">
                         <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
-                        <div>
+                        <div class="mb-3">
                             <h2>Preventivo y Correctivo</h2>
                         </div>
                         <div class="mb-3">
@@ -208,7 +208,7 @@
                 <?php  while($row = $resultCorrectivo ->fetch_assoc()){  ?>
                         <form action="../../../components/mantenimientos/equipos/edidForm.php" method="post" class="form-preventivo m-2">
                             <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
-                            <div>
+                            <div class="mb-3">
                                 <h2>Correctivo</h2>
                             </div>
                             <div class="mb-3">
@@ -266,7 +266,7 @@
                 <?php  while($row = $resultPreventivo ->fetch_assoc()){  ?>
                     <form action="../../../components/mantenimientos/equipos/edidForm.php" method="post" class="form-preventivo m-2">
                         <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
-                        <div>
+                        <div class="mb-3">
                             <h2>Preventivo</h2>
                         </div>
                         <div class="mb-3">

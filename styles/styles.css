@@ -68,6 +68,7 @@ form{
 #form-mante, .form-preventivo{
     max-width: 40%;
     height: 100%;
+    border-color: white;
 }
 
 #form-mante, .form-preventivo > .mb-3{
