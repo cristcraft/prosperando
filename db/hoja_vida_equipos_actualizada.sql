@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2021 a las 23:44:53
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.24
+-- Servidor: localhost
+-- Tiempo de generación: 13-12-2021 a las 17:29:22
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -250,6 +250,61 @@ INSERT INTO `mantenimientos_equipos` (`id`, `codigo_administrativo`, `nombre_equ
 (4, '004', 'DM-DM-04', '2021-11-11', 'preventivo', 'se previnio daño leve solo eso', 'cris', 'n.a'),
 (17, 'PC001', '', '0000-00-00', 'preventivo', '', '', ''),
 (18, 'PC001', 'este', '2021-11-23', 'correctivo', 'esto es una prueba', 'cristian peña', 'n.a');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mantenimientos_impresoras`
+--
+
+CREATE TABLE `mantenimientos_impresoras` (
+  `id` int(11) NOT NULL,
+  `ciudad` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `cliente` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `fecha` date NOT NULL,
+  `direccion` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `telefono` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `encargado` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `tipo_impresora` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `marca` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `modelo` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `serial` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `reporte_tecnico` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `observaciones` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `tipo_mantenimiento` varchar(200) COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `mantenimientos_impresoras`
+--
+
+INSERT INTO `mantenimientos_impresoras` (`id`, `ciudad`, `cliente`, `fecha`, `direccion`, `telefono`, `encargado`, `tipo_impresora`, `marca`, `modelo`, `serial`, `reporte_tecnico`, `observaciones`, `tipo_mantenimiento`) VALUES
+(1, 'ibague', 'prosperando', '2021-12-11', 'cra 5ta', '123456', 'Cristian Peña', 'multif', 'kyocera', 'm3040idn', '123456', 'se arreglo', 'estaba dificil', 'correctivo');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mantenimientos_servidores`
+--
+
+CREATE TABLE `mantenimientos_servidores` (
+  `id` int(11) NOT NULL,
+  `serial` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `ip` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `fecha` datetime NOT NULL,
+  `tipo_mantenimiento` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `descripcion_mantenimiento` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `nombre_tecnico` varchar(200) COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `mantenimientos_servidores`
+--
+
+INSERT INTO `mantenimientos_servidores` (`id`, `serial`, `ip`, `fecha`, `tipo_mantenimiento`, `descripcion_mantenimiento`, `nombre_tecnico`) VALUES
+(1, '1234', '192.178.0.18', '2021-12-14 09:28:00', 'preventivo', 'Se limpio el cache', 'N.A'),
+(2, '1', '192.178.0.12', '2021-12-14 00:00:00', 'correctivo', 'se cambio disco duro', 'N.A'),
+(3, '', '', '2021-12-18 09:29:00', 'preventivo', '', '');
 
 -- --------------------------------------------------------
 
@@ -755,6 +810,18 @@ ALTER TABLE `mantenimientos_equipos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `mantenimientos_impresoras`
+--
+ALTER TABLE `mantenimientos_impresoras`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `mantenimientos_servidores`
+--
+ALTER TABLE `mantenimientos_servidores`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `marcas`
 --
 ALTER TABLE `marcas`
@@ -888,7 +955,19 @@ ALTER TABLE `impresoras`
 -- AUTO_INCREMENT de la tabla `mantenimientos_equipos`
 --
 ALTER TABLE `mantenimientos_equipos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `mantenimientos_impresoras`
+--
+ALTER TABLE `mantenimientos_impresoras`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `mantenimientos_servidores`
+--
+ALTER TABLE `mantenimientos_servidores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `marcas`

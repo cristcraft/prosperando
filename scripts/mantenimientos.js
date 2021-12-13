@@ -108,6 +108,9 @@ function acomodarBotones(accion){
 
          //se oculta el boton crear
         bntCrear.classList.add('d-none')
+
+        //se quite la la clase mostar en caso que la tenag
+        divButtons.classList.remove('mostrar')
     
         //agrega la clase onlyButtons que esta en css, que hace que el div solo ocupe el 20%
         divFormButtons.classList.remove('onlyButtons')
