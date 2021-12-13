@@ -6,7 +6,7 @@
         echo '
                 <script>
                     alert("No has iniciado sesión")
-                    window.location.href = "../../index.php"
+                    window.location.href = "../../../index.php"
                 </script>
             ';
             session_destroy();
