@@ -88,7 +88,7 @@
 
 
         <div class="contenedor-cards d-flex flex-wrap justify-content-evenly">
-            <div class="card text-center m-4">
+            <div class="card bg-dark text-white text-center m-4">
                 <h4 class="card-title opcionesTitle p-3">Equipos</h4>
                 <div class="card-body opcionesTxt">
                     <p class="card-text text-justify">Aqui encontraras toda la hoja de vida y modficaciones que se le han realizado a los computadores de todas las sedes</p>
@@ -96,7 +96,7 @@
                 </div>
             </div>
             
-            <div class="card text-center m-4">
+            <div class="card bg-dark text-white text-center m-4">
                 <h4 class="card-title opcionesTitle p-3">Tablets</h4>
                 <div class="card-body opcionesTxt">
                     <p class="card-text text-justify">Aqui encontraras toda la hoja de vida y modficaciones que se le han realizado a las Tablets de todas las sedes</p>
@@ -104,7 +104,7 @@
                 </div>
             </div>
             
-            <div class="card text-center m-4">
+            <div class="card bg-dark text-white text-center m-4">
                 <h4 class="card-title opcionesTitle p-3">Impresoras</h4>
                 <div class="card-body opcionesTxt">
                     <p class="card-text text-justify">Aqui encontraras toda la hoja de vida y modficaciones que se le han realizado a las Impresoras de todas las sedes</p>

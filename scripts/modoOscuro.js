@@ -14,6 +14,7 @@ let buscador = document.querySelector('#equipos_filter')
 let form = document.querySelector('.form')
 //botones de la pagina mantenimiento
 let buttons = document.querySelectorAll('.mantenimiento')
+let cards = document.querySelectorAll('.card')
 
 
 
@@ -36,6 +37,9 @@ function guardar(estado){
 function onModoOscuro(){
     //navbar
     pagNavBar()
+
+    //index
+    index()
     
     //pag equipos
     pagEquipos()
@@ -48,6 +52,8 @@ function onModoOscuro(){
     pageMantenimietno()
     
 }
+
+
 
 //camba la barra de navegacion a oscuro o claro 
 function pagNavBar(){
@@ -87,6 +93,20 @@ function pagNavBar(){
     
 }
 
+function index(){
+    if(navbar.classList.contains('navbar-light')){
+        cards.forEach(card => {
+            card.classList.add('bg-dark', 'text-white')
+            card.classList.remove('bg-light')
+        });
+        
+    }else{
+        cards.forEach(card => {
+            card.classList.remove('bg-dark', 'text-white')
+            card.classList.add('bg-light')
+        });
+    }
+}
 
 //cambia la pagina de equipos a oscuro o claro
 function pagEquipos(){

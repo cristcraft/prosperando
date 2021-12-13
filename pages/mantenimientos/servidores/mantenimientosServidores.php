@@ -175,7 +175,7 @@
 
                         <div class="mb-3">
                             <label for="fecha" class="form-label">Fecha</label>
-                            <input type="datetime-local" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
+                            <input type="datetime" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
                         </div>
 
                         <div class="mb-3">
@@ -229,7 +229,7 @@
 
                             <div class="mb-3">
                                 <label for="fecha" class="form-label">Fecha</label>
-                                <input type="datetime-local" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
+                                <input type="datetime" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
                             </div>
 
                             <div class="mb-3">
@@ -282,7 +282,7 @@
 
                         <div class="mb-3">
                             <label for="fecha" class="form-label">Fecha</label>
-                            <input type="datetime-local" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
+                            <input type="datetime" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
                         </div>
 
                         <div class="mb-3">
