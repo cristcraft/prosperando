@@ -13,7 +13,7 @@
             die();
     }
     include('../../../connection/connection.php');
-    include('../../../tables/tables.php')
+    include('../../../tables/tables.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -168,107 +168,349 @@
                 </div>
 
                 <div class="mb-3">
-                    <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar</button>
+                    <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
+                    <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
+                        <option value="preventivo">Preventivo</option>
+                        <option value="correctivo">Correctivo</option>
+                        <option value="ambos">Ambos</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-outline-dark" type="submit">Guardar</button>
                 </div>
             </form>
 
             <div class="buttons m-2 d-flex">
-                <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('mostrar')"
-                    href="#mantenimiento">Mostrar mantenimientos</a>
+                <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('correctivo')"
+                    href="#mantenimientoCorrectivo">Mantenimiento Correctivo</a>
+                <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('preventivo')"
+                    href="#mantenimientoPreventivo">Mantenimiento Preventivo</a>
+                <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('ambos')"
+                    href="#mantenimientoAmbos">Ambos</a>
                 <a class="btn btn-outline-dark d-none mantenimiento m-2" id="crear" onclick="mostrar('crear')">Crear</a>
             </div>
         </div>
 
-        <div class="mantenimientos d-flex flex-wrap justify-content-center d-none" id="mantenimientos">
-            <?php  while($row = $mantenimientosImpresorasResult ->fetch_assoc()){  ?>
-            <form action="../../../components/mantenimientos/impresoras/edidForm.php" method="post"
-                class="form-preventivo m-2 d-flex flex-wrap">
-                <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
-                <div>
-                    <h2>Mantenimientos</h2>
-                </div>
-                <div class="mb-3">
-                    <label for="ciudad" class="form-label">Ciudad</label>
-                    <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Ciudad"
-                        value="<?php echo $row['ciudad'] ?>">
-                </div>
+        <div class="mantenimientos">
+            <div class="mantenimientoAmbos d-flex flex-wrap justify-content-center d-none" id="mantenimientoAmbos">
+                <?php  while($row = $resultAmbosImpresoras ->fetch_assoc()){  ?>
+                <form action="../../../components/mantenimientos/impresoras/edidForm.php" method="post"
+                    class="form-preventivo m-2">
+                    <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
+                    <div>
+                        <h2>Mantenimientos</h2>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ciudad" class="form-label">Ciudad</label>
+                        <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Ciudad"
+                            value="<?php echo $row['ciudad'] ?>">
+                    </div>
 
-                <div class="mb-3">
-                    <label for="direccion" class="form-label">Direccion</label>
-                    <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Direccion"
-                        value="<?php echo $row['direccion'] ?>">
-                </div>
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Direccion"
+                            value="<?php echo $row['direccion'] ?>">
+                    </div>
 
-                <div class="mb-3">
-                    <label for="telefono" class="form-label">Telefono</label>
-                    <input type="number" name="telefono" id="telefono" class="form-control" value="<?php echo $row['telefono'] ?>">
-                </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Telefono</label>
+                        <input type="number" name="telefono" id="telefono" class="form-control"
+                            value="<?php echo $row['telefono'] ?>">
+                    </div>
 
 
-                <div class="mb-3">
-                    <label for="encargado" class="form-label">Encargado</label>
-                    <input type="text" name="encargado" id="encargado" class="form-control" value="<?php echo $row['encargado'] ?>">
-                </div>
+                    <div class="mb-3">
+                        <label for="encargado" class="form-label">Encargado</label>
+                        <input type="text" name="encargado" id="encargado" class="form-control"
+                            value="<?php echo $row['encargado'] ?>">
+                    </div>
 
-                <div class="mb-3">
-                    <label for="fecha" class="form-label">Fecha</label>
-                    <input type="date" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
-                </div>
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha</label>
+                        <input type="date" name="fecha" id="fecha" class="form-control"
+                            value="<?php echo $row['fecha'] ?>">
+                    </div>
 
-                <div class="mb-3">
-                    <label for="cliente" class="form-label">Cliente</label>
-                    <input type="text" name="cliente" id="cliente" class="form-control" value="<?php echo $row['cliente'] ?>">
-                </div>
+                    <div class="mb-3">
+                        <label for="cliente" class="form-label">Cliente</label>
+                        <input type="text" name="cliente" id="cliente" class="form-control"
+                            value="<?php echo $row['cliente'] ?>">
+                    </div>
 
-                <div class="mb-3">
-                    <label for="tipo_impresora" class="form-label">Tipo de impresora</label>
-                    <select name="tipo_impresora" id="tipo_impresora" class="form-select">
-                        <option value="<?php echo $row['tipo_impresora'] ?>">Multi F.</option>
-                        <option value="impresora">Impresora</option>
-                        <option value="escaner">Escaner</option>
-                    </select>
-                </div>
+                    <div class="mb-3">
+                        <label for="tipo_impresora" class="form-label">Tipo de impresora</label>
+                        <select name="tipo_impresora" id="tipo_impresora" class="form-select">
+                            <option value="<?php echo $row['tipo_impresora'] ?>">Multi F.</option>
+                            <option value="impresora">Impresora</option>
+                            <option value="escaner">Escaner</option>
+                        </select>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="marca" class="form-label">Marca</label>
-                    <select name="marca" id="marca" class="form-select">
-                        <option value="<?php echo $row['marca'] ?>">kyocera</option>
-                        <option value="epson">Epson</option>
-                        <option value="sharp">Sharp</option>
-                    </select>
-                </div>
+                    <div class="mb-3">
+                        <label for="marca" class="form-label">Marca</label>
+                        <select name="marca" id="marca" class="form-select">
+                            <option value="<?php echo $row['marca'] ?>">kyocera</option>
+                            <option value="epson">Epson</option>
+                            <option value="sharp">Sharp</option>
+                        </select>
+                    </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Modelo</label>
-                    <textarea type="text" class="form-control" name="modelo" id="modelo"
-                        class="form-control"><?php echo $row['modelo'] ?></textarea>
-                </div>
+                    <div class="mb-3">
+                        <label class="form-label">Modelo</label>
+                        <input type="text" class="form-control" name="modelo" id="modelo"
+                            class="form-control" value="<?php echo $row['modelo'] ?>" /> 
+                    </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Serial</label>
-                    <input type="text" class="form-control" id="serial" class="form-control" name="serial"
-                        value="<?php echo $row['serial'] ?>">
-                </div>
+                    <div class="mb-3">
+                        <label class="form-label">Serial</label>
+                        <input type="text" class="form-control" id="serial" class="form-control" name="serial"
+                            value="<?php echo $row['serial'] ?>">
+                    </div>
 
-                <div class="mb-3">
-                    <label class="form-label" for="reporte_tecnico" id="">Reporte tecnico</label>
-                    <input type="text" class="form-control" id="reporte_tecnico" name="reporte_tecnico"
-                        value="<?php echo $row['reporte_tecnico'] ?>">
-                </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="reporte_tecnico" id="">Reporte tecnico</label>
+                        <input type="text" class="form-control" id="reporte_tecnico" name="reporte_tecnico"
+                            value="<?php echo $row['reporte_tecnico'] ?>">
+                    </div>
 
-                <div class="mb-3">
-                    <label class="form-label" for="observaciones" id="observaciones">Observaciones</label>
-                    <input type="text" class="form-control" id="observaciones" name="observaciones"
-                        value="<?php echo $row['observaciones'] ?>">
-                </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="observaciones" id="observaciones">Observaciones</label>
+                        <input type="text" class="form-control" id="observaciones" name="observaciones"
+                            value="<?php echo $row['observaciones'] ?>">
+                    </div>
 
-                <div class="mb-3">
-                    <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
-                    <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientosImpresoras')"
-                        class="btn btn-outline-danger">Eliminar</a>
-                </div>
-            </form>
-            <?php } ?>
+                    <div class="mb-3">
+                        <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
+                        <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
+                            <option value="<?php echo $row['tipo_mantenimiento'] ?>">Ambos</option>
+                            <option value="correctivo">Correctivo</option>
+                            <option value="preventivo">Preventivo</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
+                        <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientosImpresoras')"
+                            class="btn btn-outline-danger">Eliminar</a>
+                    </div>
+                </form>
+                <?php } ?>
+
+            </div>
+            <hr>
+            <div class="mantenimientoCorrectivo d-flex flex-wrap justify-content-center d-none"
+                id="mantenimientoCorrectivo">
+                <?php  while($row = $resultCorrectivoImpresoras ->fetch_assoc()){  ?>
+                <form action="../../../components/mantenimientos/impresoras/edidForm.php" method="post"
+                    class="form-preventivo m-2">
+                    <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
+                    <div>
+                        <h2>Mantenimientos</h2>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ciudad" class="form-label">Ciudad</label>
+                        <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Ciudad"
+                            value="<?php echo $row['ciudad'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Direccion"
+                            value="<?php echo $row['direccion'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Telefono</label>
+                        <input type="number" name="telefono" id="telefono" class="form-control"
+                            value="<?php echo $row['telefono'] ?>">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="encargado" class="form-label">Encargado</label>
+                        <input type="text" name="encargado" id="encargado" class="form-control"
+                            value="<?php echo $row['encargado'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha</label>
+                        <input type="date" name="fecha" id="fecha" class="form-control"
+                            value="<?php echo $row['fecha'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cliente" class="form-label">Cliente</label>
+                        <input type="text" name="cliente" id="cliente" class="form-control"
+                            value="<?php echo $row['cliente'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tipo_impresora" class="form-label">Tipo de impresora</label>
+                        <select name="tipo_impresora" id="tipo_impresora" class="form-select">
+                            <option value="<?php echo $row['tipo_impresora'] ?>">Multi F.</option>
+                            <option value="impresora">Impresora</option>
+                            <option value="escaner">Escaner</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="marca" class="form-label">Marca</label>
+                        <select name="marca" id="marca" class="form-select">
+                            <option value="<?php echo $row['marca'] ?>">kyocera</option>
+                            <option value="epson">Epson</option>
+                            <option value="sharp">Sharp</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Modelo</label>
+                        <input type="text" class="form-control" name="modelo" id="modelo"
+                            class="form-control" value="<?php echo $row['modelo'] ?>" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Serial</label>
+                        <input type="text" class="form-control" id="serial" class="form-control" name="serial"
+                            value="<?php echo $row['serial'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="reporte_tecnico" id="">Reporte tecnico</label>
+                        <input type="text" class="form-control" id="reporte_tecnico" name="reporte_tecnico"
+                            value="<?php echo $row['reporte_tecnico'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="observaciones" id="observaciones">Observaciones</label>
+                        <input type="text" class="form-control" id="observaciones" name="observaciones"
+                            value="<?php echo $row['observaciones'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
+                        <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
+                            <option value="<?php echo $row['tipo_mantenimiento'] ?>">Correctivo</option>
+                            <option value="preventivo">Preventivo</option>
+                            <option value="ambos">Ambos</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
+                        <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientosImpresoras')"
+                            class="btn btn-outline-danger">Eliminar</a>
+                    </div>
+                </form>
+                <?php } ?>
+            </div>
+            <hr>
+            <div class="mantenimientoPreventivo d-flex flex-wrap justify-content-center d-none"
+                id="mantenimientoPreventivo">
+                <?php  while($row = $resultPreventivoImpresoras ->fetch_assoc()){  ?>
+                <form action="../../../components/mantenimientos/impresoras/edidForm.php" method="post"
+                    class="form-preventivo m-2">
+                    <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
+                    <div>
+                        <h2>Mantenimientos</h2>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ciudad" class="form-label">Ciudad</label>
+                        <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Ciudad"
+                            value="<?php echo $row['ciudad'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Direccion"
+                            value="<?php echo $row['direccion'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Telefono</label>
+                        <input type="number" name="telefono" id="telefono" class="form-control"
+                            value="<?php echo $row['telefono'] ?>">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="encargado" class="form-label">Encargado</label>
+                        <input type="text" name="encargado" id="encargado" class="form-control"
+                            value="<?php echo $row['encargado'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha</label>
+                        <input type="date" name="fecha" id="fecha" class="form-control"
+                            value="<?php echo $row['fecha'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cliente" class="form-label">Cliente</label>
+                        <input type="text" name="cliente" id="cliente" class="form-control"
+                            value="<?php echo $row['cliente'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tipo_impresora" class="form-label">Tipo de impresora</label>
+                        <select name="tipo_impresora" id="tipo_impresora" class="form-select">
+                            <option value="<?php echo $row['tipo_impresora'] ?>">Multi F.</option>
+                            <option value="impresora">Impresora</option>
+                            <option value="escaner">Escaner</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="marca" class="form-label">Marca</label>
+                        <select name="marca" id="marca" class="form-select">
+                            <option value="<?php echo $row['marca'] ?>">kyocera</option>
+                            <option value="epson">Epson</option>
+                            <option value="sharp">Sharp</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Modelo</label>
+                        <input type="text" class="form-control" name="modelo" id="modelo"
+                            class="form-control" value="<?php echo $row['modelo'] ?>" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Serial</label>
+                        <input type="text" class="form-control" id="serial" class="form-control" name="serial"
+                            value="<?php echo $row['serial'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="reporte_tecnico" id="">Reporte tecnico</label>
+                        <input type="text" class="form-control" id="reporte_tecnico" name="reporte_tecnico"
+                            value="<?php echo $row['reporte_tecnico'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="observaciones" id="observaciones">Observaciones</label>
+                        <input type="text" class="form-control" id="observaciones" name="observaciones"
+                            value="<?php echo $row['observaciones'] ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
+                        <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
+                            <option value="<?php echo $row['tipo_mantenimiento'] ?>">Preventivo</option>
+                            <option value="correctivo">Correctivo</option>
+                            <option value="ambos">Ambos</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
+                        <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientosImpresoras')"
+                            class="btn btn-outline-danger">Eliminar</a>
+                    </div>
+                </form>
+                <?php } ?>
+
+            </div>
         </div>
 
     </div>

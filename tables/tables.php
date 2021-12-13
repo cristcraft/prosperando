@@ -99,23 +99,46 @@
     //===============================================
 
      //========== Mantenimientos Equipos =======================
-    $mantenimientos = "SELECT *FROM mantenimientos_equipos";
-    $mantenimientosResult = $connection->query($mantenimientos);
+    $mantenimientosEquipos = "SELECT *FROM mantenimientos_equipos";
+    $mantenimientosEquiposResult = $connection->query($mantenimientosEquipos);
 
-    $sqlPreventivo = "SELECT * FROM mantenimientos_equipos WHERE tipo_mantenimiento = 'preventivo'";
-    $resultPreventivo = $connection->query($sqlPreventivo);
+    $sqlPreventivoEquipos = "SELECT * FROM mantenimientos_equipos WHERE tipo_mantenimiento = 'preventivo'";
+    $resultPreventivoEquipos = $connection->query($sqlPreventivoEquipos);
 
-    $sqlCorrectivo = "SELECT * FROM mantenimientos_equipos WHERE tipo_mantenimiento = 'correctivo'";
-    $resultCorrectivo = $connection->query($sqlCorrectivo);
+    $sqlCorrectivoEquipos = "SELECT * FROM mantenimientos_equipos WHERE tipo_mantenimiento = 'correctivo'";
+    $resultCorrectivoEquipos = $connection->query($sqlCorrectivoEquipos);
 
-    $sqlAmbos = "SELECT * FROM mantenimientos_equipos WHERE tipo_mantenimiento = 'ambos'";
-    $resultAmbos = $connection->query($sqlAmbos);
+    $sqlAmbosEquipos = "SELECT * FROM mantenimientos_equipos WHERE tipo_mantenimiento = 'ambos'";
+    $resultAmbosEquipos = $connection->query($sqlAmbosEquipos);
      //===============================================
 
-    //========== Mantenimientos Equipos =======================
+    //========== Mantenimientos Impresoras =======================
     $mantenimientosImpresoras = "SELECT *FROM mantenimientos_impresoras";
     $mantenimientosImpresorasResult = $connection->query($mantenimientosImpresoras);
+
+    $sqlPreventivoImpresoras = "SELECT * FROM mantenimientos_impresoras WHERE tipo_mantenimiento = 'preventivo'";
+    $resultPreventivoImpresoras = $connection->query($sqlPreventivoImpresoras);
+
+    $sqlCorrectivoImpresoras = "SELECT * FROM mantenimientos_impresoras WHERE tipo_mantenimiento = 'correctivo'";
+    $resultCorrectivoImpresoras = $connection->query($sqlCorrectivoImpresoras);
+
+    $sqlAmbosImpresoras = "SELECT * FROM mantenimientos_impresoras WHERE tipo_mantenimiento = 'ambos'";
+    $resultAmbosImpresoras = $connection->query($sqlAmbosImpresoras);
+    //===============================================
+
+
+    //========== Mantenimientos SERVIDORES =======================
+    $mantenimientosServidores = "SELECT *FROM mantenimientos_servidores";
+    $mantServidoresImpresorasResult = $connection->query($mantenimientosServidores);
+
+    $sqlPreventivoServidores = "SELECT * FROM mantenimientos_servidores WHERE tipo_mantenimiento = 'preventivo'";
+    $resultPreventivoServidores = $connection->query($sqlPreventivoServidores);
+
+    $sqlCorrectivoServidores = "SELECT * FROM mantenimientos_servidores WHERE tipo_mantenimiento = 'correctivo'";
+    $resultCorrectivoServidores = $connection->query($sqlCorrectivoServidores);
+
+    $sqlAmbosServidores = "SELECT * FROM mantenimientos_servidores WHERE tipo_mantenimiento = 'ambos'";
+    $resultAmbosServidores = $connection->query($sqlAmbosServidores);
     //===============================================
 
 ?>
-

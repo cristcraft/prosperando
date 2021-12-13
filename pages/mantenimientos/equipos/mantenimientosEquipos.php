@@ -146,7 +146,7 @@
 
         <div class="mantenimientos">
             <div class="mantenimientoAmbos d-flex flex-wrap justify-content-center d-none" id="mantenimientoAmbos">
-                <?php  while($row = $resultAmbos ->fetch_assoc()){  ?>
+                <?php  while($row = $resultAmbosEquipos ->fetch_assoc()){  ?>
                     <form action="../../../components/mantenimientos/equipos/edidForm.php" method="post" class="form-preventivo m-2">
                         <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
                         <div class="mb-3">
@@ -172,9 +172,9 @@
                         <div class="mb-3">
                             <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
                             <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
-                                <option value="<?php echo $row['tipo_mantenimiento'] ?>">Preventivo</option>
+                                <option value="<?php echo $row['tipo_mantenimiento'] ?>">Ambos</option>
                                 <option value="correctivo">Correctivo</option>
-                                <option value="ambos">Ambos</option>
+                                <option value="preventivo">Preventivo</option>
                             </select>
                         </div>
 
@@ -197,7 +197,7 @@
 
                         <div class="mb-3">
                             <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
-                            <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientos')" class="btn btn-outline-danger">Eliminar</a>
+                            <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientosEquipos')" class="btn btn-outline-danger">Eliminar</a>
                         </div>
                     </form>
                 <?php } ?>
@@ -205,7 +205,7 @@
             </div>
             <hr>
             <div class="mantenimientoCorrectivo d-flex flex-wrap justify-content-center d-none" id="mantenimientoCorrectivo">
-                <?php  while($row = $resultCorrectivo ->fetch_assoc()){  ?>
+                <?php  while($row = $resultCorrectivoEquipos ->fetch_assoc()){  ?>
                         <form action="../../../components/mantenimientos/equipos/edidForm.php" method="post" class="form-preventivo m-2">
                             <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
                             <div class="mb-3">
@@ -256,14 +256,14 @@
 
                             <div class="mb-3">
                                 <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
-                                <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientos')" class="btn btn-outline-danger">Eliminar</a>
+                                <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientosEquipos')" class="btn btn-outline-danger">Eliminar</a>
                             </div>
                         </form>
                 <?php } ?>
             </div>
             <hr>
             <div class="mantenimientoPreventivo d-flex flex-wrap justify-content-center d-none" id="mantenimientoPreventivo">
-                <?php  while($row = $resultPreventivo ->fetch_assoc()){  ?>
+                <?php  while($row = $resultPreventivoEquipos ->fetch_assoc()){  ?>
                     <form action="../../../components/mantenimientos/equipos/edidForm.php" method="post" class="form-preventivo m-2">
                         <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
                         <div class="mb-3">
@@ -314,7 +314,7 @@
 
                         <div class="mb-3">
                             <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
-                            <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientos')" class="btn btn-outline-danger">Eliminar</a>
+                            <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientosEquipos')" class="btn btn-outline-danger">Eliminar</a>
                         </div>
                     </form>
                 <?php } ?>

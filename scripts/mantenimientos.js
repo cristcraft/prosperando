@@ -7,6 +7,10 @@ let divFormButtons = document.querySelector('.form-buttons')
 let divButtons = document.querySelector('.buttons')
 let mantenimientos = document.querySelector('#mantenimientos')
 
+document.addEventListener('DOMContentLoaded',()=>{
+    alert('hi')
+})
+
 function mostrar(opcion){
     switch (opcion) {
         case 'ambos':

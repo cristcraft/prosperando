@@ -14,6 +14,7 @@
     $serial = $_POST['serial'];
     $reporte_tecnico = $_POST['reporte_tecnico'];
     $observaciones = $_POST['observaciones'];
+    $tipo_mantenimiento = $_POST['tipo_mantenimiento'];
 
 
         $updateSql="UPDATE mantenimientos_impresoras SET
@@ -28,7 +29,8 @@
             modelo = '$modelo',
             serial = '$serial',
             reporte_tecnico = '$reporte_tecnico',
-            observaciones = '$observaciones'
+            observaciones = '$observaciones',
+            tipo_mantenimiento = '$tipo_mantenimiento'
 
             WHERE id = '$id'";
         mysqli_query($connection,$updateSql);
