@@ -1,3 +1,4 @@
+let body2 = document.querySelector('#body')
 let ambos = document.querySelector('#mantenimientoAmbos')
 let correctivo = document.querySelector('#mantenimientoCorrectivo')
 let preventivo = document.querySelector('#mantenimientoPreventivo')
@@ -6,10 +7,9 @@ let formMante = document.querySelector('#form-mante')
 let divFormButtons = document.querySelector('.form-buttons')
 let divButtons = document.querySelector('.buttons')
 let mantenimientos = document.querySelector('#mantenimientos')
+let arrowButton = document.querySelector('#arrowButton')
 
-document.addEventListener('DOMContentLoaded',()=>{
-    alert('hi')
-})
+arrowButton.addEventListener('click', mostrarMenu)
 
 function mostrar(opcion){
     switch (opcion) {
@@ -106,14 +106,19 @@ function acomodarBotones(accion){
         //mostrar el formulario
         formMante.classList.remove('d-none')
 
-        //se oculta el boton crear
+         //se oculta el boton crear
         bntCrear.classList.add('d-none')
     
         //agrega la clase onlyButtons que esta en css, que hace que el div solo ocupe el 20%
         divFormButtons.classList.remove('onlyButtons')
 
-        divButtons.classList.remove('flex-column')
         divButtons.classList.remove('buttonsFixed')
+
+        //muestar el menu 
+        divButtons.classList.remove('ocultar')
+
+        //ocultar la flechita para desplegar el menu
+        arrowButton.classList.add('d-none')
     }else if(accion === 'mostrar'){
         //ocultar el formulario
         formMante.classList.add('d-none')
@@ -124,8 +129,40 @@ function acomodarBotones(accion){
         //agrega la clase onlyButtons que esta en css, que hace que el div solo ocupe el 20%
         divFormButtons.classList.add('onlyButtons')
 
-        divButtons.classList.add('flex-column')
         divButtons.classList.add('buttonsFixed')
+
+        //oculta el menu para darle espacio al card
+        divButtons.classList.add('ocultar')
+
+        //mostrar la flechita para desplegar el menu
+        arrowButton.classList.remove('d-none')
+    }
+}
+
+function mostrarMenu(){
+    if(divButtons.classList.contains('ocultar')){
+        //mostrar menu
+        divButtons.classList.remove('ocultar')
+        divButtons.classList.add('mostrar')
+
+        //cambiar icono flecha
+        arrowButton.classList.remove('fa-chevron-circle-right')
+        arrowButton.classList.add('fa-chevron-circle-left')
+
+        if(body2.classList.contains('bg-dark')){
+            divButtons.style.background = '#212529';
+        }else{
+            divButtons.style.background = 'white';
+        }
+    }else{
+        //ocultar menu
+        divButtons.classList.add('ocultar')
+        divButtons.classList.remove('mostrar')
+
+        //cambiar icono flecha
+        arrowButton.classList.add('fa-chevron-circle-right')
+        arrowButton.classList.remove('fa-chevron-circle-left')
+        
     }
 }
 

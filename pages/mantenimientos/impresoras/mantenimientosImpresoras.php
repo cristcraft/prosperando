@@ -177,18 +177,23 @@
                 </div>
 
                 <div class="mb-3">
-                    <button class="btn btn-outline-dark" type="submit">Guardar</button>
+                    <button class="btn mantenimiento btn-outline-dark" type="submit">Guardar</button>
                 </div>
             </form>
 
             <div class="buttons m-2 d-flex">
-                <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('correctivo')"
-                    href="#mantenimientoCorrectivo">Mantenimiento Correctivo</a>
-                <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('preventivo')"
-                    href="#mantenimientoPreventivo">Mantenimiento Preventivo</a>
-                <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('ambos')"
-                    href="#mantenimientoAmbos">Ambos</a>
-                <a class="btn btn-outline-dark d-none mantenimiento m-2" id="crear" onclick="mostrar('crear')">Crear</a>
+                <div class="flex-direction-column">
+                    <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('correctivo')"
+                        href="#mantenimientoCorrectivo">Mantenimiento Correctivo</a>
+                    <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('preventivo')"
+                        href="#mantenimientoPreventivo">Mantenimiento Preventivo</a>
+                    <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('ambos')"
+                        href="#mantenimientoAmbos">Ambos</a>
+                    <a class="btn btn-outline-dark d-none mantenimiento m-2" id="crear" onclick="mostrar('crear')">Crear</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-chevron-circle-right d-none" id="arrowButton"></i>
+                </div>
             </div>
         </div>
 

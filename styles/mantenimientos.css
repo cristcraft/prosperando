@@ -13,7 +13,7 @@
 
 .onlyButtons{
     display: flex;
-    width: 10%;
+    width: 20%;
     height: 300px;
 }
 .buttonsFixed{
@@ -22,4 +22,22 @@
 
 .mantenimientos{
     width: 80%;
+}
+
+@media screen and (max-width: 425px){
+    .buttons{
+        border-radius: 15px;
+        box-shadow: 2px 2px 20px rgb(0 0 0 / 50%);
+    }
+    .buttonsFixed{
+        transition: .5s ease-in-out;
+    }
+    .mostrar{
+        transform: translateX(30px);
+        -webkit-transform:  translateX(30px) !important;
+    }
+    .ocultar{
+        transform: translateX(-110px) !important;
+        -webkit-transform: translateX(-110px) !important;
+    }
 }

@@ -22,9 +22,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -135,18 +133,23 @@
                 </div>
 
                 <div class="mb-3">
-                    <button class="btn btn-outline-dark" type="submit">Guardar</button>
+                    <button class="btn mantenimiento btn-outline-dark" type="submit">Guardar</button>
                 </div>
             </form>
 
             <div class="buttons m-2 d-flex">
-                <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('correctivo')"
-                    href="#mantenimientoCorrectivo">Mantenimiento Correctivo</a>
-                <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('preventivo')"
-                    href="#mantenimientoPreventivo">Mantenimiento Preventivo</a>
-                <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('ambos')"
-                    href="#mantenimientoAmbos">Ambos</a>
-                <a class="btn btn-outline-dark d-none mantenimiento m-2" id="crear" onclick="mostrar('crear')">Crear</a>
+                <div class="flex-direction-column">
+                    <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('correctivo')"
+                        href="#mantenimientoCorrectivo">Mantenimiento Correctivo</a>
+                    <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('preventivo')"
+                        href="#mantenimientoPreventivo">Mantenimiento Preventivo</a>
+                    <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('ambos')"
+                        href="#mantenimientoAmbos">Ambos</a>
+                    <a class="btn btn-outline-dark d-none mantenimiento m-2" id="crear" onclick="mostrar('crear')">Crear</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-chevron-circle-right d-none" id="arrowButton"></i>
+                </div>
             </div>
         </div>
 
