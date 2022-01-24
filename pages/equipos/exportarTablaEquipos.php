@@ -40,13 +40,16 @@ if(!isset($_SESSION['user_logeado'])){
         <div class="tabla">
             <table id="equipos" class="table  text-center mt-4">
                 <thead>
-                    <tr class="bg-primary text-white">
-                        <th scope="col">ID</th>
+                <tr class="bg-primary text-white">
+                        <th scope="col">Acciones</th>
+                        <th scope="col">Codigo administrativo</th>
                         <th scope="col">Sucursal</th>
                         <th scope="col">Area</th>
                         <th scope="col">Funcionario Responsable</th>
                         <th scope="col">Nombre Equipo</th>
                         <th scope="col">Lugar de trabajo</th>
+                        <th scope="col">Paquete Ofimatico</th>
+                        <th scope="col">Version</th>
                         <th scope="col">Novedades</th>
                         <th scope="col">Tipo de equipo</th>
                         <th scope="col">Marca</th>
@@ -92,13 +95,20 @@ if(!isset($_SESSION['user_logeado'])){
                         if($result ->num_rows>0){
                             while($row = $result ->fetch_assoc()){ 
                     ?>
-                    <tr id="tr<?php echo $row['id']  ?>">
-                        <td><?php echo $row['id']  ?></td>
+                    <tr id="tr<?php echo $row['codigo_administrativo']  ?>">
+                        <td class="d-flex flex-column justify-content-beetwen">
+                            <a href="./edid.php/?id=<?php echo $row['codigo_administrativo']?>" class="btn btn-info m-2" title="editar"><i class="fas fa-edit"></i></a>
+                            <a  onclick="confirmar('<?php echo $row['codigo_administrativo']?>', 'equipos')" class="btn btn-danger m-2" title="eliminar"><i class="fas fa-trash"></i></a>
+                            <a  onclick="select(<?php echo $row['codigo_administrativo'] ?>)" class="btn btn-warning m-2" title="seleccionar"><i class="fas fa-arrow-right"></i></a>
+                        </td>
+                        <td><?php echo $row['codigo_administrativo']  ?></td>
                         <td><?php echo $row['sucursal'] ?></td>
                         <td><?php echo $row['area'] ?></td>
                         <td><?php echo $row['funcionario_responsable']?></td>
                         <td><?php echo $row['nombre_equipo']?></td>
                         <td><?php echo $row['lugar_de_trabajo']?></td>
+                        <td><?php echo $row['paquete_ofimatico']?></td>
+                        <td><?php echo $row['version_office']?></td>
                         <td><?php echo $row['novedades']?></td>
                         <td><?php echo $row['tipo_equipo']?></td>
                         <td><?php echo $row['marca'];  ?></td>
@@ -137,7 +147,6 @@ if(!isset($_SESSION['user_logeado'])){
                         <td><?php echo $row['os']?></td>
                         <td><?php echo $row['bit']?>bits</td>
                         <td><?php echo $row['licencia']?></td>
-                        
                     </tr>
                     <?php }} ?>
                 </tbody>

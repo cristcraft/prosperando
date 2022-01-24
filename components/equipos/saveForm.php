@@ -12,6 +12,8 @@ require_once("../../tables/tables.php");
         $funcionario_responsable = $_POST['funcionario_responsable'];
         $nombre_equipo = $_POST['nombre_equipo'];
         $lugar_de_trabajo = $_POST['lugar_trabajo'];
+        $paquete_ofimatico = $_POST['paquete_ofimatico'];
+        $version_office = $_POST['version_office'];
         $novedades = $_POST['novedades'];
         $tipo_equipo = $_POST['tipo_equipo'];
         $marca = $_POST['marca'];
@@ -52,119 +54,74 @@ require_once("../../tables/tables.php");
         $licencia = $_POST['licencia'];
 
 
-        $insertsql="INSERT INTO 
-        equipos(
-            codigo_administrativo,
-            sucursal,
-            area,
-            funcionario_responsable,
-            nombre_equipo,
-            lugar_de_trabajo,
-            novedades,
-            tipo_equipo,
-            marca,
-            modelo,
-            serial,
-            fecha_fabricacion,
-            procesador,
-            generacion_procesador,
-            nucleos,
-            velocidad_mz,
-            ram_gb,
-            tipo_memoria,
-            adaptador_multimedia,
-            adaptador_video,
-            marca_disco_duro,
-            capacidad_disco,
-            tipo_disco,
-            red_ethernet,
-            ip,
-            mac_ethernet,
-            red_wifi,
-            mac,
-            marca_monitor,
-            tipo_monitor,
-            serial_monitor,
-            modelo_monitor,
-            pulgadas,
-            cables_poder,
-            vga,
-            pass_core,
-            bateria,
-            carga_electrica,
-            cargador,
-            voltaje,
-            salida_plug,
-            os,
-            bit,
-            licencia
-            ) 
-        VALUES( 
-            '$codigo_administrativo',
-            '$sucursal',
-            '$area',
-            '$funcionario_responsable',
-            '$nombre_equipo',
-            '$lugar_de_trabajo',
-            '$novedades',
-            '$tipo_equipo',
-            '$marca',
-            '$modelo',
-            '$serial',
-            '$fecha_fabricacion',
-            '$procesador',
-            '$generacion_procesador',
-            '$nucleos',
-            '$velocidad_mz',
-            '$ram_gb',
-            '$tipo_memoria',
-            '$adaptador_multimedia',
-            '$adaptador_video',
-            '$marca_disco_duro',
-            '$capacidad_disco',
-            '$tipo_disco',
-            '$red_ethernet',
-            '$ip',
-            '$mac_ethernet',
-            '$red_wifi',
-            '$mac',
-            '$marca_monitor',
-            '$tipo_monitor',
-            '$serial_monitor',
-            '$modelo_monitor',
-            '$pulgadas',
-            '$cables_poder',
-            '$vga',
-            '$pass_core',
-            '$bateria',
-            '$carga_electrica',
-            '$cargador',
-            '$voltaje',
-            '$salida_plug',
-            '$os',
-            '$bit',
-            '$licencia'
-            )";
+    /*Verificar si el codigo que se ha introducido ya existe en la tabal equipos */
+    $codigoRepetido = "SELECT * FROM equipos WHERE codigo_administrativo = '$codigo_administrativo' ";
+    $result = $connection->query($codigoRepetido);
 
+    /*Si hay algun equipo con el codigo que se puso la condicion se cumplira porque el codigo ya existe */
+    if($result ->num_rows>0){
+        echo '
+        <script>
+            alert("El codigo introducido ya existe")
+            localStorage.setItem("change", "error")
+            window.location.href = "../../pages/equipos/equipos.php"
+        </script>
+    ';
+    }else{
+        $insertsql="INSERT INTO equipos(`codigo_administrativo`, `sucursal`, `area`, `funcionario_responsable`, `nombre_equipo`, `lugar_de_trabajo`, `paquete_ofimatico`, `version_office`, `novedades`, `tipo_equipo`, `marca`, `modelo`, `serial`, `fecha_fabricacion`, `procesador`, `generacion_procesador`, `nucleos`, `velocidad_mz`, `ram_gb`, `tipo_memoria`, `adaptador_multimedia`, `adaptador_video`, `marca_disco_duro`, `capacidad_disco`, `tipo_disco`, `red_ethernet`, `ip`, `mac_ethernet`, `red_wifi`, `mac`, `marca_monitor`, `tipo_monitor`, `serial_monitor`, `modelo_monitor`, `pulgadas`, `cables_poder`, `vga`, `pass_core`, `bateria`, `carga_electrica`, `cargador`, `voltaje`, `salida_plug`, `os`, `bit`, `licencia`) 
+        VALUES ('$codigo_administrativo',
+        '$sucursal',
+        '$area',
+        '$funcionario_responsable',
+        '$nombre_equipo',
+        '$lugar_de_trabajo',
+        '$paquete_ofimatico',
+        '$version_office',
+        '$novedades',
+        '$tipo_equipo',
+        '$marca',
+        '$modelo',
+        '$serial',
+        '$fecha_fabricacion',
+        '$procesador',
+        '$generacion_procesador',
+        '$nucleos',
+        '$velocidad_mz',
+        '$ram_gb',
+        '$tipo_memoria',
+        '$adaptador_multimedia',
+        '$adaptador_video',
+        '$marca_disco_duro',
+        '$capacidad_disco',
+        '$tipo_disco',
+        '$red_ethernet',
+        '$ip',
+        '$mac_ethernet',
+        '$red_wifi',
+        '$mac',
+        '$marca_monitor',
+        '$tipo_monitor',
+        '$serial_monitor',
+        '$modelo_monitor',
+        '$pulgadas',
+        '$cables_poder',
+        '$vga',
+        '$pass_core',
+        '$bateria',
+        '$carga_electrica',
+        '$cargador',
+        '$voltaje',
+        '$salida_plug',
+        '$os',
+        '$bit',
+        '$licencia')";
+
+            
         if ($connection->query($insertsql) === TRUE) {
             echo '<script>window.location.href = "../../pages/equipos/equipos.php"</script>';
-        }else {
-            /*Verificar si el codigo que se ha introducido ya existe en la tabal equipos */
-            $codigoRepetido = "SELECT * FROM equipos WHERE codigo_administrativo = '$codigo_administrativo' ";
-            $result = $connection->query($codigoRepetido);
-
-            /*Si hay algun equipo con el codigo que se puso la condicion se cumplira porque el codigo ya existe */
-            if($result ->num_rows>0){
-                echo '
-                <script>
-                    alert("El codigo introducido ya existe")
-                    localStorage.setItem("change", "error")
-                    window.location.href = "../../pages/equipos/equipos.php"
-                </script>
-            ';
-            }else{
-                echo "ERROR";
-            };
+        }else{
+            echo 'ERROR';
         }
+    };
         
 ?>

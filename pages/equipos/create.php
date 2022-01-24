@@ -125,6 +125,16 @@ if(!isset($_SESSION['user_logeado'])){
             </div>
 
             <div class="mb-3">
+                <label for="paquete_ofimatico" class="form-label">Paquete Ofimatico</label>
+                <input type="text" name="paquete_ofimatico" id="paquete_ofimatico" placeholder="Office / WPS / Libre office" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="version_office" class="form-label">Version</label>
+                <input type="text" name="version_office" id="version_office" placeholder="2010 - 2013 - 2016 - 2019 - 365" class="form-control">
+            </div>
+
+            <div class="mb-3">
                 <label for="novedades" class="form-label">Novedades</label>
                 <input type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control">
             </div>

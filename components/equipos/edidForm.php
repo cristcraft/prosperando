@@ -4,15 +4,14 @@
     //importa la conexion con todas las subtablas
     require_once("../../tables/tables.php");
     
-    $editFormAction = $_SERVER['PHP_SELF'];
-
-        $nuevoCodigo_administrativo = $_POST['nuevoCodigo_administrativo'];
-        $viejoCodigo_administrativo = $_POST['viejoCodigo_administrativo'];
+        $codigo_administrativo = $_POST['codigo_administrativo'];
         $sucursal = $_POST['sucursal'];
         $area = $_POST['area'];
         $funcionario_responsable = $_POST['funcionario_responsable'];
         $nombre_equipo = $_POST['nombre_equipo'];
         $lugar_de_trabajo = $_POST['lugar_trabajo'];
+        $paquete_ofimatico = $_POST['paquete_ofimatico'];
+        $version_office = $_POST['version_office'];
         $novedades = $_POST['novedades'];
         $tipo_equipo = $_POST['tipo_equipo'];
         $marca = $_POST['marca'];
@@ -59,6 +58,8 @@
             funcionario_responsable = '$funcionario_responsable',
             nombre_equipo = '$nombre_equipo',
             lugar_de_trabajo = '$lugar_de_trabajo',
+            paquete_ofimatico  = '$paquete_ofimatico',
+            version_office = '$version_office',
             novedades = '$novedades',
             tipo_equipo = '$tipo_equipo',
             marca = '$marca',
@@ -98,28 +99,13 @@
             bit = '$bit',
             licencia = '$licencia'
 
-            WHERE codigo_administrativo = '$viejoCodigo_administrativo'";
+            WHERE codigo_administrativo = '$codigo_administrativo'";
         mysqli_query($connection,$updateSql);
 
         if ($connection->query($updateSql) === TRUE) {
             echo '<script>window.location.href = "../../pages/equipos/equipos.php"</script>';
         }else {
-            /*Verificar si el codigo que se ha introducido ya existe en la tabal equipos */
-            $codigoRepetido = "SELECT * FROM equipos WHERE codigo_administrativo = '$viejoCodigo_administrativo' ";
-            $result = $connection->query($codigoRepetido);
-
-            /*Si hay algun equipo con el codigo que se puso la condicion se cumplira porque el codigo ya existe */
-            if($result ->num_rows>0){
-                echo '
-                <script>
-                    alert("El codigo introducido ya existe")
-                    localStorage.setItem("change", "error")
-                    window.location.href = "../../pages/equipos/equipos.php"
-                </script>
-            ';
-            }else{
-                echo "ERROR";
-            };
+            echo "ERROR";
         }
 
 ?>

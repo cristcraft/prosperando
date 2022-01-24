@@ -92,6 +92,8 @@ if(!isset($_SESSION['user_logeado'])){
                         <th scope="col">Funcionario Responsable</th>
                         <th scope="col">Nombre Equipo</th>
                         <th scope="col">Lugar de trabajo</th>
+                        <th scope="col">Paquete Ofimatico</th>
+                        <th scope="col">Version</th>
                         <th scope="col">Novedades</th>
                         <th scope="col">Tipo de equipo</th>
                         <th scope="col">Marca</th>
@@ -149,6 +151,8 @@ if(!isset($_SESSION['user_logeado'])){
                         <td><?php echo $row['funcionario_responsable']?></td>
                         <td><?php echo $row['nombre_equipo']?></td>
                         <td><?php echo $row['lugar_de_trabajo']?></td>
+                        <td><?php echo $row['paquete_ofimatico']?></td>
+                        <td><?php echo $row['version_office']?></td>
                         <td><?php echo $row['novedades']?></td>
                         <td><?php echo $row['tipo_equipo']?></td>
                         <td><?php echo $row['marca'];  ?></td>
