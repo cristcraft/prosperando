@@ -93,12 +93,14 @@ if(!isset($_SESSION['user_logeado'])){
     </nav>
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
-        <form action="../../../components/equipos/edidForm.php" method="POST" id="form_edit_equipos" class="form">
+        <form action="../../../components/equipos/edidForm2.php" method="POST" id="form_edit_equipos" class="form">
             <?php while($row = $result -> fetch_assoc()){ ?>
+            <input required type="text" id="viejoCodigo_administrativo" name="viejoCodigo_administrativo"
+                value="<?php echo $row['codigo_administrativo'] ?>" hidden>
 
             <div class="mb-3">
-                <label for="codigo_administrativo" class="form-label">Codigo administrativo</label>
-                <input required type="text" id="codigo_administrativo" name="codigo_administrativo"
+                <label for="nuevoCodigo_administrativo" class="form-label">Codigo administrativo</label>
+                <input required type="text" id="nuevoCodigo_administrativo" name="nuevoCodigo_administrativo"
                     value="<?php echo $row['codigo_administrativo'] ?>" class="form-control">
             </div>
 

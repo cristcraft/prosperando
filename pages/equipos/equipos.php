@@ -143,7 +143,7 @@ if(!isset($_SESSION['user_logeado'])){
                         <td class="d-flex flex-column justify-content-beetwen">
                             <a href="./edid.php/?id=<?php echo $row['codigo_administrativo']?>" class="btn btn-info m-2" title="editar"><i class="fas fa-edit"></i></a>
                             <a  onclick="confirmar('<?php echo $row['codigo_administrativo']?>', 'equipos')" class="btn btn-danger m-2" title="eliminar"><i class="fas fa-trash"></i></a>
-                            <a  onclick="select(<?php echo $row['codigo_administrativo'] ?>)" class="btn btn-warning m-2" title="seleccionar"><i class="fas fa-arrow-right"></i></a>
+                            <a  onclick="select('<?php echo $row['codigo_administrativo'] ?>')" class="btn btn-warning m-2" title="seleccionar"><i class="fas fa-arrow-right"></i></a>
                         </td>
                         <td><?php echo $row['codigo_administrativo']  ?></td>
                         <td><?php echo $row['sucursal'] ?></td>
