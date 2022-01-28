@@ -93,7 +93,7 @@ if(!isset($_SESSION['user_logeado'])){
     </nav>
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
-        <form action="../../../components/equipos/edidForm2.php" method="POST" id="form_edit_equipos" class="form">
+        <form action="../../../components/equipos/edidForm.php" method="POST" id="form_edit_equipos" class="form">
             <?php while($row = $result -> fetch_assoc()){ ?>
             <input required type="text" id="viejoCodigo_administrativo" name="viejoCodigo_administrativo"
                 value="<?php echo $row['codigo_administrativo'] ?>" hidden>
@@ -183,7 +183,7 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="version_office" class="form-label">Version</label>
-                <input type="text" name="version_office" id="version_office"
+                <input type="number" name="version_office" id="version_office"
                 value="<?php echo $row['version_office'] ?>" class="form-control">
             </div>
 
@@ -487,7 +487,7 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="bit" class="form-label">Bit</label>
-                <input required type="text" name="bit" id="bit" placeholder="Bit" class="form-control"
+                <input required type="text" name="bit" id="bit" placeholder="64/32" class="form-control"
                     value="<?php echo $row['bit'] ?>">
             </div>
 

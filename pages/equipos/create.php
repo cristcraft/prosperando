@@ -131,7 +131,7 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="version_office" class="form-label">Version</label>
-                <input type="text" name="version_office" id="version_office" placeholder="2010 - 2013 - 2016 - 2019 - 365" class="form-control">
+                <input type="number" name="version_office" id="version_office" placeholder="2010 - 2013 - 2016 - 2019 - 365" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -340,7 +340,7 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="bit" class="form-label">Bit</label>
-                <input required type="text" name="bit" id="bit" placeholder="Bit" class="form-control">
+                <input required type="number" name="bit" id="bit" placeholder="64/32" class="form-control">
             </div>
 
             <div class="mb-3">
