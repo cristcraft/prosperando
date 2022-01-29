@@ -201,7 +201,7 @@ if(!isset($_SESSION['user_logeado'])){
                     </div>
                     <div class="mb-3">
                     <label for="capacidad'.$i.'" class="form-label">Capacidad '.$i.'</label>
-                    <input type="text" name="capacidad'.$i.'" id="capacidad'.$i.'" placeholder="capacidad'.$i.'" class="form-control">
+                    <input type="number" name="capacidad'.$i.'" id="capacidad'.$i.'" placeholder="capacidad'.$i.'" class="form-control">
                 </div>';
                 }
             ?>

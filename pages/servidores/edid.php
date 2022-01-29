@@ -210,7 +210,7 @@ if(!isset($_SESSION['user_logeado'])){
                         </div>
                         <div class='mb-3'>
                             <label for='capacidad$i' class='form-label'>Capaciad $i</label>
-                            <input required type='text' name='capacidad$i' id='capacidad$i' placeholder='capacidad$i' class='form-control' value='".$row[$capacidad[$i]]."'>
+                            <input required type='number' name='capacidad$i' id='capacidad$i' placeholder='capacidad$i' class='form-control' value='".$row[$capacidad[$i]]."'>
                         </div>
                         ";
                     }

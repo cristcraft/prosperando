@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 24-01-2022 a las 22:08:13
+-- Tiempo de generación: 29-01-2022 a las 16:01:32
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -119,52 +119,52 @@ INSERT INTO `areas_tablets` (`id`, `area`) VALUES
 --
 
 CREATE TABLE `equipos` (
-  `codigo_administrativo` varchar(200) NOT NULL,
-  `sucursal` varchar(100) NOT NULL,
-  `area` varchar(100) NOT NULL,
-  `funcionario_responsable` varchar(100) NOT NULL,
-  `nombre_equipo` varchar(100) NOT NULL,
-  `lugar_de_trabajo` varchar(100) NOT NULL,
-  `paquete_ofimatico` varchar(200) NOT NULL,
-  `version_office` varchar(200) NOT NULL,
+  `codigo_administrativo` varchar(50) NOT NULL,
+  `sucursal` varchar(50) DEFAULT NULL,
+  `area` varchar(50) DEFAULT NULL,
+  `funcionario_responsable` varchar(50) DEFAULT NULL,
+  `nombre_equipo` varchar(20) DEFAULT NULL,
+  `lugar_de_trabajo` varchar(10) DEFAULT NULL,
+  `paquete_ofimatico` varchar(10) DEFAULT NULL,
+  `version_office` varchar(5) DEFAULT NULL,
   `novedades` varchar(100) DEFAULT NULL,
-  `tipo_equipo` varchar(100) NOT NULL,
-  `marca` varchar(100) NOT NULL,
-  `modelo` varchar(100) NOT NULL,
-  `serial` varchar(100) NOT NULL,
+  `tipo_equipo` varchar(15) DEFAULT NULL,
+  `marca` varchar(100) DEFAULT NULL,
+  `modelo` varchar(100) DEFAULT NULL,
+  `serial` varchar(100) DEFAULT NULL,
   `fecha_fabricacion` date DEFAULT NULL,
-  `procesador` varchar(100) NOT NULL,
-  `generacion_procesador` varchar(100) NOT NULL,
-  `nucleos` int(11) NOT NULL,
-  `velocidad_mz` int(11) NOT NULL,
-  `ram_gb` int(11) NOT NULL,
-  `tipo_memoria` varchar(100) NOT NULL,
-  `adaptador_multimedia` varchar(100) NOT NULL,
-  `adaptador_video` varchar(100) NOT NULL,
-  `marca_disco_duro` varchar(100) NOT NULL,
-  `capacidad_disco` varchar(100) NOT NULL,
-  `tipo_disco` varchar(100) NOT NULL,
-  `red_ethernet` varchar(100) NOT NULL,
+  `procesador` varchar(100) DEFAULT NULL,
+  `generacion_procesador` varchar(100) DEFAULT NULL,
+  `nucleos` int(11) DEFAULT NULL,
+  `velocidad_mz` int(11) DEFAULT NULL,
+  `ram_gb` int(11) DEFAULT NULL,
+  `tipo_memoria` varchar(100) DEFAULT NULL,
+  `adaptador_multimedia` varchar(100) DEFAULT NULL,
+  `adaptador_video` varchar(100) DEFAULT NULL,
+  `marca_disco_duro` varchar(100) DEFAULT NULL,
+  `capacidad_disco` varchar(100) DEFAULT NULL,
+  `tipo_disco` varchar(100) DEFAULT NULL,
+  `red_ethernet` varchar(100) DEFAULT NULL,
   `ip` varchar(100) DEFAULT NULL,
-  `mac_ethernet` varchar(100) NOT NULL,
-  `red_wifi` varchar(100) NOT NULL,
-  `mac` varchar(100) NOT NULL,
-  `marca_monitor` varchar(100) NOT NULL,
-  `tipo_monitor` varchar(100) NOT NULL,
-  `serial_monitor` varchar(100) NOT NULL,
-  `modelo_monitor` varchar(100) NOT NULL,
-  `pulgadas` varchar(60) NOT NULL,
-  `cables_poder` int(60) NOT NULL,
-  `vga` int(60) NOT NULL,
-  `pass_core` int(60) NOT NULL,
-  `bateria` varchar(100) NOT NULL,
-  `carga_electrica` varchar(100) NOT NULL,
-  `cargador` varchar(200) NOT NULL,
-  `voltaje` varchar(100) NOT NULL,
-  `salida_plug` varchar(100) NOT NULL,
-  `os` varchar(100) NOT NULL,
-  `bit` int(11) NOT NULL,
-  `licencia` varchar(100) NOT NULL
+  `mac_ethernet` varchar(100) DEFAULT NULL,
+  `red_wifi` varchar(100) DEFAULT NULL,
+  `mac` varchar(100) DEFAULT NULL,
+  `marca_monitor` varchar(100) DEFAULT NULL,
+  `tipo_monitor` varchar(100) DEFAULT NULL,
+  `serial_monitor` varchar(100) DEFAULT NULL,
+  `modelo_monitor` varchar(100) DEFAULT NULL,
+  `pulgadas` varchar(60) DEFAULT NULL,
+  `cables_poder` int(60) DEFAULT NULL,
+  `vga` int(60) DEFAULT NULL,
+  `pass_core` int(60) DEFAULT NULL,
+  `bateria` varchar(100) DEFAULT NULL,
+  `carga_electrica` varchar(100) DEFAULT NULL,
+  `cargador` varchar(200) DEFAULT NULL,
+  `voltaje` varchar(100) DEFAULT NULL,
+  `salida_plug` varchar(100) DEFAULT NULL,
+  `os` varchar(100) DEFAULT NULL,
+  `bit` int(11) DEFAULT NULL,
+  `licencia` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla de la hoja de vida de los equipos';
 
 --
@@ -172,11 +172,12 @@ CREATE TABLE `equipos` (
 --
 
 INSERT INTO `equipos` (`codigo_administrativo`, `sucursal`, `area`, `funcionario_responsable`, `nombre_equipo`, `lugar_de_trabajo`, `paquete_ofimatico`, `version_office`, `novedades`, `tipo_equipo`, `marca`, `modelo`, `serial`, `fecha_fabricacion`, `procesador`, `generacion_procesador`, `nucleos`, `velocidad_mz`, `ram_gb`, `tipo_memoria`, `adaptador_multimedia`, `adaptador_video`, `marca_disco_duro`, `capacidad_disco`, `tipo_disco`, `red_ethernet`, `ip`, `mac_ethernet`, `red_wifi`, `mac`, `marca_monitor`, `tipo_monitor`, `serial_monitor`, `modelo_monitor`, `pulgadas`, `cables_poder`, `vga`, `pass_core`, `bateria`, `carga_electrica`, `cargador`, `voltaje`, `salida_plug`, `os`, `bit`, `licencia`) VALUES
-('', 'Administración', 'sistemas', 'Jessica Moreno', 'DA-CS-PT-07', 'Oficina', 'Office', '2020', '', 'Portatil', 'Lenovo', 'Lenovo ThinkBook 14-IIL', 'pendiente', '2021-11-17', 'QuadCore Intel Core i5', '1035G1', 4, 3300, 8, 'DDR4', 'Realtek ALC257 @ Intel Ice Point-LP PCH - cAVS (Audio, Voice, Speech)', '	Intel(R) UHD Graphics (1 GB)', 'SEAGATE', '1TB', 'SSD', 'Realtek PCIe GbE Family Controller', 'N.A', 'C0-18-50-26-28-D0', 'Intel(R) Wi-Fi 6 AX201 160MHz', '70-CF-49-D1-A8-1C', 'CMN N140HGA-EA1', 'LCD', 'pendiente', 'CMN', '14,0', 0, 0, 2, '45000 ', 'L19L3PF8', 'LENOVO', '12.536V', 'tipo C', 'Microsoft Windows 10 Pro', 64, 'pendiente'),
-('50', 'Administración', 'sistemas', 'Juan Manuel Medina Ocampo', 'DA-CS-PT-08', 'Oficina', 'WPS', 'N.A', '', 'Portatil', 'Lenovo', 'Lenovo ThinkBook 14-IIL', 'pendiente', '2021-11-17', 'QuadCore Intel Core i5', '1035G1', 4, 3300, 8, 'DDR4', 'Realtek ALC257 @ Intel Ice Point-LP PCH - cAVS (Audio, Voice, Speech)', '	Intel(R) UHD Graphics (1 GB)', 'SEAGATE', '1TB', 'SSD', '	Realtek PCIe GbE Family Controller', 'N.A', 'C0-18-50-26-28-51', 'Intel(R) Wi-Fi 6 AX201 160MHz', '70-CF-49-CE-79-F3', 'CMN N140HGA-EA1', 'LCD', 'CMN14E5', 'CMN', '13.9', 0, 0, 2, 'L19C3PF9', '46840 ', 'lenovo', '12.515 ', 'tipo C', 'Microsoft Windows 10 Pro', 64, 'pendiente'),
-('PC001', 'Administración', 'Talento humano', 'Camilo Andres Perez', 'DA-GD-PC-01', 'Oficina', 'OFFICE', '2010', 'HP Compaq 6200 Pro SFF', 'Desktop', 'HP', 'HP', 'MXL21405X1', '0000-00-00', 'DualCore Intel Core i3', '2120-', 2, 3300, 8, 'DDR3', 'Intel Cougar Point HDMI @ Intel Cougar Point PCH - High Definition Audio Controller [B-2]', 'Intel(R) HD Graphics 2000 (2108 MB)', 'TOSHIBA', '1TB', 'SATA III', 'Intel(R) 82579LM Gigabit Network Connection', '', 'E8-39-35-4E-8B-36', 'NO', 'NO', 'HP', 'LCD', 'CNC212RJLW', 'HP LV2011', '20,0', 2, 1, 1, 'NO APLICA', 'NO APLICA', 'NO APLICA', 'NO APLICA', 'NO APLICA', 'Microsoft Windows 10 Pro', 64, 'BBBBB-BBBBB-BBBBB-BBBBB-BBBBB'),
-('PC002', 'Administración', 'Auditoria', 'Angie Valentina Rodriguez Moreno ', 'GG-AI-PT-01', 'Oficina', '', '', '', 'Portatil', 'HP', 'HP Laptop 15-bs0xx', 'CND7182T4S', '0000-00-00', 'DualCore Intel Core i7', '7500U-', 2, 3500, 12, 'DDR4', 'Intel Kaby Lake HDMI @ Intel Sunrise Point-LP PCH - High Definition Audio Controller', 'Intel(R) HD Graphics 620 (1 GB)', 'SEAGATE', '1TB', 'SATA III', 'Realtek PCIe GbE Family Controller', '', '3C-52-82-E8-CB-CF', 'N.A', '3C-95-09-B8-1C-0F', 'HP', 'LCD', 'NINGUNO', 'AUO70EC', '15,5', 0, 0, 2, 'VI04', '2200 mAh', 'hp', '19.5V - 3.33A', '4.5mm * 3.0mm', 'Microsoft Windows 10 Pro', 64, 'BBBBB-BBBBB-BBBBB-BBBBB-BBBBB'),
-('PC003', 'Administración', 'Aux Riesgos', 'Arnold Stiven Ramirez Castro', 'GG-AI-PT-02', 'Oficina', '', '', '', 'Portatil', 'Toshiba', 'Toshiba Satellite L45-B', '7E150872', '0000-00-00', 'Mobile DualCore Intel Core i3', '4005U-', 2, 1700, 8, 'DDR3', 'Realtek ALC233 @ Intel Lynx Point-LP PCH - High Definition Audio Controller', 'Intel(R) HD Graphics Family (2080 MB)', 'HITACHI', '480GB', 'SSD', 'Realtek PCIe FE Family Controller', '', '60-02-92-45-B7-30', 'Qualcomm Atheros AR956x Wireless Network Adapter', '64-5A-04-AF-61-F6', 'LG', 'LCD', 'NINGUNO', 'LP140WH2-TPS1', '14,0', 0, 0, 2, 'Satellite L45-B4176WM', '2800 mAh', 'toshiba', '19 V-3.42A', '5.5*2.5mm', 'Microsoft Windows 10 Pro', 64, 'NWMW6-BH8DD-8YQXD-PB6KK-BKKHP');
+('010', 'Administración', 'Administrador de canales y productos', 'asdf', 'asdf', 'Oficina', 'asdf', 'asfd', 'asfd', 'Portatil', 'Dell', 'asdf', 'asdf', '2022-01-21', 'QuadCore Intel Core i5', 'sadf', 23, 3, 2, 'DDR2', 'asdf', 'sadf', 'HITACHI', 'asdf', 'IDE', 'asdf', 'sfd', 'asdf', 'asd', 'asdf', 'asdf', 'asdf', 'asdf', 'fdasdf', '2', 3, 4, 2, 'fd', 'asdf', 'sadf', 'sadf', 'fds', 'asfd', 3, 'asdf'),
+('012', 'Administración', 'sistemas', 'Jessica Moreno', 'DA-CS-PT-07', 'Casa', 'Office', '2011', '', 'Portatil', 'Lenovo', 'Lenovo ThinkBook 14-IIL', 'pendiente', '2021-11-17', 'QuadCore Intel Core i5', '1035G1', 4, 3300, 8, 'DDR4', 'Realtek ALC257 @ Intel Ice Point-LP PCH - cAVS (Audio, Voice, Speech)', '	Intel(R) UHD Graphics (1 GB)', 'SEAGATE', '1TB', 'SSD', 'Realtek PCIe GbE Family Controller', 'N.A', 'C0-18-50-26-28-D0', 'Intel(R) Wi-Fi 6 AX201 160MHz', '70-CF-49-D1-A8-1C', 'CMN N140HGA-EA1', 'LCD', 'pendiente', 'CMN', '14,0', -12, 0, 2, '45000 ', 'L19L3PF8', 'LENOVO', '12.536V', 'tipo C', 'Microsoft Windows 10 Pro', 64, 'pendiente'),
+('501', 'Administración', 'sistemas', 'Juan Manuel Medina Ocampo', 'DA-CS-PT-08', 'Oficina', 'WPS', 'N.A', '', 'Portatil', 'Lenovo', 'Lenovo ThinkBook 14-IIL', 'pendiente', '2021-11-17', 'QuadCore Intel Core i5', '1035G1', 4, 3300, 8, 'DDR4', 'Realtek ALC257 @ Intel Ice Point-LP PCH - cAVS (Audio, Voice, Speech)', '	Intel(R) UHD Graphics (1 GB)', 'SEAGATE', '1TB', 'SSD', '	Realtek PCIe GbE Family Controller', 'N.A', 'C0-18-50-26-28-51', 'Intel(R) Wi-Fi 6 AX201 160MHz', '70-CF-49-CE-79-F3', 'CMN N140HGA-EA1', 'LCD', 'CMN14E5', 'CMN', '13.9', 0, 0, 2, 'L19C3PF9', '46840 ', 'lenovo', '12.515 ', 'tipo C', 'Microsoft Windows 10 Pro', 64, 'pendiente'),
+('PC001', 'Administración', 'Talento humano', 'Camilo Andres Perez', 'DA-GD-PC-01', 'Oficina', 'OFFICE', '2010', 'HP Compaq 6200 Pro SFF', 'Desktop', 'HP', 'HP', 'MXL21405X1', '2022-01-27', 'DualCore Intel Core i3', '2120-', 2, 3300, 8, 'DDR3', 'Intel Cougar Point HDMI @ Intel Cougar Point PCH - High Definition Audio Controller [B-2]', 'Intel(R) HD Graphics 2000 (2108 MB)', 'TOSHIBA', '1TB', 'SATA III', 'Intel(R) 82579LM Gigabit Network Connection', '', 'E8-39-35-4E-8B-36', 'NO', 'NO', 'HP', 'LCD', 'CNC212RJLW', 'HP LV2011', '20,0', 2, 1, 1, 'NO APLICA', 'NO APLICA', 'NO APLICA', 'NO APLICA', 'NO APLICA', 'Microsoft Windows 10 Pro', 64, 'BBBBB-BBBBB-BBBBB-BBBBB-BBBBB'),
+('PC002', 'Administración', 'Auditoria', 'Angie Valentina Rodriguez Moreno ', 'GG-AI-PT-01', 'Oficina', 'Office', '365', '', 'Portatil', 'HP', 'HP Laptop 15-bs0xx', 'CND7182T4S', '2022-01-09', 'DualCore Intel Core i7', '7500U-', 2, 3500, 12, 'DDR4', 'Intel Kaby Lake HDMI @ Intel Sunrise Point-LP PCH - High Definition Audio Controller', 'Intel(R) HD Graphics 620 (1 GB)', 'SEAGATE', '1TB', 'SATA III', 'Realtek PCIe GbE Family Controller', '', '3C-52-82-E8-CB-CF', 'N.A', '3C-95-09-B8-1C-0F', 'HP', 'LCD', 'NINGUNO', 'AUO70EC', '15,5', 0, 0, 2, 'VI04', '2200 mAh', 'hp', '19.5V - 3.33A', '4.5mm * 3.0mm', 'Microsoft Windows 10 Pro', 64, 'BBBBB-BBBBB-BBBBB-BBBBB-BBBBB'),
+('PC003', NULL, 'Aux Riesgos', 'Arnold Stiven Ramirez Castro', 'GG-AI-PT-02', 'Oficina', '', '', '', 'Portatil', 'Toshiba', 'Toshiba Satellite L45-B', '7E150872', '0000-00-00', 'Mobile DualCore Intel Core i3', '4005U-', 2, 1700, 8, 'DDR3', 'Realtek ALC233 @ Intel Lynx Point-LP PCH - High Definition Audio Controller', 'Intel(R) HD Graphics Family (2080 MB)', 'HITACHI', '480GB', 'SSD', 'Realtek PCIe FE Family Controller', '', '60-02-92-45-B7-30', 'Qualcomm Atheros AR956x Wireless Network Adapter', '64-5A-04-AF-61-F6', 'LG', 'LCD', 'NINGUNO', 'LP140WH2-TPS1', '14,0', 0, 0, 2, 'Satellite L45-B4176WM', '2800 mAh', 'toshiba', '19 V-3.42A', '5.5*2.5mm', 'Microsoft Windows 10 Pro', 64, 'NWMW6-BH8DD-8YQXD-PB6KK-BKKHP');
 
 -- --------------------------------------------------------
 
@@ -563,7 +564,7 @@ CREATE TABLE `servidores` (
 --
 
 INSERT INTO `servidores` (`id`, `serial`, `marca`, `modelo`, `fecha`, `nombre_equipo`, `procesador`, `generacion`, `nucleos`, `velocidad_mz`, `ram`, `tipo_memoria`, `adaptador_multimedia`, `adaptador_video`, `red_ethernet`, `mac`, `ip`, `red_ethernet1`, `mac1`, `ip1`, `so`, `licencia`, `total_discos`, `marca1`, `capacidad1`, `marca2`, `capacidad2`, `marca3`, `capacidad3`, `marca4`, `capacidad4`, `marca5`, `capacidad5`, `marca6`, `capacidad6`, `marca7`, `capacidad7`, `marca8`, `capacidad8`, `marca9`, `capacidad9`, `marca10`, `capacidad10`, `marca11`, `capacidad11`, `marca12`, `capacidad12`, `marca13`, `capacidad13`, `marca14`, `capacidad14`, `marca15`, `capacidad15`, `marca16`, `capacidad16`) VALUES
-(1, '123456', 'HP', '1', '2021-11-01', 'PRUEBA', '1', 1, 11, 1, 1, 'DDR3', 'NO', 'SI', 'SI', 'SI', '123', 'NO', 'NO', 'NO', 'WIDOWS', 'SI', 16, 'HP', 1, 'HP1', 1, 'A', 3, 'D', 3, 'F', 3, 'F3', 3, 'F', 3, '3', 4, 'R', 5, 'R', 6, '5', 4, 'F5', 5, 'hp', 3, 'zp', 2, 'xp', 1, 'vista', 10),
+(1, '123456', 'HP', '21', '2021-11-01', 'PRUEBA', '1', 1, 11, 1, 1, 'DDR3', 'NO', 'SI', 'SI', 'SI', '123', 'NO', 'NO', 'NO', 'WIDOWS', 'SI', 16, 'HP', 1, 'HP1', 1, 'A', 3, 'D', 3, 'F', 3, 'F3', 3, 'F', 3, '3', 4, 'R', 5, 'R', 6, '5', 4, 'F5', 5, 'hp', 3, 'zp', 2, 'xp', 1, 'vista', 10),
 (4, '0987654321', 'asdf', 'el ultimo de este año 20215', '2021-11-04', 'este', '3', 5, 5, 5, 5, 'ddr4', '4', 'Intel(R) HD Graphics 620 (1 GB)', 'Intel(R) 82579LM Gigabit Network Connection', 'N.A', 'N.A', '123', '321', '1234', 'linux', 'pendiente', 5, '1', 5, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0);
 
 -- --------------------------------------------------------
@@ -648,7 +649,7 @@ CREATE TABLE `tablets` (
 --
 
 INSERT INTO `tablets` (`id`, `sucursal`, `area`, `funcionario_responsable`, `novedades`, `marca`, `modelo`, `procesador`, `nucleos`, `ram`, `resolucion`, `serial`, `imei`, `bateria`, `rom`, `camara_frontal`, `camara_trasera`, `os`) VALUES
-(1, '', '', '', '', '', 'HP-V1910-48G aaa', '', 0, 0, '', 'CN19BXS0Z1', 0, 0, 0, 0, 0, '');
+(1, 'Administración', 'Administracion', 'dfasdf', 'asdf', 'Samsung', 'HP-V1910-48G aaa', 'QUALCOMM SNAPDRAGON 410', 0, 0, '1280*800', 'CN19BXS0Z1', 0, 0, 0, 0, 0, 'Androd 7.1.1');
 
 -- --------------------------------------------------------
 
@@ -1050,7 +1051,7 @@ ALTER TABLE `tablets`
 -- AUTO_INCREMENT de la tabla `tipos_disco`
 --
 ALTER TABLE `tipos_disco`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_impresoras`

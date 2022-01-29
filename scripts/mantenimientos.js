@@ -83,7 +83,7 @@ function add(opcion){
 
 function mostrarCards(){
     if(correctivo !== null){
-        if(divFormButtons.classList.contains('onlyButtons') && correctivo.classList.contains('d-none') && preventivo.classList.contains('d-none') && ambos.classList.contains('d-none')){
+        if(divButtons.classList.contains('onlyButtons') && correctivo.classList.contains('d-none') && preventivo.classList.contains('d-none') && ambos.classList.contains('d-none')){
             //acomodar los botones
             acomodarBotones('ocultar')
         }else{
@@ -91,7 +91,7 @@ function mostrarCards(){
         acomodarBotones('mostrar')
         }
     }else if( mantenimientos !== null){
-        if(divFormButtons.classList.contains('onlyButtons') && mantenimientos.classList.contains('d-none')){
+        if(divButtons.classList.contains('onlyButtons') && mantenimientos.classList.contains('d-none')){
             //acomodar los botones
             acomodarBotones('ocultar')
         }else{
@@ -113,7 +113,7 @@ function acomodarBotones(accion){
         divButtons.classList.remove('mostrar')
     
         //agrega la clase onlyButtons que esta en css, que hace que el div solo ocupe el 20%
-        divFormButtons.classList.remove('onlyButtons')
+        divButtons.classList.remove('onlyButtons')
 
         divButtons.classList.remove('buttonsFixed')
 
@@ -122,6 +122,9 @@ function acomodarBotones(accion){
 
         //ocultar la flechita para desplegar el menu
         arrowButton.classList.add('d-none')
+
+        //ajustar botones
+        divFormButtons.classList.remove('ajustar')
     }else if(accion === 'mostrar'){
         //ocultar el formulario
         formMante.classList.add('d-none')
@@ -130,7 +133,7 @@ function acomodarBotones(accion){
         bntCrear.classList.remove('d-none')
 
         //agrega la clase onlyButtons que esta en css, que hace que el div solo ocupe el 20%
-        divFormButtons.classList.add('onlyButtons')
+        divButtons.classList.add('onlyButtons')
 
         divButtons.classList.add('buttonsFixed')
 
@@ -139,6 +142,9 @@ function acomodarBotones(accion){
 
         //mostrar la flechita para desplegar el menu
         arrowButton.classList.remove('d-none')
+
+         //ajustar botones
+        divFormButtons.classList.add('ajustar')
     }
 }
 

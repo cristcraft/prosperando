@@ -12,20 +12,22 @@
             session_destroy();
             die();
     }
-
-    require_once('../../tables/tables.php');
     require_once("../../connection/connection.php");
+    require_once('../../tables/tables.php');
+    
 
     $table = $_GET['table'];
     $accion = $_GET['accion'];
     $num = 0;
+
+    $echo = $table;
 
     if($table === 'sucursales'){
         /* si este en 0 significa que esta vacio y se redireccionara al render de la tabla correspondiente 
         en donde se efectuara alguna accion del crud y se rellenara el link*/
         if($accion === '0'){
             echo '<script> window.location.href = "../sucursal.php"</script>';
-        }else if($accion === 'add'){
+        }else if($accion === 'add'){        
             $addSucursal = $_GET['sucursal'];
             $insertsql = "INSERT INTO sucursales (nombre) VALUES ('$addSucursal')";
             if ($connection->query($insertsql) === TRUE) {

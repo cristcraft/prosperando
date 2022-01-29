@@ -12,7 +12,7 @@
 }
 
 .onlyButtons{
-    display: flex;
+    display: flex !important;
     width: 20%;
     height: 300px;
 }
@@ -24,7 +24,17 @@
     width: 80%;
 }
 
+/*Con esta clase se ajusta la posicion del formulario para que los botones se vean bien en celular*/
+.ajustar{
+    position: fixed;
+    transform: translateY(200px);
+}
+
 @media screen and (max-width: 425px){
+    .onlyButtons{
+        width: fit-content !important;
+        height: fit-content !important;
+    }  
     .buttons{
         border-radius: 15px;
         box-shadow: 2px 2px 20px rgb(0 0 0 / 50%);
@@ -33,11 +43,11 @@
         transition: .5s ease-in-out;
     }
     .mostrar{
-        transform: translateX(30px);
-        -webkit-transform:  translateX(30px) !important;
+        transform: translateX(0px);
+        -webkit-transform:  translateX(0px) !important;
     }
     .ocultar{
-        transform: translateX(-110px) !important;
-        -webkit-transform: translateX(-110px) !important;
+        transform: translateX(-280px) !important;
+        -webkit-transform: translateX(-280px) !important;
     }
 }

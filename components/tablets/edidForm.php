@@ -47,8 +47,31 @@
         echo $id;
         if ($connection->query($updateSql) === TRUE) {
             echo '<script>window.location.href = "../../pages/tablets/tablets.php"</script>';
-        }else {
-            echo "ERROR";
+        }else{
+            //Mostrar el error que se genero al intentar conectar con la bd
+            echo '
+            <style>
+                .error{
+                    font-weight: bold;
+                }
+                p{
+                    margin:30px;
+                }
+                a{
+                    color: white;
+                    background-color:red;
+                    padding: 20px;
+                    text-decoration: none;
+                    border-radius: 15px;
+                    margin:30px;
+                }
+            </style>
+            <p class="error">'. mysqli_error($connection). '</p>
+            <p class="codigo">'. $updateSql . '</p>
+            <a href="../../pages/tablets/tablets.php">Volver</a>
+            <script>
+                localStorage.setItem("change", "error")
+            </script>
+        ';
         }
-
 ?>
