@@ -18,7 +18,7 @@ if(!isset($_SESSION['user_logeado'])){
     require_once("../../tables/tables.php");
 
     $id = $_GET['id'];
-    $sql = "SELECT * FROM equipos WHERE codigo_administrativo='$id'";
+    $sql = "SELECT * FROM equipos WHERE id='$id'";
     $result = $connection->query($sql);
     
 ?>
@@ -95,6 +95,7 @@ if(!isset($_SESSION['user_logeado'])){
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
         <form action="../../../components/equipos/edidForm.php" method="POST" id="form_edit_equipos" class="form">
             <?php while($row = $result -> fetch_assoc()){ ?>
+            <input type="number" value="<?php echo $row['id'] ?>" name="id" hidden>
             <input required type="text" id="viejoCodigo_administrativo" name="viejoCodigo_administrativo"
                 value="<?php echo $row['codigo_administrativo'] ?>" hidden>
 
@@ -495,6 +496,12 @@ if(!isset($_SESSION['user_logeado'])){
                 <label for="licencia" class="form-label">Licencia</label>
                 <input required type="text" name="licencia" id="licencia" placeholder="Licencia" class="form-control"
                     value="<?php echo $row['licencia'] ?>">
+            </div>
+
+            <div class="mb-3">
+                <label for="repotencializado" class="form-label">Repotencializado</label>
+                <input required type="text" name="repotencializado" id="repotencializado" placeholder="Repotencializado" class="form-control"
+                    value="<?php echo $row['repotencializado'] ?>">
             </div>
 
             <?php } ?>

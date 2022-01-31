@@ -41,7 +41,7 @@ if(!isset($_SESSION['user_logeado'])){
             <table id="equipos" class="table  text-center mt-4">
                 <thead>
                 <tr class="bg-primary text-white">
-                        <th scope="col">Acciones</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Codigo administrativo</th>
                         <th scope="col">Sucursal</th>
                         <th scope="col">Area</th>
@@ -96,11 +96,7 @@ if(!isset($_SESSION['user_logeado'])){
                             while($row = $result ->fetch_assoc()){ 
                     ?>
                     <tr id="tr<?php echo $row['codigo_administrativo']  ?>">
-                        <td class="d-flex flex-column justify-content-beetwen">
-                            <a href="./edid.php/?id=<?php echo $row['codigo_administrativo']?>" class="btn btn-info m-2" title="editar"><i class="fas fa-edit"></i></a>
-                            <a  onclick="confirmar('<?php echo $row['codigo_administrativo']?>', 'equipos')" class="btn btn-danger m-2" title="eliminar"><i class="fas fa-trash"></i></a>
-                            <a  onclick="select(<?php echo $row['codigo_administrativo'] ?>)" class="btn btn-warning m-2" title="seleccionar"><i class="fas fa-arrow-right"></i></a>
-                        </td>
+                        <td class="d-flex flex-column justify-content-beetwen"><?php echo $row['id']  ?></td>
                         <td><?php echo $row['codigo_administrativo']  ?></td>
                         <td><?php echo $row['sucursal'] ?></td>
                         <td><?php echo $row['area'] ?></td>

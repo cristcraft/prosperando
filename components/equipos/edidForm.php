@@ -3,7 +3,7 @@
     
     //importa la conexion con todas las subtablas
     require_once("../../tables/tables.php");
-    
+    $id = $_POST['id'];
     $nuevoCodigo_administrativo = $_POST['nuevoCodigo_administrativo'];
         $viejoCodigo_administrativo = $_POST['viejoCodigo_administrativo'];
         $sucursal = $_POST['sucursal'];
@@ -51,6 +51,7 @@
         $os = $_POST['os'];
         $bit = $_POST['bit'];
         $licencia = $_POST['licencia'];
+        $repotencializado = $_POST['repotencializado'];
 
         $updateSql="UPDATE equipos SET
             codigo_administrativo = '$nuevoCodigo_administrativo',
@@ -98,8 +99,9 @@
             salida_plug = '$salida_plug',
             os = '$os',
             bit = '$bit',
-            licencia = '$licencia'
-            WHERE codigo_administrativo = '$viejoCodigo_administrativo'";
+            licencia = '$licencia',
+            repotencializado = '$repotencializado'
+            WHERE id = '$id'";
         mysqli_query($connection,$updateSql);
 
         if ($connection->query($updateSql) === TRUE) {

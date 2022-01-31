@@ -5,7 +5,7 @@ require_once("../../connection/connection.php");
 require_once("../../tables/tables.php");
 
     $editFormAction = $_SERVER['PHP_SELF'];
-
+        $id = $_POST['id'];
         $codigo_administrativo = $_POST['codigo_administrativo'];
         $sucursal = $_POST['sucursal'];
         $area = $_POST['area'];
@@ -52,10 +52,11 @@ require_once("../../tables/tables.php");
         $os = $_POST['os'];
         $bit = $_POST['bit'];
         $licencia = $_POST['licencia'];
+        $repotencializado = $_POST['repotencializado'];
 
 
     /*Verificar si el codigo que se ha introducido ya existe en la tabal equipos */
-    $codigoRepetido = "SELECT * FROM equipos WHERE codigo_administrativo = '$codigo_administrativo' ";
+    $codigoRepetido = "SELECT * FROM equipos WHERE id = '$id' ";
     $result = $connection->query($codigoRepetido);
 
     /*Si hay algun equipo con el codigo que se puso la condicion se cumplira porque el codigo ya existe */
@@ -68,7 +69,7 @@ require_once("../../tables/tables.php");
         </script>
     ';
     }else{
-        $insertsql="INSERT INTO equipos(`codigo_administrativo`, `sucursal`, `area`, `funcionario_responsable`, `nombre_equipo`, `lugar_de_trabajo`, `paquete_ofimatico`, `version_office`, `novedades`, `tipo_equipo`, `marca`, `modelo`, `serial`, `fecha_fabricacion`, `procesador`, `generacion_procesador`, `nucleos`, `velocidad_mz`, `ram_gb`, `tipo_memoria`, `adaptador_multimedia`, `adaptador_video`, `marca_disco_duro`, `capacidad_disco`, `tipo_disco`, `red_ethernet`, `ip`, `mac_ethernet`, `red_wifi`, `mac`, `marca_monitor`, `tipo_monitor`, `serial_monitor`, `modelo_monitor`, `pulgadas`, `cables_poder`, `vga`, `pass_core`, `bateria`, `carga_electrica`, `cargador`, `voltaje`, `salida_plug`, `os`, `bit`, `licencia`) 
+        $insertsql="INSERT INTO equipos(`codigo_administrativo`, `sucursal`, `area`, `funcionario_responsable`, `nombre_equipo`, `lugar_de_trabajo`, `paquete_ofimatico`, `version_office`, `novedades`, `tipo_equipo`, `marca`, `modelo`, `serial`, `fecha_fabricacion`, `procesador`, `generacion_procesador`, `nucleos`, `velocidad_mz`, `ram_gb`, `tipo_memoria`, `adaptador_multimedia`, `adaptador_video`, `marca_disco_duro`, `capacidad_disco`, `tipo_disco`, `red_ethernet`, `ip`, `mac_ethernet`, `red_wifi`, `mac`, `marca_monitor`, `tipo_monitor`, `serial_monitor`, `modelo_monitor`, `pulgadas`, `cables_poder`, `vga`, `pass_core`, `bateria`, `carga_electrica`, `cargador`, `voltaje`, `salida_plug`, `os`, `bit`, `licencia`,`repotencializado`) 
         VALUES ('$codigo_administrativo',
         '$sucursal',
         '$area',
@@ -114,7 +115,8 @@ require_once("../../tables/tables.php");
         '$salida_plug',
         '$os',
         '$bit',
-        '$licencia')";
+        '$licencia',
+        '$repotencializado')";
 
             
         if ($connection->query($insertsql) === TRUE) {

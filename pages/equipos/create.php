@@ -395,6 +395,11 @@ if(!isset($_SESSION['user_logeado'])){
                 <input required type="text" name="licencia" id="licencia" placeholder="Licencia" class="form-control">
             </div>
 
+            <div class="mb-3">
+                <label for="repotencializado" class="form-label">Repotencializado</label>
+                <input required type="text" name="repotencializado" id="repotencializado" placeholder="Repotencializado" class="form-control">
+            </div>
+
             <div class="mb-3 d-flex justify-content-around align-items-center">
                 <button class="btn btn-primary text-white" type="submit" onclick="change()">Guardar</button>
                 <a href="../../pages/equipos/equipos.php" class="btn btn-secondary">Cancelar</a>
