@@ -22,7 +22,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -95,19 +97,17 @@
 
                 <div class="mb-3">
                     <label for="serial" class="form-label">Serial</label>
-                    <input type="text" name="serial" id="serial" class="form-control"
-                        placeholder="Serial">
+                    <input required type="text" name="serial" id="serial" class="form-control" placeholder="Serial">
                 </div>
 
                 <div class="mb-3">
                     <label for="ip" class="form-label">IP</label>
-                    <input type="text" name="ip" id="ip" class="form-control"
-                        placeholder="IP">
+                    <input type="text" name="ip" id="ip" class="form-control" placeholder="IP">
                 </div>
 
                 <div class="mb-3">
                     <label for="fecha" class="form-label">Fecha</label>
-                    <input type="datetime-local" name="fecha" id="fecha" class="form-control">
+                    <input required type="datetime-local" name="fecha" id="fecha" class="form-control">
                 </div>
 
                 <div class="mb-3">
@@ -128,7 +128,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Nombre del Técnico</label>
-                    <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
+                    <input required type="text" class="form-control" id="nombre_tecnico" class="form-control"
                         name="nombre_tecnico" placeholder="Nombre del tecnico">
                 </div>
 
@@ -145,7 +145,10 @@
                         href="#mantenimientoPreventivo">Mantenimiento Preventivo</a>
                     <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('ambos')"
                         href="#mantenimientoAmbos">Ambos</a>
-                    <a class="btn btn-outline-dark d-none mantenimiento m-2" id="crear" onclick="mostrar('crear')">Crear</a>
+                    <a class="btn btn-outline-dark d-none mantenimiento m-2" id="crear"
+                        onclick="mostrar('crear')">Crear</a>
+                    <a class="btn btn-outline-dark d-none mantenimiento m-2" id="descargar"
+            href="./mantenimientos_servidores.php">Descargar</a>
                 </div>
                 <div class="d-flex align-items-center">
                     <i class="fas fa-chevron-circle-right d-none" id="arrowButton"></i>
@@ -156,161 +159,175 @@
         <div class="mantenimientos">
             <div class="mantenimientoAmbos d-flex flex-wrap justify-content-center d-none" id="mantenimientoAmbos">
                 <?php  while($row = $resultAmbosServidores ->fetch_assoc()){  ?>
-                    <form action="../../../components/mantenimientos/servidores/edidForm.php" method="post" class="form-preventivo m-2">
-                        <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
-                        <div>
-                            <h2>Preventivo y Correctivo</h2>
-                        </div>
-                        <div class="mb-3">
-                            <label for="serial" class="form-label">Serial</label>
-                            <input type="text" name="serial" id="serial" class="form-control"
-                                placeholder="Serial" value="<?php echo $row['serial'] ?>" >
-                        </div>
+                <form action="../../../components/mantenimientos/servidores/edidForm.php" method="post"
+                    class="form-preventivo m-2">
+                    <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
+                    <div>
+                        <h2>Preventivo y Correctivo</h2>
+                    </div>
+                    <div class="mb-3">
+                        <label for="serial" class="form-label">Serial</label>
+                        <input type="text" name="serial" id="serial" class="form-control" placeholder="Serial"
+                            value="<?php echo $row['serial'] ?>">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="ip" class="form-label">IP</label>
-                            <input type="text" name="ip" id="ip" class="form-control"
-                                placeholder="IP" value="<?php echo $row['ip'] ?>">
-                        </div>
+                    <div class="mb-3">
+                        <label for="ip" class="form-label">IP</label>
+                        <input type="text" name="ip" id="ip" class="form-control" placeholder="IP"
+                            value="<?php echo $row['ip'] ?>">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="fecha" class="form-label">Fecha</label>
-                            <input type="datetime" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
-                        </div>
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha</label>
+                        <input type="datetime" name="fecha" id="fecha" class="form-control"
+                            value="<?php echo $row['fecha'] ?>">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
-                            <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
-                                <option value="<?php echo $row['tipo_mantenimiento'] ?>">Ambos</option>
-                                <option value="correctivo">Correctivo</option>
-                                <option value="preventivo">Preventivo</option>
-                            </select>
-                        </div>
+                    <div class="mb-3">
+                        <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
+                        <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
+                            <option value="<?php echo $row['tipo_mantenimiento'] ?>">Ambos</option>
+                            <option value="correctivo">Correctivo</option>
+                            <option value="preventivo">Preventivo</option>
+                        </select>
+                    </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Descripción del Mantenimiento </label>
-                            <textarea type="text" class="form-control" name="descripcion_mantenimiento"
-                                id="descripcion_mantenimiento" class="form-control"><?php echo $row['descripcion_mantenimiento'] ?></textarea>
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Descripción del Mantenimiento </label>
+                        <textarea type="text" class="form-control" name="descripcion_mantenimiento"
+                            id="descripcion_mantenimiento"
+                            class="form-control"><?php echo $row['descripcion_mantenimiento'] ?></textarea>
+                    </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Nombre del Técnico</label>
-                            <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
-                                name="nombre_tecnico" value="<?php echo $row['nombre_tecnico'] ?>">
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del Técnico</label>
+                        <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
+                            name="nombre_tecnico" value="<?php echo $row['nombre_tecnico'] ?>">
+                    </div>
 
-                        <div class="mb-3">
-                            <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
-                            <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientos')" class="btn btn-outline-danger">Eliminar</a>
-                        </div>
-                    </form>
+                    <div class="mb-3">
+                        <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
+                        <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientos')"
+                            class="btn btn-outline-danger">Eliminar</a>
+                    </div>
+                </form>
                 <?php } ?>
 
             </div>
             <hr>
-            <div class="mantenimientoCorrectivo d-flex flex-wrap justify-content-center d-none" id="mantenimientoCorrectivo">
+            <div class="mantenimientoCorrectivo d-flex flex-wrap justify-content-center d-none"
+                id="mantenimientoCorrectivo">
                 <?php  while($row = $resultCorrectivoServidores ->fetch_assoc()){  ?>
-                        <form action="../../../components/mantenimientos/servidores/edidForm.php" method="post" class="form-preventivo m-2">
-                            <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
-                            <div>
-                                <h2>Correctivo</h2>
-                            </div>
-                            <div class="mb-3">
-                                <label for="serial" class="form-label">Serial</label>
-                                <input type="text" name="serial" id="serial" class="form-control"
-                                    placeholder="Serial" value="<?php echo $row['serial'] ?>" >
-                            </div>
+                <form action="../../../components/mantenimientos/servidores/edidForm.php" method="post"
+                    class="form-preventivo m-2">
+                    <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
+                    <div>
+                        <h2>Correctivo</h2>
+                    </div>
+                    <div class="mb-3">
+                        <label for="serial" class="form-label">Serial</label>
+                        <input type="text" name="serial" id="serial" class="form-control" placeholder="Serial"
+                            value="<?php echo $row['serial'] ?>">
+                    </div>
 
-                            <div class="mb-3">
-                                <label for="ip" class="form-label">IP</label>
-                                <input type="text" name="ip" id="ip" class="form-control"
-                                    placeholder="IP" value="<?php echo $row['ip'] ?>">
-                            </div>
+                    <div class="mb-3">
+                        <label for="ip" class="form-label">IP</label>
+                        <input type="text" name="ip" id="ip" class="form-control" placeholder="IP"
+                            value="<?php echo $row['ip'] ?>">
+                    </div>
 
-                            <div class="mb-3">
-                                <label for="fecha" class="form-label">Fecha</label>
-                                <input type="datetime" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
-                            </div>
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha</label>
+                        <input type="datetime" name="fecha" id="fecha" class="form-control"
+                            value="<?php echo $row['fecha'] ?>">
+                    </div>
 
-                            <div class="mb-3">
-                                <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
-                                <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
-                                    <option value="<?php echo $row['tipo_mantenimiento'] ?>">Correctivo</option>
-                                    <option value="preventivo">Preventivo</option>
-                                    <option value="ambos">Ambos</option>
-                                </select>
-                            </div>
+                    <div class="mb-3">
+                        <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
+                        <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
+                            <option value="<?php echo $row['tipo_mantenimiento'] ?>">Correctivo</option>
+                            <option value="preventivo">Preventivo</option>
+                            <option value="ambos">Ambos</option>
+                        </select>
+                    </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">Descripción del Mantenimiento </label>
-                                <textarea type="text" class="form-control" name="descripcion_mantenimiento"
-                                id="descripcion_mantenimiento" class="form-control" value=""><?php echo $row['descripcion_mantenimiento'] ?></textarea>
-                            </div>
+                    <div class="mb-3">
+                        <label class="form-label">Descripción del Mantenimiento </label>
+                        <textarea type="text" class="form-control" name="descripcion_mantenimiento"
+                            id="descripcion_mantenimiento" class="form-control"
+                            value=""><?php echo $row['descripcion_mantenimiento'] ?></textarea>
+                    </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">Nombre del Técnico</label>
-                                <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
-                                    name="nombre_tecnico" value="<?php echo $row['nombre_tecnico'] ?>">
-                            </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del Técnico</label>
+                        <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
+                            name="nombre_tecnico" value="<?php echo $row['nombre_tecnico'] ?>">
+                    </div>
 
-                            <div class="mb-3">
-                                <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
-                                <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientos')" class="btn btn-outline-danger">Eliminar</a>
-                            </div>
-                        </form>
+                    <div class="mb-3">
+                        <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
+                        <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientos')"
+                            class="btn btn-outline-danger">Eliminar</a>
+                    </div>
+                </form>
                 <?php } ?>
             </div>
             <hr>
-            <div class="mantenimientoPreventivo d-flex flex-wrap justify-content-center d-none" id="mantenimientoPreventivo">
+            <div class="mantenimientoPreventivo d-flex flex-wrap justify-content-center d-none"
+                id="mantenimientoPreventivo">
                 <?php  while($row = $resultPreventivoServidores ->fetch_assoc()){  ?>
-                    <form action="../../../components/mantenimientos/servidores/edidForm.php" method="post" class="form-preventivo m-2">
-                        <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
-                        <div>
-                            <h2>Preventivo</h2>
-                        </div>
-                        <div class="mb-3">
-                            <label for="serial" class="form-label">Serial</label>
-                            <input type="text" name="serial" id="serial" class="form-control"
-                                placeholder="Serial" value="<?php echo $row['serial'] ?>" >
-                        </div>
+                <form action="../../../components/mantenimientos/servidores/edidForm.php" method="post"
+                    class="form-preventivo m-2">
+                    <input required type="number" id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
+                    <div>
+                        <h2>Preventivo</h2>
+                    </div>
+                    <div class="mb-3">
+                        <label for="serial" class="form-label">Serial</label>
+                        <input type="text" name="serial" id="serial" class="form-control" placeholder="Serial"
+                            value="<?php echo $row['serial'] ?>">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="ip" class="form-label">IP</label>
-                            <input type="text" name="ip" id="ip" class="form-control"
-                                placeholder="IP" value="<?php echo $row['ip'] ?>">
-                        </div>
+                    <div class="mb-3">
+                        <label for="ip" class="form-label">IP</label>
+                        <input type="text" name="ip" id="ip" class="form-control" placeholder="IP"
+                            value="<?php echo $row['ip'] ?>">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="fecha" class="form-label">Fecha</label>
-                            <input type="datetime" name="fecha" id="fecha" class="form-control" value="<?php echo $row['fecha'] ?>">
-                        </div>
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha</label>
+                        <input type="datetime" name="fecha" id="fecha" class="form-control"
+                            value="<?php echo $row['fecha'] ?>">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
-                            <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
-                                <option value="<?php echo $row['tipo_mantenimiento'] ?>">Preventivo</option>
-                                <option value="correctivo">Correctivo</option>
-                                <option value="ambos">Ambos</option>
-                            </select>
-                        </div>
+                    <div class="mb-3">
+                        <label for="tipo_mantenimiento" class="form-label">Tipo de mantenimiento</label>
+                        <select name="tipo_mantenimiento" id="tipo_mantenimiento" class="form-select">
+                            <option value="<?php echo $row['tipo_mantenimiento'] ?>">Preventivo</option>
+                            <option value="correctivo">Correctivo</option>
+                            <option value="ambos">Ambos</option>
+                        </select>
+                    </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Descripción del Mantenimiento </label>
-                            <textarea type="text" class="form-control" name="descripcion_mantenimiento"
-                                id="descripcion_mantenimiento" class="form-control" value=""><?php echo $row['descripcion_mantenimiento'] ?></textarea>
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Descripción del Mantenimiento </label>
+                        <textarea type="text" class="form-control" name="descripcion_mantenimiento"
+                            id="descripcion_mantenimiento" class="form-control"
+                            value=""><?php echo $row['descripcion_mantenimiento'] ?></textarea>
+                    </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Nombre del Técnico</label>
-                            <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
-                                name="nombre_tecnico" value="<?php echo $row['nombre_tecnico'] ?>">
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del Técnico</label>
+                        <input type="text" class="form-control" id="nombre_tecnico" class="form-control"
+                            name="nombre_tecnico" value="<?php echo $row['nombre_tecnico'] ?>">
+                    </div>
 
-                        <div class="mb-3">
-                            <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
-                            <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientos')" class="btn btn-outline-danger">Eliminar</a>
-                        </div>
-                    </form>
+                    <div class="mb-3">
+                        <button class="btn btn-outline-dark mantenimiento" type="submit">Guardar cambios</button>
+                        <a onclick="confirmar('<?php echo $row['id']?>', 'mantenimientos')"
+                            class="btn btn-outline-danger">Eliminar</a>
+                    </div>
+                </form>
                 <?php } ?>
 
             </div>

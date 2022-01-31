@@ -28,7 +28,9 @@ if(!isset($_SESSION['user_logeado'])){
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Crear</title>
 </head>
 
@@ -47,7 +49,7 @@ if(!isset($_SESSION['user_logeado'])){
                         <a class="nav-link" href="../../components/router.php?page=equipos">Equipos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="../../components/router.php?page=tablets">Tablets</a>
+                        <a class="nav-link" href="../../components/router.php?page=tablets">Tablets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../components/router.php?page=impresoras">Impresoras</a>
@@ -56,30 +58,37 @@ if(!isset($_SESSION['user_logeado'])){
                         <a class="nav-link" href="../../components/router.php?page=switches">Switches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../components/router.php?page=servidores">Servidores</a>
+                        <a class="nav-link active" aria-current="page"
+                            href="../../components/router.php?page=servidores">Servidores</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Mantenimientos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="../../components/router.php?page=equiposMante">Equipos</a></li>
-                            <li><a class="dropdown-item" href="../../components/router.php?page=impresorasMante">Impresoras</a></li>
-                            <li><a class="dropdown-item" href="../../components/router.php?page=servidoresMante">Servidores</a></li>
+                            <li><a class="dropdown-item"
+                                    href="../../components/router.php?page=equiposMante">Equipos</a></li>
+                            <li><a class="dropdown-item"
+                                    href="../../components/router.php?page=impresorasMante">Impresoras</a></li>
+                            <li><a class="dropdown-item"
+                                    href="../../components/router.php?page=servidoresMante">Servidores</a></li>
                         </ul>
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"  title="Modo oscuro"><i class="fas fa-sun"></i></button>
+                    <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"
+                        title="Modo oscuro"><i class="fas fa-sun"></i></button>
 
-                    <a href="../../components/router.php?page=logout" class="btn btn-outline-dark" id="btn-salir" title="Salir"><i class="fas fa-sign-out-alt"></i></a>
+                    <a href="../../components/router.php?page=logout" class="btn btn-outline-dark" id="btn-salir"
+                        title="Salir"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
     </nav>
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
-        <form action="../../components/servidores/saveForm.php" method="POST" id="form_create_tablets" class="form" >
+        <form action="../../components/servidores/saveForm.php" method="POST" id="form_create_tablets" class="form">
 
             <div class="mb-3">
                 <label for="serial" class="form-label">Serial</label>
@@ -103,17 +112,20 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
-                <input required type="text" name="nombre_equipo" id="nombre_equipo" placeholder="nombre_equipo" class="form-control">
+                <input required type="text" name="nombre_equipo" id="nombre_equipo" placeholder="nombre_equipo"
+                    class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="procesador" class="form-label">Procesador</label>
-                <input required type="text" name="procesador" id="procesador" placeholder="procesador" class="form-control">
+                <input required type="text" name="procesador" id="procesador" placeholder="procesador"
+                    class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="generacion" class="form-label">Generacion</label>
-                <input required type="text" name="generacion" id="generacion" placeholder="generacion" class="form-control">
+                <input required type="text" name="generacion" id="generacion" placeholder="generacion"
+                    class="form-control">
             </div>
 
             <div class="mb-3">
@@ -123,7 +135,8 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="velocidad_mz" class="form-label">Velocidad en mz</label>
-                <input required type="number" name="velocidad_mz" id="velocidad_mz" placeholder="velocidad_mz" class="form-control">
+                <input required type="number" name="velocidad_mz" id="velocidad_mz" placeholder="velocidad_mz"
+                    class="form-control">
             </div>
 
             <div class="mb-3">
@@ -133,22 +146,26 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="tipo_memoria" class="form-label">Tipo memoria</label>
-                <input required type="text" name="tipo_memoria" id="tipo_memoria" placeholder="tipo_memoria" class="form-control">
+                <input required type="text" name="tipo_memoria" id="tipo_memoria" placeholder="tipo_memoria"
+                    class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="adaptador_multimedia" class="form-label">Adaptador multimedia</label>
-                <input required type="text" name="adaptador_multimedia" id="adaptador_multimedia" placeholder="Adaptador multimedia" class="form-control">
+                <input required type="text" name="adaptador_multimedia" id="adaptador_multimedia"
+                    placeholder="Adaptador multimedia" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="adaptador_video" class="form-label">Adaptador video</label>
-                <input required type="text" name="adaptador_video" id="adaptador_video" placeholder="Adaptador video" class="form-control">
+                <input required type="text" name="adaptador_video" id="adaptador_video" placeholder="Adaptador video"
+                    class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="red_ethernet" class="form-label">Red ethernet</label>
-                <input required type="text" name="red_ethernet" id="red_ethernet" placeholder="Red ethernet" class="form-control">
+                <input required type="text" name="red_ethernet" id="red_ethernet" placeholder="Red ethernet"
+                    class="form-control">
             </div>
 
             <div class="mb-3">
@@ -163,7 +180,8 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="red_ethernet1" class="form-label">Red ethernet1</label>
-                <input required type="text" name="red_ethernet1" id="red_ethernet1" placeholder="Red ethernet1" class="form-control">
+                <input required type="text" name="red_ethernet1" id="red_ethernet1" placeholder="Red ethernet1"
+                    class="form-control">
             </div>
 
 
@@ -189,7 +207,8 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="total_discos" class="form-label">Total discos</label>
-                <input required type="number" name="total_discos" id="total_discos" placeholder="Total discos" class="form-control">
+                <input required type="number" name="total_discos" id="total_discos" placeholder="Total discos"
+                    class="form-control">
             </div>
 
             <?php 
@@ -215,9 +234,9 @@ if(!isset($_SESSION['user_logeado'])){
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
-        crossorigin="anonymous"></script>
-    
+        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous">
+    </script>
+
     <script src="../../scripts/modoOscuro.js"></script>
     <script src="../../scripts//popOvers.js"></script>
 

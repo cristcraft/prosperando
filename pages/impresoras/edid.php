@@ -33,7 +33,9 @@ if(!isset($_SESSION['user_logeado'])){
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../../styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Editar</title>
 </head>
 
@@ -52,10 +54,11 @@ if(!isset($_SESSION['user_logeado'])){
                         <a class="nav-link" href="../../components/router.php?page=equipos">Equipos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="../../components/router.php?page=tablets">Tablets</a>
+                        <a class="nav-link" href="../../components/router.php?page=tablets">Tablets</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../../components/router.php?page=impresoras">Impresoras</a>
+                        <a class="nav-link active" aria-current="page"
+                            href="../../components/router.php?page=impresoras">Impresoras</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../components/router.php?page=switches">Switches</a>
@@ -64,34 +67,40 @@ if(!isset($_SESSION['user_logeado'])){
                         <a class="nav-link" href="../../components/router.php?page=servidores">Servidores</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Mantenimientos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="../../components/router.php?page=equiposMante">Equipos</a></li>
-                            <li><a class="dropdown-item" href="../../components/router.php?page=impresorasMante">Impresoras</a></li>
-                            <li><a class="dropdown-item" href="../../components/router.php?page=servidoresMante">Servidores</a></li>
+                            <li><a class="dropdown-item"
+                                    href="../../components/router.php?page=equiposMante">Equipos</a></li>
+                            <li><a class="dropdown-item"
+                                    href="../../components/router.php?page=impresorasMante">Impresoras</a></li>
+                            <li><a class="dropdown-item"
+                                    href="../../components/router.php?page=servidoresMante">Servidores</a></li>
                         </ul>
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"  title="Modo oscuro"><i class="fas fa-sun"></i></button>
+                    <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"
+                        title="Modo oscuro"><i class="fas fa-sun"></i></button>
 
-                    <a href="../../components/router.php?page=logout" class="btn btn-outline-dark" id="btn-salir" title="Salir"><i class="fas fa-sign-out-alt"></i></a>
+                    <a href="../../components/router.php?page=logout" class="btn btn-outline-dark" id="btn-salir"
+                        title="Salir"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
     </nav>
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
-        <form action="../../../components/impresoras/edidForm.php" method="POST" id="form_edit_impresoras" class="form" >
+        <form action="../../../components/impresoras/edidForm.php" method="POST" id="form_edit_impresoras" class="form">
             <?php while($row = $result -> fetch_assoc()){ ?>
-                <input id="id" name="id" value="<?php echo $row['id'] ?>" hidden >
+            <input id="id" name="id" value="<?php echo $row['id'] ?>" hidden>
 
-                <div class="mb-3">
-                    <label for="sucursal" class="form-label">Sucursal</label>
-                    <select name="sucursal" id="sucursal" class="form-select">
-                            <?php
+            <div class="mb-3">
+                <label for="sucursal" class="form-label">Sucursal</label>
+                <select name="sucursal" id="sucursal" class="form-select">
+                    <?php
                                 while($row2 =$sucursalesResult -> fetch_assoc()){
                                     if($row['sucursal'] === $row2['nombre']){
                                         $select = 'selected';
@@ -99,17 +108,18 @@ if(!isset($_SESSION['user_logeado'])){
                                         $select = '';
                                     }
                             ?>
-                                <option value="<?php echo $row2['nombre'] ?>" <?php echo $select ?>><?php echo $row2['nombre'] ?></option>
-                            <?php
+                    <option value="<?php echo $row2['nombre'] ?>" <?php echo $select ?>><?php echo $row2['nombre'] ?>
+                    </option>
+                    <?php
                                 }
                             ?>
-                            
-                    </select>
-                </div>
 
-                <div class="mb-3">
-                    <label for="area" class="form-label">Area</label>
-                    <select name="area" id="area" class="form-select">
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="area" class="form-label">Area</label>
+                <select name="area" id="area" class="form-select">
                     <?php
                         while($row2 = $areas_impresorasResult -> fetch_assoc()){
                             if($row['area'] === $row2['area']){
@@ -118,17 +128,18 @@ if(!isset($_SESSION['user_logeado'])){
                                 $select = '';
                             }
                     ?>
-                        <option value="<?php echo $row2['area'] ?>" <?php echo $select ?>><?php echo $row2['area'] ?></option>
+                    <option value="<?php echo $row2['area'] ?>" <?php echo $select ?>><?php echo $row2['area'] ?>
+                    </option>
                     <?php
                         }
                     ?>
-                    </select>
-                </div>
+                </select>
+            </div>
 
-                <div class="mb-3">
-                    <label for="tipo_impresoras" class="form-label">Tipo impresora</label>
-                    <select name="tipo_impresoras" id="tipo_impresoras" class="form-control">
-                        <?php
+            <div class="mb-3">
+                <label for="tipo_impresoras" class="form-label">Tipo impresora</label>
+                <select name="tipo_impresoras" id="tipo_impresoras" class="form-control">
+                    <?php
                             while($row2 =$tipo_impresorasResult -> fetch_assoc()){
                                 if($row['tipo'] === $row2['impresora']){
                                     $select = 'selected';
@@ -136,17 +147,18 @@ if(!isset($_SESSION['user_logeado'])){
                                     $select = '';
                                 }
                         ?>
-                            <option value="<?php echo $row2['impresora'] ?>" <?php echo $select ?>><?php echo $row2['impresora'] ?></option>
-                        <?php
+                    <option value="<?php echo $row2['impresora'] ?>" <?php echo $select ?>>
+                        <?php echo $row2['impresora'] ?></option>
+                    <?php
                             }
                         ?>
-                        </select>
-                </div>
+                </select>
+            </div>
 
-                <div class="mb-3">
-                    <label for="marcas_impresoras" class="form-label">Marca</label>
-                    <select name="marcas_impresoras" id="marcas_impresoras" class="form-control">
-                        <?php
+            <div class="mb-3">
+                <label for="marcas_impresoras" class="form-label">Marca</label>
+                <select name="marcas_impresoras" id="marcas_impresoras" class="form-control">
+                    <?php
                             while($row2 =$marcas_impresorasResult -> fetch_assoc()){
                                 if($row['marca_impresoras'] === $row2['marca_impresoras']){
                                     $select = 'selected';
@@ -154,17 +166,18 @@ if(!isset($_SESSION['user_logeado'])){
                                     $select = '';
                                 }
                         ?>
-                            <option value="<?php echo $row2['marca'] ?>" <?php echo $select ?>><?php echo $row2['marca'] ?></option>
-                        <?php
+                    <option value="<?php echo $row2['marca'] ?>" <?php echo $select ?>><?php echo $row2['marca'] ?>
+                    </option>
+                    <?php
                             }
                         ?>
-                        </select>
-                </div>
+                </select>
+            </div>
 
-                <div class="mb-3">
-                    <label for="tipo_papel" class="form-label">Tipo papel</label>
-                    <select name="tipo_papel" id="tipo_papel" class="form-control">
-                        <?php
+            <div class="mb-3">
+                <label for="tipo_papel" class="form-label">Tipo papel</label>
+                <select name="tipo_papel" id="tipo_papel" class="form-control">
+                    <?php
                             while($row2 =$tipo_papelResult -> fetch_assoc()){
                                 if($row['tipo_papel'] === $row2['tipo_papel']){
                                     $select = 'selected';
@@ -172,42 +185,49 @@ if(!isset($_SESSION['user_logeado'])){
                                     $select = '';
                                 }
                         ?>
-                            <option value="<?php echo $row2['tipo_papel'] ?>" <?php echo $select ?>><?php echo $row2['tipo_papel'] ?></option>
-                        <?php
+                    <option value="<?php echo $row2['tipo_papel'] ?>" <?php echo $select ?>>
+                        <?php echo $row2['tipo_papel'] ?></option>
+                    <?php
                             }
                         ?>
-                        </select>
-                </div>
-                            
-                <div class="mb-3">
-                    <label for="modelo" class="form-label">Modelo</label>
-                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control" value="<?php echo $row['modelo'] ?>">
-                </div>
+                </select>
+            </div>
 
-                <div class="mb-3">
-                    <label for="serial" class="form-label">Serial</label>
-                    <input type="text" name="serial" id="serial" placeholder="Serial" class="form-control" value="<?php echo $row['serial'] ?>">
-                </div>
+            <div class="mb-3">
+                <label for="modelo" class="form-label">Modelo</label>
+                <input required type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control"
+                    value="<?php echo $row['modelo'] ?>">
+            </div>
 
-                <div class="mb-3">
-                    <label for="ip" class="form-label">Ip</label>
-                    <input type="text" name="ip" id="ip" placeholder="Ip" class="form-control" value="<?php echo $row['ip'] ?>">
-                </div>
+            <div class="mb-3">
+                <label for="serial" class="form-label">Serial</label>
+                <input required type="text" name="serial" id="serial" placeholder="Serial" class="form-control"
+                    value="<?php echo $row['serial'] ?>">
+            </div>
 
-                <div class="mb-3">
-                    <label for="mac" class="form-label">MAC</label>
-                    <input type="text" name="mac" id="mac" placeholder="mac" class="form-control" value="<?php echo $row['mac'] ?>">
-                </div>
+            <div class="mb-3">
+                <label for="ip" class="form-label">Ip</label>
+                <input type="text" name="ip" id="ip" placeholder="Ip" class="form-control"
+                    value="<?php echo $row['ip'] ?>">
+            </div>
 
-                <div class="mb-3">
-                    <label for="nombre_host" class="form-label">Nombre host</label>
-                    <input type="text" name="nombre_host" id="nombre_host" placeholder="nombre_host" class="form-control" value="<?php echo $row['nombre_host'] ?>">
-                </div>
+            <div class="mb-3">
+                <label for="mac" class="form-label">MAC</label>
+                <input required type="text" name="mac" id="mac" placeholder="mac" class="form-control"
+                    value="<?php echo $row['mac'] ?>">
+            </div>
 
-                <div class="mb-3">
-                    <label for="novedades" class="form-label">Novedades</label>
-                    <input type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control" value="<?php echo $row['novedades'] ?>">
-                </div>
+            <div class="mb-3">
+                <label for="nombre_host" class="form-label">Nombre host</label>
+                <input required type="text" name="nombre_host" id="nombre_host" placeholder="nombre_host" class="form-control"
+                    value="<?php echo $row['nombre_host'] ?>">
+            </div>
+
+            <div class="mb-3">
+                <label for="novedades" class="form-label">Novedades</label>
+                <input required type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control"
+                    value="<?php echo $row['novedades'] ?>">
+            </div>
 
             <?php } ?>
 
@@ -219,11 +239,12 @@ if(!isset($_SESSION['user_logeado'])){
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
-        crossorigin="anonymous"></script>
-    
+        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous">
+    </script>
+
     <script src="../../../scripts/modoOscuro.js"></script>
     <script src="../../../scripts/popOvers.js"></script>
 
 </body>
+
 </html>

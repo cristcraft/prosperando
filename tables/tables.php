@@ -129,7 +129,7 @@
 
     //========== Mantenimientos SERVIDORES =======================
     $mantenimientosServidores = "SELECT *FROM mantenimientos_servidores";
-    $mantServidoresImpresorasResult = $connection->query($mantenimientosServidores);
+    $mantenimientosServidoresResult = $connection->query($mantenimientosServidores);
 
     $sqlPreventivoServidores = "SELECT * FROM mantenimientos_servidores WHERE tipo_mantenimiento = 'preventivo'";
     $resultPreventivoServidores = $connection->query($sqlPreventivoServidores);

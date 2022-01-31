@@ -28,7 +28,9 @@ if(!isset($_SESSION['user_logeado'])){
         integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Crear</title>
 </head>
 
@@ -47,7 +49,8 @@ if(!isset($_SESSION['user_logeado'])){
                         <a class="nav-link" href="../../components/router.php?page=equipos">Equipos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../../components/router.php?page=tablets">Tablets</a>
+                        <a class="nav-link active" aria-current="page"
+                            href="../../components/router.php?page=tablets">Tablets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../components/router.php?page=impresoras">Impresoras</a>
@@ -59,90 +62,110 @@ if(!isset($_SESSION['user_logeado'])){
                         <a class="nav-link" href="../../components/router.php?page=servidores">Servidores</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Mantenimientos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="../../components/router.php?page=equiposMante">Equipos</a></li>
-                            <li><a class="dropdown-item" href="../../components/router.php?page=impresorasMante">Impresoras</a></li>
-                            <li><a class="dropdown-item" href="../../components/router.php?page=servidoresMante">Servidores</a></li>
+                            <li><a class="dropdown-item"
+                                    href="../../components/router.php?page=equiposMante">Equipos</a></li>
+                            <li><a class="dropdown-item"
+                                    href="../../components/router.php?page=impresorasMante">Impresoras</a></li>
+                            <li><a class="dropdown-item"
+                                    href="../../components/router.php?page=servidoresMante">Servidores</a></li>
                         </ul>
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"  title="Modo oscuro"><i class="fas fa-sun"></i></button>
+                    <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"
+                        title="Modo oscuro"><i class="fas fa-sun"></i></button>
 
-                    <a href="../../components/router.php?page=logout" class="btn btn-outline-dark" id="btn-salir" title="Salir"><i class="fas fa-sign-out-alt"></i></a>
+                    <a href="../../components/router.php?page=logout" class="btn btn-outline-dark" id="btn-salir"
+                        title="Salir"><i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
     </nav>
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
-        <form action="../../components/tablets/saveForm.php" method="POST" id="form_create_tablets" class="form" >
+        <form action="../../components/tablets/saveForm.php" method="POST" id="form_create_tablets" class="form">
 
             <div class="mb-3">
-                <label for="sucursal" class="form-label">Sucursal </label> <a href="../../components/addElements/addElements.php/?table=sucursales&accion=0"><i class="fas fa-plus-circle"></i></a>
+                <label for="sucursal" class="form-label">Sucursal </label> <a
+                    href="../../components/addElements/addElements.php/?table=sucursales&accion=0"><i
+                        class="fas fa-plus-circle"></i></a>
                 <select name="sucursal" id="sucursal" class="form-select">
                     <?php while($row = $sucursalesResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
+                    <option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
                     <?php } ?>
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="area" class="form-label">Area <a href="../../components/addElements/addElements.php/?table=areas_tablets&accion=0"><i class="fas fa-plus-circle"></i></a></label>
+                <label for="area" class="form-label">Area <a
+                        href="../../components/addElements/addElements.php/?table=areas_tablets&accion=0"><i
+                            class="fas fa-plus-circle"></i></a></label>
                 <select name="area" id="area" class="form-select">
                     <?php while($row = $areas_tabletsResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['area'] ?>"><?php echo $row['area'] ?></option>
+                    <option value="<?php echo $row['area'] ?>"><?php echo $row['area'] ?></option>
                     <?php } ?>
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="marcas" class="form-label">Marca <a href="../../components/addElements/addElements.php/?table=marcas_tablets&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
+                <label for="marcas" class="form-label">Marca <a
+                        href="../../components/addElements/addElements.php/?table=marcas_tablets&accion=0"><i
+                            class="fas fa-plus-circle"></i></a></label>
                 <select name="marcas" id="marcas" class="form-control">
                     <?php while($row = $marcas_tabletsResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['marcas'] ?>"><?php echo $row['marcas'] ?></option>
+                    <option value="<?php echo $row['marcas'] ?>"><?php echo $row['marcas'] ?></option>
                     <?php } ?>
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="procesadores_tablets" class="form-label">Procesador <a href="../../components/addElements/addElements.php/?table=procesadores_tablets&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
+                <label for="procesadores_tablets" class="form-label">Procesador <a
+                        href="../../components/addElements/addElements.php/?table=procesadores_tablets&accion=0"><i
+                            class="fas fa-plus-circle"></i></a></label>
                 <select name="procesadores_tablets" id="procesadores_tablets" class="form-control">
                     <?php while($row = $procesadores_tabletsResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['procesador'] ?>"><?php echo $row['procesador'] ?></option>
+                    <option value="<?php echo $row['procesador'] ?>"><?php echo $row['procesador'] ?></option>
                     <?php } ?>
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="resolucion_tablets" class="form-label">Resolucion <a href="../../components/addElements/addElements.php/?table=resolucion_tablets&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
+                <label for="resolucion_tablets" class="form-label">Resolucion <a
+                        href="../../components/addElements/addElements.php/?table=resolucion_tablets&accion=0"><i
+                            class="fas fa-plus-circle"></i></a></label>
                 <select name="resolucion_tablets" id="resolucion_tablets" class="form-control">
                     <?php while($row = $resolucion_tabletsResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['resolucion'] ?>"><?php echo $row['resolucion'] ?></option>
+                    <option value="<?php echo $row['resolucion'] ?>"><?php echo $row['resolucion'] ?></option>
                     <?php } ?>
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="os_version" class="form-label">Version de android <a href="../../components/addElements/addElements.php/?table=os_tablets&accion=0"  ><i class="fas fa-plus-circle"></i></a></label>
+                <label for="os_version" class="form-label">Version de android <a
+                        href="../../components/addElements/addElements.php/?table=os_tablets&accion=0"><i
+                            class="fas fa-plus-circle"></i></a></label>
                 <select name="os_version" id="os_version" class="form-control">
                     <?php while($row = $os_versionResult -> fetch_assoc()){ ?>
-                        <option value="<?php echo $row['os'] ?>"><?php echo $row['os'] ?></option>
+                    <option value="<?php echo $row['os'] ?>"><?php echo $row['os'] ?></option>
                     <?php } ?>
                 </select>
             </div>
 
             <div class="mb-3">
                 <label for="funcionario_responsable" class="form-label">funcionario Responsable</label>
-                <input required type="text" name="funcionario_responsable" id="funcionario_responsable" placeholder="funcionario responsable" class="form-control">
+                <input required type="text" name="funcionario_responsable" id="funcionario_responsable"
+                    placeholder="funcionario responsable" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="novedades" class="form-label">Novedades</label>
-                <input required type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control">
+                <input required type="text" name="novedades" id="novedades" placeholder="Novedades"
+                    class="form-control">
             </div>
 
             <div class="mb-3">
@@ -182,12 +205,14 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="camara_frontal" class="form-label">Camara frontal</label>
-                <input required type="text" name="camara_frontal" id="camara_frontal" placeholder="camara frontal" class="form-control">
+                <input required type="text" name="camara_frontal" id="camara_frontal" placeholder="camara frontal"
+                    class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="camara_trasera" class="form-label">Camara trasera</label>
-                <input required type="text" name="camara_trasera" id="camara_trasera" placeholder="camara trasera" class="form-control">
+                <input required type="text" name="camara_trasera" id="camara_trasera" placeholder="camara trasera"
+                    class="form-control">
             </div>
 
 
@@ -199,9 +224,9 @@ if(!isset($_SESSION['user_logeado'])){
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
-        crossorigin="anonymous"></script>
-    
+        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous">
+    </script>
+
     <script src="../../scripts/modoOscuro.js"></script>
     <script src="../../scripts//popOvers.js"></script>
 

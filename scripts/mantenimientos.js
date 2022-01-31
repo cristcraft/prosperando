@@ -3,6 +3,7 @@ let ambos = document.querySelector('#mantenimientoAmbos')
 let correctivo = document.querySelector('#mantenimientoCorrectivo')
 let preventivo = document.querySelector('#mantenimientoPreventivo')
 let bntCrear = document.querySelector('#crear')
+let bntDescargar = document.querySelector('#descargar')
 let formMante = document.querySelector('#form-mante')
 let divFormButtons = document.querySelector('.form-buttons')
 let divButtons = document.querySelector('.buttons')
@@ -109,6 +110,9 @@ function acomodarBotones(accion){
          //se oculta el boton crear
         bntCrear.classList.add('d-none')
 
+        //se oculta el boton descargar
+        bntDescargar.classList.add('d-none')
+
         //se quite la la clase mostar en caso que la tenag
         divButtons.classList.remove('mostrar')
     
@@ -131,6 +135,9 @@ function acomodarBotones(accion){
 
         //se muestra el boton crear
         bntCrear.classList.remove('d-none')
+
+        //se muestra el boton Descargar
+        bntDescargar.classList.remove('d-none')
 
         //agrega la clase onlyButtons que esta en css, que hace que el div solo ocupe el 20%
         divButtons.classList.add('onlyButtons')

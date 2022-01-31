@@ -177,14 +177,14 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="paquete_ofimatico" class="form-label">Paquete Ofimatico</label>
-                <input type="text" name="paquete_ofimatico" id="paquete_ofimatico"
+                <input required type="text" name="paquete_ofimatico" id="paquete_ofimatico"
                     value="<?php echo $row['paquete_ofimatico'] ?>" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="version_office" class="form-label">Version</label>
-                <input type="number" name="version_office" id="version_office"
-                value="<?php echo $row['version_office'] ?>" class="form-control">
+                <input required type="number" name="version_office" id="version_office"
+                    value="<?php echo $row['version_office'] ?>" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -245,7 +245,7 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="fecha_fabricacion" class="form-label">Fecha fabricacion</label>
-                <input type="date" name="fecha_fabricacion" id="fecha_fabricacion" placeholder="fecha_fabricacion"
+                <input required type="date" name="fecha_fabricacion" id="fecha_fabricacion" placeholder="fecha_fabricacion"
                     class="form-control" value="<?php echo $row['fecha_fabricacion'] ?>">
             </div>
 

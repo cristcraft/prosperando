@@ -97,32 +97,32 @@
 
                 <div class="mb-3">
                     <label for="ciudad" class="form-label">Ciudad</label>
-                    <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Ciudad">
+                    <input required type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Ciudad">
                 </div>
 
                 <div class="mb-3">
                     <label for="fecha" class="form-label">Fecha</label>
-                    <input type="date" name="fecha" id="fecha" class="form-control">
+                    <input required type="date" name="fecha" id="fecha" class="form-control">
                 </div>
 
                 <div class="mb-3">
                     <label for="cliente" class="form-label">Cliente</label>
-                    <input type="text" name="cliente" id="cliente" class="form-control" placeholder="Cliente">
+                    <input required type="text" name="cliente" id="cliente" class="form-control" placeholder="Cliente">
                 </div>
 
                 <div class="mb-3">
                     <label for="direccion" class="form-label">Direccion</label>
-                    <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Direccion">
+                    <input required type="text" name="direccion" id="direccion" class="form-control" placeholder="Direccion">
                 </div>
 
                 <div class="mb-3">
                     <label for="telefono" class="form-label">Telefono</label>
-                    <input type="number" name="telefono" id="telefono" class="form-control" placeholder="Telefono">
+                    <input required type="number" name="telefono" id="telefono" class="form-control" placeholder="Telefono">
                 </div>
 
                 <div class="mb-3">
                     <label for="encargado" class="form-label">Encargado</label>
-                    <input type="text" name="encargado" id="encargado" class="form-control" placeholder="Encargado">
+                    <input required type="text" name="encargado" id="encargado" class="form-control" placeholder="Encargado">
                 </div>
 
                 <div class="mb-3">
@@ -145,13 +145,13 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="modelo">Modelo</label>
-                    <input type="text" class="form-control" id="modelo" class="form-control" name="modelo"
+                    <input required type="text" class="form-control" id="modelo" class="form-control" name="modelo"
                         placeholder="Modelo">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="serial">Serial</label>
-                    <input type="text" class="form-control" id="serial" class="form-control" name="serial"
+                    <input required type="text" class="form-control" id="serial" class="form-control" name="serial"
                         placeholder="Serial">
                 </div>
 
@@ -189,7 +189,10 @@
                         href="#mantenimientoPreventivo">Mantenimiento Preventivo</a>
                     <a class="btn btn-outline-dark mantenimiento m-2" onclick="mostrar('ambos')"
                         href="#mantenimientoAmbos">Ambos</a>
-                    <a class="btn btn-outline-dark d-none mantenimiento m-2" id="crear" onclick="mostrar('crear')">Crear</a>
+                    <a class="btn btn-outline-dark d-none mantenimiento m-2" id="crear"
+                        onclick="mostrar('crear')">Crear</a>
+                    <a class="btn btn-outline-dark d-none mantenimiento m-2" id="descargar"
+                href="./mantenimientos_impresoras.php">Descargar</a>
                 </div>
                 <div class="d-flex align-items-center">
                     <i class="fas fa-chevron-circle-right d-none" id="arrowButton"></i>
@@ -263,8 +266,8 @@
 
                     <div class="mb-3">
                         <label class="form-label">Modelo</label>
-                        <input type="text" class="form-control" name="modelo" id="modelo"
-                            class="form-control" value="<?php echo $row['modelo'] ?>" /> 
+                        <input type="text" class="form-control" name="modelo" id="modelo" class="form-control"
+                            value="<?php echo $row['modelo'] ?>" />
                     </div>
 
                     <div class="mb-3">
@@ -370,8 +373,8 @@
 
                     <div class="mb-3">
                         <label class="form-label">Modelo</label>
-                        <input type="text" class="form-control" name="modelo" id="modelo"
-                            class="form-control" value="<?php echo $row['modelo'] ?>" />
+                        <input type="text" class="form-control" name="modelo" id="modelo" class="form-control"
+                            value="<?php echo $row['modelo'] ?>" />
                     </div>
 
                     <div class="mb-3">
@@ -476,8 +479,8 @@
 
                     <div class="mb-3">
                         <label class="form-label">Modelo</label>
-                        <input type="text" class="form-control" name="modelo" id="modelo"
-                            class="form-control" value="<?php echo $row['modelo'] ?>" />
+                        <input type="text" class="form-control" name="modelo" id="modelo" class="form-control"
+                            value="<?php echo $row['modelo'] ?>" />
                     </div>
 
                     <div class="mb-3">
