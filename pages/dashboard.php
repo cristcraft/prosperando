@@ -111,6 +111,22 @@
                     <a class="btn btn-info" href="./impresoras/impresoras.php">Ver mas</a>
                 </div>
             </div>
+
+            <div class="card bg-dark text-white text-center m-4">
+                <h4 class="card-title opcionesTitle p-3">Switches</h4>
+                <div class="card-body opcionesTxt">
+                    <p class="card-text text-justify">Aqui encontraras toda la hoja de vida y modficaciones que se le han realizado a los Switches de todas las sedes</p>
+                    <a class="btn btn-info" href="./switches/switches.php">Ver mas</a>
+                </div>
+            </div>
+
+            <div class="card bg-dark text-white text-center m-4">
+                <h4 class="card-title opcionesTitle p-3">Servidores</h4>
+                <div class="card-body opcionesTxt">
+                    <p class="card-text text-justify">Aqui encontraras toda la hoja de vida y modficaciones que se le han realizado a los Servidores de todas las sedes</p>
+                    <a class="btn btn-info" href="./servidores/servidores.php">Ver mas</a>
+                </div>
+            </div>
         </div>
     </div>
 
