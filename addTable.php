@@ -1,4 +1,5 @@
 <?php 
+//codigo de prueba para ver la estructura de una tabla desde php
     require_once('./connection/connection.php');
     
     $sql = "DESCRIBE equipos";
