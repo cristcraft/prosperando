@@ -33,50 +33,7 @@ if(!isset($_SESSION['user_logeado'])){
 </head>
 
 <body id="body">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../../components/router.php?page=dashboard">DashBoard</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../components/router.php?page=equipos">Equipos</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="../../components/router.php?page=tablets">Tablets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../components/router.php?page=impresoras">Impresoras</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../components/router.php?page=switches">Switches</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../components/router.php?page=servidores">Servidores</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Mantenimientos
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="../../components/router.php?page=equiposMante">Equipos</a></li>
-                            <li><a class="dropdown-item" href="../../components/router.php?page=impresorasMante">Impresoras</a></li>
-                            <li><a class="dropdown-item" href="../../components/router.php?page=servidoresMante">Servidores</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="d-flex">
-                    <button class="btn me-3 btn-outline-dark" id="btn-oscuro" onclick="onModoOscuro()"  title="Modo oscuro"><i class="fas fa-sun"></i></button>
-
-                    <a href="../../components/router.php?page=logout" class="btn btn-outline-dark" id="btn-salir" title="Salir"><i class="fas fa-sign-out-alt"></i></a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php require('../../components/navbar.php') ?>
 
     <div class="container-fluid d-flex flex-column align-items-center mt-3">
         <h1>Equipos</h1>
@@ -142,7 +99,7 @@ if(!isset($_SESSION['user_logeado'])){
                     ?>
                     <tr id="tr<?php echo $row['id']  ?>">
                         <td class="d-flex flex-column justify-content-beetwen">
-                            <a href="./edid.php/?id=<?php echo $row['id']?>" class="btn btn-info m-2" title="editar"><i class="fas fa-edit"></i></a>
+                            <a href="./edid.php?id=<?php echo $row['id']?>" class="btn btn-info m-2" title="editar"><i class="fas fa-edit"></i></a>
                             <a  onclick="confirmar('<?php echo $row['id']?>', 'equipos')" class="btn btn-danger m-2" title="eliminar"><i class="fas fa-trash"></i></a>
                             <a  onclick="select('<?php echo $row['id'] ?>')" class="btn btn-warning m-2" title="seleccionar"><i class="fas fa-arrow-right"></i></a>
                         </td>

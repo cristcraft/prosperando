@@ -123,7 +123,7 @@ if(!isset($_SESSION['user_logeado'])){
                     ?>
                     <tr id="tr<?php echo $row['id']?>">
                     <td class="d-flex flex-column justify-content-around">
-                            <a href="./edid.php/?id=<?php echo $row['id']?>" class="btn btn-info m-2"  title="editar"><i class="fas fa-edit"></i></a>
+                            <a href="./edid.php?id=<?php echo $row['id']?>" class="btn btn-info m-2"  title="editar"><i class="fas fa-edit"></i></a>
                             <a  onclick="confirmar('<?php echo $row['id']?>', 'servidores')" class="btn btn-danger m-2"  title="eliminar"><i class="fas fa-trash"></i></a>
                             <a  onclick="select('<?php echo $row['id']?>')" class="btn btn-warning m-2"  title="seleccionar"><i class="fas fa-arrow-right"></i></a>
                         </td>

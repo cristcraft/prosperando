@@ -22,7 +22,6 @@
 
             WHERE id = '$id'";
         mysqli_query($connection,$updateSql);
-        echo $id, $marca, $modelo, $serial, $mac, $ip, $manual;
         if ($connection->query($updateSql) === TRUE) {
             echo '<script>window.location.href = "../../pages/switches/switches.php"</script>';
         }else{
