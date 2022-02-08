@@ -1,8 +1,8 @@
 <?php
     require_once('../../connection/connection.php');
-    $codigo_administrativo = $_GET['codigo_administrativo'];
+    $id = $_GET['id'];
 
-    $deleteSql = "DELETE FROM equipos WHERE codigo_administrativo = '$codigo_administrativo'";
+    $deleteSql = "DELETE FROM equipos WHERE id = '$id'";
     mysqli_query($connection,$deleteSql);
 
     if ($connection->query($deleteSql) === TRUE) {

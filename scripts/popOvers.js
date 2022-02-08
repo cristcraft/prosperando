@@ -45,7 +45,7 @@ function confirmar(id, page) {
             Swal.fire('Eliminado Exitosamente!', '', 'success')
             setTimeout(() => {
                 if(page === 'equipos'){
-                    window.location.href = "../../components/equipos/delete.php/?codigo_administrativo=" + id
+                    window.location.href = "../../components/equipos/delete.php/?id=" + id
                 }else if(page === 'tablets'){
                     window.location.href = "../../components/tablets/delete.php/?id=" + id
                 }else if(page === 'impresoras'){

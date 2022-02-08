@@ -147,6 +147,7 @@ if(!isset($_SESSION['user_logeado'])){
                     <?php }} ?>
                 </tbody>
             </table>
+        </div>
     </div>
 
 </body>
