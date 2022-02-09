@@ -108,7 +108,7 @@ if(!isset($_SESSION['user_logeado'])){
     </nav>
 
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
-        <form action="../../components/equipos/editForm_copy.php" method="POST" id="form_create_equipos" class="form">
+        <form action="../../components/equipos/editForm.php" method="POST" id="form_create_equipos" class="form">
 
             <?php 
                 while($rowEstructuraTabla = mysqli_fetch_array($resultEstructuraTabla)) {

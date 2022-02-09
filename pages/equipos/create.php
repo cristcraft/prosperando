@@ -15,7 +15,12 @@ if(!isset($_SESSION['user_logeado'])){
     require_once("../../connection/connection.php");
 
     //importa la conexion con todas las subtablas
-    require_once("../../tables/tables.php");
+    require_once("../../tables/tables_copy.php");
+
+    $estructuraTabla = "DESCRIBE equipos";
+    $resultEstructuraTabla = $connection->query($estructuraTabla);
+
+    $count = 0;
 ?>
 
 <!doctype html>
@@ -90,315 +95,67 @@ if(!isset($_SESSION['user_logeado'])){
     <div class="container-fluid d-flex justify-content-center align-items-center" id="form-content ">
         <form action="../../components/equipos/saveForm.php" method="POST" id="form_create_equipos" class="form">
 
-            <div class="mb-3">
-                <label for="codigo_administrativo" class="form-label">Codigo administrativo</label>
-                <input required type="text" id="codigo_administrativo" name="codigo_administrativo" class="form-control"
-                    require>
-            </div>
-
-            <div class="mb-3">
-                <label for="sucursal" class="form-label">Sucursal <a
-                        href="../../components/addElements/addElements.php/?table=sucursales&accion=0"><i
-                            class="fas fa-plus-circle"></i></a></label>
-                <select name="sucursal" id="sucursal" class="form-select">
-                    <?php while($row = $sucursalesResult -> fetch_assoc()){ ?>
-                    <option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="area" class="form-label">Area <a
-                        href="../../components/addElements/addElements.php/?table=areas&accion=0"><i
-                            class="fas fa-plus-circle"></i></a></label>
-                <select name="area" id="area" class="form-select">
-                    <?php while($row = $areasResult -> fetch_assoc()){ ?>
-                    <option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="funcionario_responsable" class="form-label">funcionario Responsable</label>
-                <input required type="text" name="funcionario_responsable" id="funcionario_responsable"
-                    placeholder="funcionario responsable" class="form-control">
-            </div>
-
-
-            <div class="mb-3">
-                <label for="nombre_equipo" class="form-label">Nombre del equipo</label>
-                <input required type="text" name="nombre_equipo" id="nombre_equipo" placeholder="nombre del quipo"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="lugar_trabajo" class="form-label">Lugar de trabajo</label>
-                <select name="lugar_trabajo" id="lugar_trabajo" class="form-select">
-                    <?php while($row = $lugarTrabajoResult -> fetch_assoc()){ ?>
-                    <option value="<?php echo $row['lugar_de_trabajo'] ?>"><?php echo $row['lugar_de_trabajo'] ?>
-                    </option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="paquete_ofimatico" class="form-label">Paquete Ofimatico</label>
-                <input required type="text" name="paquete_ofimatico" id="paquete_ofimatico"
-                    placeholder="Office / WPS / Libre office" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="version_office" class="form-label">Version</label>
-                <input required type="number" name="version_office" id="version_office"
-                    placeholder="2010 - 2013 - 2016 - 2019 - 365" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="novedades" class="form-label">Novedades</label>
-                <input required type="text" name="novedades" id="novedades" placeholder="Novedades" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="tipo_equipo" class="form-label">Tipo de equipo</label>
-                <select name="tipo_equipo" id="tipo_equipo" class="form-select">
-                    <?php while($row = $tipoEquipoResult -> fetch_assoc()){ ?>
-                    <option value="<?php echo $row['tipo'] ?>"><?php echo $row['tipo'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="marca" class="form-label">Marca <a
-                        href="../../components/addElements/addElements.php/?table=marcas&accion=0"><i
-                            class="fas fa-plus-circle"></i></a></label>
-                <select name="marca" id="marca" class="form-select">
-                    <?php while($row = $marcasResult -> fetch_assoc()){ ?>
-                    <option value="<?php echo $row['marca'] ?>"><?php echo $row['marca'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="modelo" class="form-label">Modelo</label>
-                <input required type="text" name="modelo" id="modelo" placeholder="Modelo" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="serial" class="form-label">Serial</label>
-                <input required type="text" name="serial" id="serial" placeholder="Serial" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="fecha_fabricacion" class="form-label">Fecha</label>
-                <input required type="date" name="fecha_fabricacion" id="fecha_fabricacion" placeholder="fecha_fabricacion"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="procesador" class="form-label">Procesador <a
-                        href="../../components/addElements/addElements.php/?table=procesadores&accion=0"><i
-                            class="fas fa-plus-circle"></i></a></label>
-                <select name="procesador" id="procesador" class="form-select">
-                    <?php while($row = $procesadoresResult -> fetch_assoc()){ ?>
-                    <option value="<?php echo $row['procesador'] ?>"><?php echo $row['procesador'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="generacion_procesador" class="form-label">Generacion del procesador</label>
-                <input required type="text" name="generacion_procesador" id="generacion_procesador"
-                    placeholder="generacion del procesador" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="nucleos" class="form-label">nucleos</label>
-                <input required type="number" name="nucleos" id="nucleos" placeholder="nucleos" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="velocidad_mz" class="form-label">velocidad en mz</label>
-                <input required type="number" name="velocidad_mz" id="velocidad_mz" placeholder="velocidad en mz"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="ram_gb" class="form-label">RAM en GB</label>
-                <input required type="number" name="ram_gb" id="ram_gb" placeholder="ram en gb" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="tipo_memoria" class="form-label">Tipo de RAM <a
-                        href="../../components/addElements/addElements.php/?table=tipo_memorias&accion=0"><i
-                            class="fas fa-plus-circle"></i></a></label>
-                <select name="tipo_memoria" id="tipo_memoria" class="form-select">
-                    <?php while($row = $tipoMemoriasResult -> fetch_assoc()){ ?>
-                    <option value="<?php echo $row['tipo_memoria'] ?>"><?php echo $row['tipo_memoria'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="adaptador_multimedia" class="form-label">Adaptador multimedia</label>
-                <input required type="text" name="adaptador_multimedia" id="adaptador_multimedia"
-                    placeholder="adaptador multimedia" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="adaptador_video" class="form-label">Adaptador video</label>
-                <input required type="text" name="adaptador_video" id="adaptador_video" placeholder="adaptador video"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="marca_disco_duro" class="form-label">Marca del disco duro <a
-                        href="../../components/addElements/addElements.php/?table=marcas_disco_duro&accion=0"><i
-                            class="fas fa-plus-circle"></i></a></label>
-                <select name="marca_disco_duro" id="marca_disco_duro" class="form-select">
-                    <?php while($row = $marcasDiscoResult -> fetch_assoc()){ ?>
-                    <option value="<?php echo $row['marca_disco_duro'] ?>"><?php echo $row['marca_disco_duro'] ?>
-                    </option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="capacidad_disco" class="form-label">Capacidad del disco</label>
-                <input required type="text" name="capacidad_disco" id="capacidad_disco"
-                    placeholder="capacidad del disco" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="tipo_disco" class="form-label">Tipo de disco duro <a
-                        href="../../components/addElements/addElements.php/?table=tipos_disco&accion=0"><i
-                            class="fas fa-plus-circle"></i></a></label>
-                <select name="tipo_disco" id="tipo_disco" class="form-select">
-                    <?php while($row = $tiposDiscoResult -> fetch_assoc()){ ?>
-                    <option value="<?php echo $row['tipo_disco'] ?>"><?php echo $row['tipo_disco'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="red_ethernet" class="form-label">Red ethernet</label>
-                <input required type="text" name="red_ethernet" id="red_ethernet" placeholder="red ethernet"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="ip" class="form-label">IP</label>
-                <input type="text" name="ip" id="ip" placeholder="ip" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="mac_ethernet" class="form-label">MAC ethernet</label>
-                <input required type="text" name="mac_ethernet" id="mac_ethernet" placeholder="mac_ethernet"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="red_wifi" class="form-label">Red wifi</label>
-                <input required type="text" name="red_wifi" id="red_wifi" placeholder="red wifi" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="mac" class="form-label">MAC</label>
-                <input required type="text" name="mac" id="mac" placeholder="mac" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="marca_monitor" class="form-label">Marca del monitor</label>
-                <input required type="text" name="marca_monitor" id="marca_monitor" placeholder="Marca del monitor"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="tipo_monitor" class="form-label">Tipo monitor</label>
-                <input required type="text" name="tipo_monitor" id="tipo_monitor" placeholder="Tipo monitor"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="serial_monitor" class="form-label">Serial monitor</label>
-                <input required type="text" name="serial_monitor" id="serial_monitor" placeholder="Serial monitor"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="modelo_monitor" class="form-label">Modelo monitor</label>
-                <input required type="text" name="modelo_monitor" id="modelo_monitor" placeholder="Modelo monitor"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="pulgadas" class="form-label">Pulgadas monitor</label>
-                <input required type="text" name="pulgadas" id="pulgadas" placeholder="Pulgadas monitor"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="cables_poder" class="form-label">Cables de poder</label>
-                <input required type="number" name="cables_poder" id="cables_poder" placeholder="Cables de poder"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="vga" class="form-label">vga</label>
-                <input required type="number" name="vga" id="vga" placeholder="vga" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="pass_core" class="form-label">Pass core</label>
-                <input required type="number" name="pass_core" id="pass_core" placeholder="Pass core"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="bateria" class="form-label">Bateria</label>
-                <input required type="text" name="bateria" id="bateria" placeholder="Bateria" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="carga_electrica" class="form-label">Carga electrica</label>
-                <input required type="text" name="carga_electrica" id="carga_electrica" placeholder="Carga electrica"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="cargador" class="form-label">Cargador</label>
-                <input required type="text" name="cargador" id="cargador" placeholder="cargador" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="voltaje" class="form-label">Voltaje</label>
-                <input required type="text" name="voltaje" id="voltaje" placeholder="Voltaje" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="salida_plug" class="form-label">Salida plug</label>
-                <input required type="text" name="salida_plug" id="salida_plug" placeholder="Salida plug"
-                    class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="os" class="form-label">Sistema operativo</label>
-                <input required type="text" name="os" id="os" placeholder="Sistema operativo" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="bit" class="form-label">Bit</label>
-                <input required type="number" name="bit" id="bit" placeholder="64/32" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="licencia" class="form-label">Licencia</label>
-                <input required type="text" name="licencia" id="licencia" placeholder="Licencia" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="repotencializado" class="form-label">Repotencializado</label>
-                <input required type="text" name="repotencializado" id="repotencializado" placeholder="Repotencializado" class="form-control">
-            </div>
+            <?php 
+                while($rowEstructuraTabla = mysqli_fetch_array($resultEstructuraTabla)) {
+                        
+                    if($rowEstructuraTabla['Null'] === 'NO'){
+                        echo '
+                                <input  type="number" name="'.$rowEstructuraTabla['Field'].'" id="'.$rowEstructuraTabla['Field'].'"
+                                    placeholder="Number" class="form-control" hidden value="Null">
+                        ';
+                    }elseif($rowEstructuraTabla['Default'] === NULL && $rowEstructuraTabla['Type'] == 'int(11)' || $rowEstructuraTabla['Type'] == 'int(60)'){
+                        //echo $rowEstructuraTabla['Field'].'= number <br>';
+                        /*if($rowEstructuraTabla['Type'] == 'varchar'){
+                            echo 'fehca';
+                            //echo "{$rowEstructuraTabla['Default']} <br>";
+                        }*/
+                        echo '
+                            <div class="mb-3">
+                                <label for="'.$rowEstructuraTabla['Field'].'" class="form-label">'.$rowEstructuraTabla['Field'].'</label>
+                                <input  type="number" name="'.$rowEstructuraTabla['Field'].'" id="'.$rowEstructuraTabla['Field'].'"
+                                    placeholder="Number" class="form-control">
+                            </div>
+                        ';
+                    }elseif($rowEstructuraTabla['Default'] === 'select'){
+                        //echo $rowEstructuraTabla['Field'].'= select <br>' ;
+                        $nombreTabla = $rowEstructuraTabla['Field'];
+                        $sql = "SELECT * FROM ".$nombreTabla."";
+                        $result= $connection->query($sql);
+                        
+                        echo '
+                            <div class="mb-3">
+                            <label for="'. $rowEstructuraTabla['Field'].'" class="form-label">'. $rowEstructuraTabla['Field'].' <a
+                                    href="../../components/addElements/addElements.php/?table='. $rowEstructuraTabla['Field'].'&accion=0"><i
+                                        class="fas fa-plus-circle"></i></a></label>
+                            <select name="'. $rowEstructuraTabla['Field'].'" id="'. $rowEstructuraTabla['Field'].'" class="form-select">';
+                            
+                            while($row = $result  -> fetch_assoc()){
+                                echo '<option value="'.$row['nombre'].'">'.$row['nombre'].'</option>';
+                            }
+                            echo '</select>
+                            </div>
+                        ';
+                    }elseif($rowEstructuraTabla['Default'] === NULL && $rowEstructuraTabla['Type'] == 'varchar(100)' || 
+                    $rowEstructuraTabla['Type'] == 'varchar(60)' || $rowEstructuraTabla['Type'] == 'varchar(50)' || $rowEstructuraTabla['Type'] == 'varchar(20)'|| $rowEstructuraTabla['Type'] == 'varchar(11)' || $rowEstructuraTabla['Type'] == 'varchar(10)'|| $rowEstructuraTabla['Type'] == 'varchar(5)'){
+                        //echo $rowEstructuraTabla['Field'].'= varchar <br>' ;
+                        echo '
+                            <div class="mb-3">
+                                <label for="'.$rowEstructuraTabla['Field'].'" class="form-label">'.$rowEstructuraTabla['Field'].'</label>
+                                <input  type="text" id="'.$rowEstructuraTabla['Field'].'" name="'.$rowEstructuraTabla['Field'].'" class="form-control"
+                                    require>
+                            </div>
+                        ';
+                    }elseif($rowEstructuraTabla['Type'] === 'date'){
+                        echo '
+                            <div class="mb-3">
+                                <label for="'.$rowEstructuraTabla['Field'].'" class="form-label">'.$rowEstructuraTabla['Field'].'</label>
+                                <input required type="date" name="'.$rowEstructuraTabla['Field'].'" id="'.$rowEstructuraTabla['Field'].'" placeholder="'.$rowEstructuraTabla['Field'].'"
+                                    class="form-control">
+                            </div>
+                        ';
+                    }
+                }
+            ?>
 
             <div class="mb-3 d-flex justify-content-around align-items-center">
                 <button class="btn btn-primary text-white" type="submit" onclick="change()">Guardar</button>

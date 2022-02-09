@@ -17,6 +17,13 @@ td{
     min-width: 100px !important;
 }
 
+table.dataTable>thead>tr>th>a{
+    color: white;
+}
+table.dataTable>thead>tr>th>a:hover{
+    color: rgba(255, 255, 255, 0.575);
+}
+
 .long{
     min-width: 200px !important;
 }

@@ -46,8 +46,7 @@ $updateSql="UPDATE equipos SET ".$codigoInsersionFinal." WHERE id = ".$id;
         mysqli_query($connection,$updateSql);
 
         if ($connection->query($updateSql) === TRUE) {
-            //echo '<script>window.location.href = "../../pages/equipos/equipos.php"</script>';
-            echo 'exito';
+            echo '<script>window.location.href = "../../pages/equipos/equipos.php"</script>';
         }else { 
             //identificar el error que ocurrio al conectar con la bd
             $error  = mysqli_error($connection);

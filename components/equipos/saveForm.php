@@ -4,55 +4,77 @@ require_once("../../connection/connection.php");
 //importa la conexion con todas las subtablas
 require_once("../../tables/tables.php");
 
-    $editFormAction = $_SERVER['PHP_SELF'];
-        $id = $_POST['id'];
-        $codigo_administrativo = $_POST['codigo_administrativo'];
-        $sucursal = $_POST['sucursal'];
-        $area = $_POST['area'];
-        $funcionario_responsable = $_POST['funcionario_responsable'];
-        $nombre_equipo = $_POST['nombre_equipo'];
-        $lugar_de_trabajo = $_POST['lugar_trabajo'];
-        $paquete_ofimatico = $_POST['paquete_ofimatico'];
-        $version_office = $_POST['version_office'];
-        $novedades = $_POST['novedades'];
-        $tipo_equipo = $_POST['tipo_equipo'];
-        $marca = $_POST['marca'];
-        $modelo = $_POST['modelo'];
-        $serial = $_POST['serial'];
-        $fecha_fabricacion = $_POST['fecha_fabricacion'];
-        $procesador = $_POST['procesador'];
-        $generacion_procesador = $_POST['generacion_procesador'];
-        $nucleos = $_POST['nucleos'];
-        $velocidad_mz = $_POST['velocidad_mz'];
-        $ram_gb = $_POST['ram_gb'];
-        $tipo_memoria = $_POST['tipo_memoria'];
-        $adaptador_multimedia = $_POST['adaptador_multimedia'];
-        $adaptador_video = $_POST['adaptador_video'];
-        $marca_disco_duro = $_POST['marca_disco_duro'];
-        $capacidad_disco = $_POST['capacidad_disco'];
-        $tipo_disco = $_POST['tipo_disco'];
-        $red_ethernet = $_POST['red_ethernet'];
-        $ip = $_POST['ip'];
-        $mac_ethernet = $_POST['mac_ethernet'];
-        $red_wifi = $_POST['red_wifi'];
-        $mac = $_POST['mac'];
-        $marca_monitor = $_POST['marca_monitor'];
-        $tipo_monitor =$_POST['tipo_monitor'];
-        $serial_monitor = $_POST['serial_monitor'];
-        $modelo_monitor = $_POST['modelo_monitor'];
-        $pulgadas = $_POST['pulgadas'];
-        $cables_poder = $_POST['cables_poder'];
-        $vga = $_POST['vga'];
-        $pass_core = $_POST['pass_core'];
-        $bateria = $_POST['bateria'];
-        $carga_electrica = $_POST['carga_electrica'];
-        $cargador = $_POST['cargador'];
-        $voltaje = $_POST['voltaje'];
-        $salida_plug =$_POST['salida_plug'];
-        $os = $_POST['os'];
-        $bit = $_POST['bit'];
-        $licencia = $_POST['licencia'];
-        $repotencializado = $_POST['repotencializado'];
+$datos = [];
+$codigoInsersion;
+$codigoValues;
+$estructuraTabla = "DESCRIBE equipos";
+$resultEstructuraTabla = $connection->query($estructuraTabla);
+while($rowEstructuraTabla = mysqli_fetch_array($resultEstructuraTabla)) {
+        $datos[$rowEstructuraTabla['Field']] = $_POST[$rowEstructuraTabla['Field']];
+}
+foreach ($datos as $key => $value) {
+    if($key[0] == 'i' && $key[1] == 'd'){
+        $codigoInsersion .= "";
+    }else{
+        $codigoInsersion .= "".$key.",";
+    }
+
+    if($value[0] == 0 ||$value[0] == 1 || $value[0] == 2 ||$value[0] == 3 |$value[0] == 4 || $value[0] == 5 ||$value[0] == 6|$value[0] == 7 || $value[0] == 8 ||$value[0] == 9 ){
+        $codigoValues .= "'".$value."',";
+    }elseif($value == ''){
+        $codigoValues .= "";
+    }else{
+        $codigoValues .= "'".$value."',";
+    }
+    //Crear condicion para eliminar el id
+}
+
+foreach ($datos as $key => $value) {
+    $codigoInsersion1 = "".$key."";
+    $codigoValues1 = "'".$value."'";
+}
+$originalInsersion = $codigoInsersion1.',';
+$cambioInsersion = $codigoInsersion1; 
+$codigoInsersionFinal = str_replace($originalInsersion, $cambioInsersion, $codigoInsersion);
+
+$originalValues = $codigoValues1.',';
+$cambioValues = $codigoValues1; 
+$codigoValuesFinal = str_replace($originalValues, $cambioValues, $codigoValues);
+echo $codigoValues;
+
+
+$insertsql="INSERT INTO equipos(".$codigoInsersionFinal.") 
+    VALUES (".$codigoValuesFinal.")";
+
+if ($connection->query($insertsql) === TRUE) {
+    echo '<script>window.location.href = "../../pages/equipos/equipos.php"</script>';
+}else{
+    //Mostrar el error que se genero al intentar conectar con la bd
+    echo '
+    <style>
+        .error{
+            font-weight: bold;
+        }
+        p{
+            margin:30px;
+        }
+        a{
+            color: white;
+            background-color:red;
+            padding: 20px;
+            text-decoration: none;
+            border-radius: 15px;
+            margin:30px;
+        }
+    </style>
+    <p class="error">'. mysqli_error($connection). '</p>
+    <p class="codigo">'. $insertsql . '</p>
+    <a href="../../pages/equipos/equipos.php">Volver</a>
+    <script>
+        localStorage.setItem("change", "error")
+    </script>
+';
+}
 
 
     /*Verificar si el codigo que se ha introducido ya existe en la tabal equipos */
@@ -69,85 +91,7 @@ require_once("../../tables/tables.php");
         </script>
     ';
     }else{
-        $insertsql="INSERT INTO equipos(`codigo_administrativo`, `sucursal`, `area`, `funcionario_responsable`, `nombre_equipo`, `lugar_de_trabajo`, `paquete_ofimatico`, `version_office`, `novedades`, `tipo_equipo`, `marca`, `modelo`, `serial`, `fecha_fabricacion`, `procesador`, `generacion_procesador`, `nucleos`, `velocidad_mz`, `ram_gb`, `tipo_memoria`, `adaptador_multimedia`, `adaptador_video`, `marca_disco_duro`, `capacidad_disco`, `tipo_disco`, `red_ethernet`, `ip`, `mac_ethernet`, `red_wifi`, `mac`, `marca_monitor`, `tipo_monitor`, `serial_monitor`, `modelo_monitor`, `pulgadas`, `cables_poder`, `vga`, `pass_core`, `bateria`, `carga_electrica`, `cargador`, `voltaje`, `salida_plug`, `os`, `bit`, `licencia`,`repotencializado`) 
-        VALUES ('$codigo_administrativo',
-        '$sucursal',
-        '$area',
-        '$funcionario_responsable',
-        '$nombre_equipo',
-        '$lugar_de_trabajo',
-        '$paquete_ofimatico',
-        '$version_office',
-        '$novedades',
-        '$tipo_equipo',
-        '$marca',
-        '$modelo',
-        '$serial',
-        '$fecha_fabricacion',
-        '$procesador',
-        '$generacion_procesador',
-        '$nucleos',
-        '$velocidad_mz',
-        '$ram_gb',
-        '$tipo_memoria',
-        '$adaptador_multimedia',
-        '$adaptador_video',
-        '$marca_disco_duro',
-        '$capacidad_disco',
-        '$tipo_disco',
-        '$red_ethernet',
-        '$ip',
-        '$mac_ethernet',
-        '$red_wifi',
-        '$mac',
-        '$marca_monitor',
-        '$tipo_monitor',
-        '$serial_monitor',
-        '$modelo_monitor',
-        '$pulgadas',
-        '$cables_poder',
-        '$vga',
-        '$pass_core',
-        '$bateria',
-        '$carga_electrica',
-        '$cargador',
-        '$voltaje',
-        '$salida_plug',
-        '$os',
-        '$bit',
-        '$licencia',
-        '$repotencializado')";
-
-            
-        if ($connection->query($insertsql) === TRUE) {
-            echo '<script>window.location.href = "../../pages/equipos/equipos.php"</script>';
-        }else{
-            //Mostrar el error que se genero al intentar conectar con la bd
-            echo '
-            <style>
-                .error{
-                    font-weight: bold;
-                }
-                p{
-                    margin:30px;
-                }
-                a{
-                    color: white;
-                    background-color:red;
-                    padding: 20px;
-                    text-decoration: none;
-                    border-radius: 15px;
-                    margin:30px;
-                }
-            </style>
-            <p class="error">'. mysqli_error($connection). '</p>
-            <p class="codigo">'. $insertsql . '</p>
-            <a href="../../pages/equipos/equipos.php">Volver</a>
-            <script>
-                localStorage.setItem("change", "error")
-            </script>
-        ';
-        }
+        
     };
         
 ?>
