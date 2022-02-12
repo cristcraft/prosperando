@@ -48,10 +48,9 @@ if(!isset($_SESSION['user_logeado'])){
             <table id="equipos" class="table  text-center mt-4">
                 <thead>
                     <tr class="bg-primary text-white">
-                        <th scope="col">Acciones</th>
                         <?php
                         while($rowEstructuraTabla = mysqli_fetch_array($resultEstructuraTabla)) {
-                            $arrayDatos[] = $titulos['Field'];
+                            $arrayDatos[] = $rowEstructuraTabla['Field'];
                             echo '<th scope="col">'.$rowEstructuraTabla['Field']. '</th>';
                         };
                         $largoArrayDatos =  count($arrayDatos);
@@ -63,20 +62,11 @@ if(!isset($_SESSION['user_logeado'])){
                     while($rowDatosTablaEquipo = mysqli_fetch_array($resultDatosTablaEquipo)) {
                         echo "
                             <tr id='tr".$rowDatosTablaEquipo['id']."'>
-                                <td class='d-flex flex-column justify-content-beetwen'>
-                                    <a href='./edid.php?id=".$rowDatosTablaEquipo['id']."' class='btn btn-info m-2' title='editar'><i
-                                            class='fas fa-edit'></i></a>
-                                    <a onclick='confirmar(`".$rowDatosTablaEquipo['id']."`, `equipos`)' class='btn btn-danger m-2'
-                                        title='eliminar'><i class='fas fa-trash'></i></a>
-                                    <a onclick='select(`".$rowDatosTablaEquipo['id']."`)' class='btn btn-warning m-2'
-                                        title='seleccionar'><i class='fas fa-arrow-right'></i></a>
-                                </td>
                             ";
                                 for ($i=1; $i <= $largoArrayDatos; $i++) { 
                                     echo "<td>".$rowDatosTablaEquipo[$i]."</td>";
                                 }
                             echo "</tr>";
-                        $count ++;
                     }
                     ?>
                 </tbody>

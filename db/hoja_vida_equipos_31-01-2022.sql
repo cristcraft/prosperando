@@ -1,3 +1,4 @@
+-- BASE DE DATOS COMPATIBLE HASTA LA VERSION 2.0 A 2.2 DEL PROYECTOM E INFERIORES
 -- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/

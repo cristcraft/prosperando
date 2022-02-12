@@ -105,16 +105,17 @@ if(!isset($_SESSION['user_logeado'])){
                         <th scope="col">Acciones</th>
                         <?php
                         while($rowEstructuraTabla = mysqli_fetch_array($resultEstructuraTabla)) {
-                            $arrayDatos[] = $titulos['Field'];
+                            $arrayDatos[] = $rowEstructuraTabla['Field'];  
                             echo '<th scope="col">'.$rowEstructuraTabla['Field']. '</th>';
                         };
                         $largoArrayDatos =  count($arrayDatos);
                         ?>
-                        <th scope="col"><a href="../../components/addElements/add_columns.php">Nuevo campo <i class="fas fa-plus-circle"></i></a></th>
+                        <th scope="col"><a href="./add_columns.php">Nuevo campo <i class="fas fa-plus-circle"></i></a></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
+                    $string = "";
                     while($rowDatosTablaEquipo = mysqli_fetch_array($resultDatosTablaEquipo)) {
                         echo "
                             <tr id='tr".$rowDatosTablaEquipo['id']."'>
@@ -130,8 +131,9 @@ if(!isset($_SESSION['user_logeado'])){
                                 for ($i=1; $i <= $largoArrayDatos; $i++) { 
                                     echo "<td>".$rowDatosTablaEquipo[$i]."</td>";
                                 }
-                            echo "</tr>";
-                        $count ++;
+                            echo "
+                            <td><a href='./add_columns.php'><i class='fas fa-plus-circle'></i></a></td>
+                            </tr>";
                     }
                     ?>
                 </tbody>

@@ -11,32 +11,32 @@
     $tabletssResult = $connection->query($tablets);
      //====================================================
 
-    $sucursales = "SELECT * FROM sucursales";
-    $sucursalesResult = $connection->query($sucursales);
+    $sucursales = "SELECT * FROM sucursal";
+    $sucursal= $connection->query($sucursales);
 
-    $areas = "SELECT * FROM areas";
-    $areasResult = $connection->query($areas);
+    $areas = "SELECT * FROM area";
+    $areaResult = $connection->query($areas);
 
     $lugarTrabajo = "SELECT * FROM lugar_trabajo";
-    $lugarTrabajoResult = $connection->query($lugarTrabajo);
+    $lugar_de_trabajoResult = $connection->query($lugarTrabajo);
 
     $tipoEquipo = "SELECT * FROM tipo_equipo";
-    $tipoEquipoResult = $connection->query($tipoEquipo);
+    $tipo_equipoResult = $connection->query($tipoEquipo);
 
-    $marcas = "SELECT * FROM marcas";
-    $marcasResult = $connection->query($marcas);
+    $marcas = "SELECT * FROM marca";
+    $marcaResult = $connection->query($marcas);
 
-    $procesadores = "SELECT * FROM procesadores";
-    $procesadoresResult = $connection->query($procesadores);
+    $procesadores = "SELECT * FROM procesador";
+    $procesadorResult = $connection->query($procesadores);
 
-    $tipoMemorias = "SELECT * FROM tipo_memorias";
-    $tipoMemoriasResult = $connection->query($tipoMemorias);
+    $tipoMemorias = "SELECT * FROM tipo_memoria";
+    $tipo_memoriaResult = $connection->query($tipoMemorias);
 
-    $marcasDisco = "SELECT * FROM marcas_disco_duro";
-    $marcasDiscoResult = $connection->query($marcasDisco);
+    $marcasDisco = "SELECT * FROM marca_disco_duro";
+    $marca_disco_duroResult = $connection->query($marcasDisco);
 
-    $tiposDisco = "SELECT * FROM tipos_disco";
-    $tiposDiscoResult = $connection->query($tiposDisco);
+    $tiposDisco = "SELECT * FROM tipo_disco";
+    $tipo_discoResult = $connection->query($tiposDisco);
 
     //========== Area Tablets =======================
     $areas_tablets = "SELECT * FROM areas_tablets";

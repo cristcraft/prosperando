@@ -15,7 +15,7 @@ if(!isset($_SESSION['user_logeado'])){
     require_once("../../connection/connection.php");
 
     //importa la conexion con todas las subtablas
-    require_once("../../tables/tables_copy.php");
+    require_once("../../tables/tables.php");
 
     $estructuraTabla = "DESCRIBE equipos";
     $resultEstructuraTabla = $connection->query($estructuraTabla);
@@ -28,12 +28,6 @@ if(!isset($_SESSION['user_logeado'])){
             echo $rowData[$i].'++';
         }
     }*/
-
-    foreach ($datos as $key => $value) {
-        $codigoInsersion1 .= "".$key."";
-        $codigoValues1 .= "'".$value."'";
-    }
-    
     
     
 ?>

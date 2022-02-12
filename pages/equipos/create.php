@@ -15,7 +15,7 @@ if(!isset($_SESSION['user_logeado'])){
     require_once("../../connection/connection.php");
 
     //importa la conexion con todas las subtablas
-    require_once("../../tables/tables_copy.php");
+    require_once("../../tables/tables.php");
 
     $estructuraTabla = "DESCRIBE equipos";
     $resultEstructuraTabla = $connection->query($estructuraTabla);
@@ -112,7 +112,7 @@ if(!isset($_SESSION['user_logeado'])){
                         echo '
                             <div class="mb-3">
                                 <label for="'.$rowEstructuraTabla['Field'].'" class="form-label">'.$rowEstructuraTabla['Field'].'</label>
-                                <input  type="number" name="'.$rowEstructuraTabla['Field'].'" id="'.$rowEstructuraTabla['Field'].'"
+                                <input required  type="number" name="'.$rowEstructuraTabla['Field'].'" id="'.$rowEstructuraTabla['Field'].'"
                                     placeholder="Number" class="form-control">
                             </div>
                         ';
@@ -141,7 +141,7 @@ if(!isset($_SESSION['user_logeado'])){
                         echo '
                             <div class="mb-3">
                                 <label for="'.$rowEstructuraTabla['Field'].'" class="form-label">'.$rowEstructuraTabla['Field'].'</label>
-                                <input  type="text" id="'.$rowEstructuraTabla['Field'].'" name="'.$rowEstructuraTabla['Field'].'" class="form-control"
+                                <input required type="text" id="'.$rowEstructuraTabla['Field'].'" name="'.$rowEstructuraTabla['Field'].'" class="form-control"
                                     require>
                             </div>
                         ';

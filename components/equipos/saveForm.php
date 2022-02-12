@@ -5,8 +5,8 @@ require_once("../../connection/connection.php");
 require_once("../../tables/tables.php");
 
 $datos = [];
-$codigoInsersion;
-$codigoValues;
+$codigoInsersion = "";
+$codigoValues = "";
 $estructuraTabla = "DESCRIBE equipos";
 $resultEstructuraTabla = $connection->query($estructuraTabla);
 while($rowEstructuraTabla = mysqli_fetch_array($resultEstructuraTabla)) {
@@ -40,11 +40,13 @@ $codigoInsersionFinal = str_replace($originalInsersion, $cambioInsersion, $codig
 $originalValues = $codigoValues1.',';
 $cambioValues = $codigoValues1; 
 $codigoValuesFinal = str_replace($originalValues, $cambioValues, $codigoValues);
-echo $codigoValues;
+
 
 
 $insertsql="INSERT INTO equipos(".$codigoInsersionFinal.") 
     VALUES (".$codigoValuesFinal.")";
+
+echo $insertsql;
 
 if ($connection->query($insertsql) === TRUE) {
     echo '<script>window.location.href = "../../pages/equipos/equipos.php"</script>';

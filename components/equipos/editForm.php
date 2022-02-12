@@ -6,7 +6,8 @@ require_once("../../tables/tables.php");
 
 $datos = [];
 $n = 0;
-$codigoInsersion;
+$codigoInsersion = "";
+$value = "";
 $codigoValues;
 $estructuraTabla = "DESCRIBE equipos";
 $resultEstructuraTabla = $connection->query($estructuraTabla);
