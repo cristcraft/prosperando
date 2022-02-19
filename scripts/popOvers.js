@@ -4,8 +4,13 @@ let allSelected = []
 document.addEventListener('DOMContentLoaded', sync())
 
 
-function change(){
-    localStorage.setItem('change', true)
+function change(error){
+    if(error == 'error'){
+        localStorage.setItem('change', 'error')
+    }else{
+        localStorage.setItem('change', true)
+    }
+    
     
 }
 //sincronizar el local storage  
@@ -58,6 +63,8 @@ function confirmar(id, page) {
                     window.location.href = "../../../components/mantenimientos/equipos/delete.php/?id=" + id
                 }else if(page === 'mantenimientosImpresoras'){
                     window.location.href = "../../../components/mantenimientos/impresoras/delete.php/?id=" + id
+                }else if(page === 'activos_inferiores'){
+                    window.location.href = "../../components/activos_inferiores/delete.php/?id=" + id
                 }else{
                     alert('<-- Error -->')
                 }

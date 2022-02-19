@@ -83,6 +83,18 @@ form{
     text-align: left;
 }
 
+/*Pagina de Acrivos Inferiores*/
+.crear{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+.crear form{
+    width: 80% !important;
+}
+
 /*Color de la columna seleccionada*/
 .selected{
     background-color:#00000099!important;
