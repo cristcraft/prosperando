@@ -49,8 +49,8 @@ $arrayDatos = array();
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            href="../../components/router.php?page=activos_inferio">activos_inferio</a>
+                        <a class="nav-link "
+                            href="../../components/router.php?page=equipos">Equipos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../components/router.php?page=tablets">Tablets</a>
@@ -64,6 +64,9 @@ $arrayDatos = array();
                     <li class="nav-item">
                         <a class="nav-link" href="../../components/router.php?page=servidores">Servidores</a>
                     </li>
+                    <li class="nav-item active" aria-current="page">
+                        <a class="nav-link" href="../../components/router.php?page=activos_inferiores ">Activos inferiores</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,7 +74,7 @@ $arrayDatos = array();
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                             <li><a class="dropdown-item"
-                                    href="../../components/router.php?page=activos_inferioMante">activos_inferio</a>
+                                    href="../../components/router.php?page=equiposMante">Equipos</a>
                             </li>
                             <li><a class="dropdown-item"
                                     href="../../components/router.php?page=impresorasMante">Impresoras</a></li>
