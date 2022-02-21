@@ -98,7 +98,7 @@ $arrayDatos = array();
         <?php
         if(isset($_GET['accion'])){
         ?>
-            <h1>Editar Acrivos Inferiores</h1>
+            <h1>Editar Activos Inferiores</h1>
             <form action="../../components/activos_inferiores/edit.php" method="post">
                 <?php 
                 $id = $_GET['id'];
@@ -190,7 +190,7 @@ $arrayDatos = array();
         <?php
         }else{
         ?>
-            <h1>Crear Acrivos Inferiores</h1>
+            <h1>Crear Activos Inferiores</h1>
             <form action="../../components/activos_inferiores/saveForm.php" method="post">
                 <?php 
                 while($rowEstructuraTabla = mysqli_fetch_array($resultEstructuraTabla)) {

@@ -77,16 +77,16 @@ if(!isset($_SESSION['user_logeado'])){
                 </thead>
                 <tbody>
                     <?php 
-                        if($tipoMemoriasResult ->num_rows>0){
-                            while($row = $tipoMemoriasResult ->fetch_assoc()){ 
+                        if($tipo_memoriaResult ->num_rows>0){
+                            while($row = $tipo_memoriaResult ->fetch_assoc()){ 
                     ?>
                     <tr>
                         <td>
-                            <a onclick="editTipo_memorias(<?php echo $row['id']?>, '<?php echo $row['tipo_memoria'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                            <a  onclick="deleteTipo_memorias('<?php echo $row['id']?>', '<?php echo $row['tipo_memoria'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            <a onclick="editTipo_memorias(<?php echo $row['id']?>, '<?php echo $row['nombre'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                            <a  onclick="deleteTipo_memorias('<?php echo $row['id']?>', '<?php echo $row['nombre'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
-                        <td><?php echo $row['tipo_memoria'] ?></td>
+                        <td><?php echo $row['nombre'] ?></td>
                     </tr>
                     <?php }} ?>
                 </tbody>

@@ -252,7 +252,7 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3 d-flex justify-content-around align-items-center">
                 <button class="btn btn-primary text-white" type="submit" onclick="change()">Guardar</button>
-                <a href="../../pages/servidores/servidores.php" class="btn btn-secondary">Cancelar</a>
+                <a href="../../pages/servidores/servidores.php" class="btn btn-secondary" onclick="change('error')">Cancelar</a>
             </div>
         </form>
     </div>

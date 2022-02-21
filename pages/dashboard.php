@@ -64,6 +64,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./servidores/servidores.php">Servidores</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./activos_inferiores/activos_inferiores.php">Activos inferiores</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Mantenimientos

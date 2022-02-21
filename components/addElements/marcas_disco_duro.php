@@ -78,16 +78,16 @@ if(!isset($_SESSION['user_logeado'])){
                 </thead>
                 <tbody>
                     <?php 
-                        if($marcasDiscoResult ->num_rows>0){
-                            while($row = $marcasDiscoResult ->fetch_assoc()){ 
+                        if($marca_disco_duroResult ->num_rows>0){
+                            while($row = $marca_disco_duroResult ->fetch_assoc()){ 
                     ?>
                     <tr>
                         <td>
-                            <a onclick="editMarca_disco_duro(<?php echo $row['id']?>, '<?php echo $row['marca_disco_duro'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                            <a  onclick="deleteMarca_disco_duro('<?php echo $row['id']?>', '<?php echo $row['marca_disco_duro'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            <a onclick="editMarca_disco_duro(<?php echo $row['id']?>, '<?php echo $row['nombre'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                            <a  onclick="deleteMarca_disco_duro('<?php echo $row['id']?>', '<?php echo $row['nombre'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
-                        <td><?php echo $row['marca_disco_duro'] ?></td>
+                        <td><?php echo $row['nombre'] ?></td>
                     </tr>
                     <?php }} ?>
                 </tbody>

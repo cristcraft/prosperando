@@ -92,10 +92,10 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3">
                 <label for="sucursal" class="form-label">Sucursal </label> <a
-                    href="../../components/addElements/addElements.php/?table=sucursales&accion=0"><i
+                    href="../../components/addElements/addElements.php/?table=sucursal&accion=0"><i
                         class="fas fa-plus-circle"></i></a>
                 <select name="sucursal" id="sucursal" class="form-select">
-                    <?php while($row = $sucursalesResult -> fetch_assoc()){ ?>
+                    <?php while($row = $sucursal -> fetch_assoc()){ ?>
                     <option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
                     <?php } ?>
                 </select>
@@ -218,7 +218,7 @@ if(!isset($_SESSION['user_logeado'])){
 
             <div class="mb-3 d-flex justify-content-around align-items-center">
                 <button class="btn btn-primary text-white" type="submit" onclick="change()">Guardar</button>
-                <a href="../../pages/tablets/tablets.php" class="btn btn-secondary">Cancelar</a>
+                <a href="../../pages/tablets/tablets.php" class="btn btn-secondary" onclick="change('error')">Cancelar</a>
             </div>
         </form>
     </div>

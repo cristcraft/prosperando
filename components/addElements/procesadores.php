@@ -78,16 +78,16 @@ if(!isset($_SESSION['user_logeado'])){
                 </thead>
                 <tbody>
                     <?php 
-                        if($procesadoresResult ->num_rows>0){
-                            while($row = $procesadoresResult ->fetch_assoc()){ 
+                        if($procesadorResult ->num_rows>0){
+                            while($row = $procesadorResult ->fetch_assoc()){ 
                     ?>
                     <tr>
                         <td>
-                            <a onclick="editProcesadores(<?php echo $row['id']?>, '<?php echo $row['procesador'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                            <a  onclick="deleteProcesadores('<?php echo $row['id']?>', '<?php echo $row['procesador'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            <a onclick="editProcesadores(<?php echo $row['id']?>, '<?php echo $row['nombre'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                            <a  onclick="deleteProcesadores('<?php echo $row['id']?>', '<?php echo $row['nombre'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
-                        <td><?php echo $row['procesador'] ?></td>
+                        <td><?php echo $row['nombre'] ?></td>
                     </tr>
                     <?php }} ?>
                 </tbody>

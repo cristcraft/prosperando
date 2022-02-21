@@ -78,8 +78,8 @@ if(!isset($_SESSION['user_logeado'])){
                 </thead>
                 <tbody>
                     <?php 
-                        if($sucursalesResult ->num_rows>0){
-                            while($row = $sucursalesResult ->fetch_assoc()){ 
+                        if($sucursal ->num_rows>0){
+                            while($row = $sucursal ->fetch_assoc()){ 
                     ?>
                     <tr>
                         <td>

@@ -78,16 +78,16 @@ if(!isset($_SESSION['user_logeado'])){
                 </thead>
                 <tbody>
                     <?php 
-                        if($marcasResult ->num_rows>0){
-                            while($row = $marcasResult ->fetch_assoc()){ 
+                        if($marcaResult ->num_rows>0){
+                            while($row = $marcaResult ->fetch_assoc()){ 
                     ?>
                     <tr>
                         <td>
-                            <a onclick="editMarcas(<?php echo $row['id']?>, '<?php echo $row['marca'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                            <a  onclick="deleteMarcas('<?php echo $row['id']?>', '<?php echo $row['marca'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            <a onclick="editMarcas(<?php echo $row['id']?>, '<?php echo $row['nombre'] ?>')"  class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                            <a  onclick="deleteMarcas('<?php echo $row['id']?>', '<?php echo $row['nombre'] ?>')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
                         </td>
                         <td><?php echo $row['id']  ?></td>
-                        <td><?php echo $row['marca'] ?></td>
+                        <td><?php echo $row['nombre'] ?></td>
                     </tr>
                     <?php }} ?>
                 </tbody>
